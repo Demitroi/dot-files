@@ -181,7 +181,7 @@ Edit sway dot files, check outputs with this command:
 $ swaymsg -t get_outputs
 ```
 
-See ```man 5 sway-output`` for more details.
+See ```man 5 sway-output``` for more details.
 
 [.config/sway/config](.config/sway/config)
 
@@ -193,7 +193,7 @@ Edit sway dot files, check outputs with this command:
 $ swaymsg -t get_outputs
 ```
 
-See ```man 5 sway-input`` for more details.
+See ```man 5 sway-input``` for more details.
 
 [.config/sway/config](.config/sway/config)
 
