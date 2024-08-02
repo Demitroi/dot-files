@@ -1,0 +1,34 @@
+#window {
+   background-color: #000000;
+   border: 2px solid #5c0303;
+}
+
+#input {
+   background-color: #000000;
+   border: 2px solid #5c0303;
+   color: #e4eded;
+   box-shadow: none;
+   font-size: 18px;
+}
+
+#expander-box {
+   background-color: #000000;
+}
+
+#text {
+   color: #e4eded;
+}
+
+#entry:selected {
+   background-color: #d61a1a;
+   color: #d61a1a;
+}
+
+#entry {
+   font-size: 18px;
+}
+
+#img {
+   margin-right: 5px;
+}
+

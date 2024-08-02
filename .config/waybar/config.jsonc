@@ -1,0 +1,129 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "bottom",
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 25, // Waybar height (to be removed for auto height)
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad",
+        "sway/window"
+    ],
+    "modules-right": [
+        "privacy",
+        "tray",
+        "keyboard-state#capslock",
+        "keyboard-state#numlock",
+        "pulseaudio#audio",
+        "pulseaudio#mic",
+        "network",
+        "backlight",
+        "clock"
+    ],
+    // Modules configuration
+    "sway/workspaces": {
+        "disable-scroll": true
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "sway/window": {
+        "icon": true
+    },
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ]
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "keyboard-state#capslock": {
+        "capslock": true,
+        "format": {
+            "capslock": "A {icon}"
+        },
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "keyboard-state#numlock": {
+        "numlock": true,
+        "format": {
+            "numlock": "N {icon}"
+        },
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "pulseaudio#audio": {
+        "format": "{volume}% {icon}",
+        "format-muted": " ",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": " {icon}",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "exec pavucontrol -t 3"
+    },
+    "pulseaudio#mic": {
+        "format": "{format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "on-click": "exec pavucontrol -t 4"
+    },
+    "backlight": {
+        "format": "{percent}% ",
+        "interval": 5
+    },
+    "network": {
+        "format-wifi": "{signalStrength}% ",
+        "tooltip-format-wifi": "{essid}\n{frequency} GHz\n{ipaddr}",
+        "format-ethernet": "",
+        "tooltip-format-ethernet": "{ipaddr}",
+        "format-linked": "(No IP) ",
+        "tooltip-format": "Check settings via nmcli ",
+        "format-disconnected": "Disconnected ⚠",
+        "tooltip-format-disconnected": "Check settings via nmcli ",
+        "on-click": "exec foot --app-id=foot.nmtui nmtui"
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%a %b-%d-%Y %H:%M}",
+        "on-click": "exec foot --app-id=foot.khal khal interactive"
+    }
+}
