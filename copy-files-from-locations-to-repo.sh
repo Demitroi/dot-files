@@ -15,5 +15,6 @@ cp -rf ~/.config/waybar .config/
 cp -f ~/.zshrc .
 cp -f ~/.vimrc .
 cp -rf ~/.local/share/wallpapers .local/share/
-cp -r ~/.config/Code/User/settings.json .config/Code/User
-cp -r ~/.config/Code/User/keybindings.json .config/Code/User
+cp -f ~/.config/Code/User/settings.json .config/Code/User
+cp -f ~/.config/Code/User/keybindings.json .config/Code/User
+cp -f ~/.config/code-flags.conf .config/

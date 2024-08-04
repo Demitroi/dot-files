@@ -255,6 +255,7 @@ Extensions:
 
 [.config/Code/User/keybindings.json](.config/Code/User/keybindings.json)
 [.config/Code/User/settings.json](.config/Code/User/settings.json)
+[.config/code-flags.conf](.config/code-flags.conf)
 
 #### Database manager (DBeaver)
 
