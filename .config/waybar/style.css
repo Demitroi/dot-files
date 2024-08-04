@@ -87,7 +87,7 @@ label:focus {
 }
 
 #privacy-item {
-   padding: 0 3px;
+   padding: 0 6px;
    color: white;
 }
 
@@ -104,7 +104,7 @@ label:focus {
 }
 
 #tray {
-   padding: 0 3px;
+   padding: 0 6px;
 }
 
 #tray > .passive {
@@ -121,7 +121,7 @@ label:focus {
 #network,
 #backlight,
 #clock {
-    padding: 0 3px;
+    padding: 0 6px;
     color: #ffffff;
 }
 

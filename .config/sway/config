@@ -145,16 +145,21 @@ output * bg ~/.local/share/wallpapers/ir-black.png fill
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
     # Move focused container to workspace but for numpad
-    bindsym $mod+Shift+KP_1 move container to workspace number 1
-    bindsym $mod+Shift+KP_2 move container to workspace number 2
-    bindsym $mod+Shift+KP_3 move container to workspace number 3
-    bindsym $mod+Shift+KP_4 move container to workspace number 4
-    bindsym $mod+Shift+KP_5 move container to workspace number 5
-    bindsym $mod+Shift+KP_6 move container to workspace number 6
-    bindsym $mod+Shift+KP_7 move container to workspace number 7
-    bindsym $mod+Shift+KP_8 move container to workspace number 8
-    bindsym $mod+Shift+KP_9 move container to workspace number 9
-    bindsym $mod+Shift+KP_0 move container to workspace number 10
+    bindsym $mod+Shift+KP_End move container to workspace number 1
+    bindsym $mod+Shift+KP_Down move container to workspace number 2
+    bindsym $mod+Shift+KP_Next move container to workspace number 3
+    bindsym $mod+Shift+KP_Left move container to workspace number 4
+    bindsym $mod+Shift+KP_Begin move container to workspace number 5
+    bindsym $mod+Shift+KP_Right move container to workspace number 6
+    bindsym $mod+Shift+KP_Home move container to workspace number 7
+    bindsym $mod+Shift+KP_Up move container to workspace number 8
+    bindsym $mod+Shift+KP_Prior move container to workspace number 9
+    bindsym $mod+Shift+KP_Insert move container to workspace number 10
+    # Move workspace to output
+    bindsym $mod+Control+Shift+Right move workspace to output right
+    bindsym $mod+Control+Shift+Left move workspace to output left
+    bindsym $mod+Control+Shift+Down move workspace to output down
+    bindsym $mod+Control+Shift+Up move workspace to output up
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -266,6 +271,10 @@ bindsym --locked Control+Alt+Home exec playerctl play-pause
 bindsym --locked Control+Alt+Prior exec playerctl previous
 bindsym --locked Control+Alt+Next exec playerctl next
 bindsym --locked Control+Alt+End exec playerctl stop
+bindsym --locked Control+Alt+left exec playerctl position 5-
+bindsym --locked Control+Alt+right exec playerctl position 5+
+bindsym --locked Control+Alt+up exec playerctl volume 0.1+
+bindsym --locked Control+Alt+down exec playerctl volume 0.1-
 
 #
 # For Screen Casting
@@ -324,11 +333,17 @@ client.focused #626666 #5c0303 #e4eded #d61a1a
 #
 for_window [app_id="lximage-qt"] floating enable
 for_window [app_id="audacious"] floating enable
+for_window [class="Audacious"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="org.rncbc.qpwgraph"] floating enable
 for_window [app_id="foot.khal"] floating enable
 for_window [app_id="foot.nmtui"] floating enable
 for_window [app_id="io.github.Qalculate.qalculate-qt"] floating enable
 for_window [app_id="xpdf" title="XpdfReader: Save Image"] floating enable
+
+#
+# XWayland apps
+#
+for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 include /etc/sway/config.d/*

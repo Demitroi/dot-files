@@ -47,6 +47,9 @@ https://www.mozilla.org/en-US/firefox/
 
 See: https://wiki.archlinux.org/title/Firefox
 
+Extensions:
+- [Matte Black (Red)](https://addons.mozilla.org/en-US/firefox/addon/matte-black-red/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+
 #### Terminal Emulator (Foot)
 
 Foot is a fast, lightweight and minimalistic Wayland terminal emulator.
@@ -185,6 +188,14 @@ See ```man 5 sway-output``` for more details.
 
 [.config/sway/config](.config/sway/config)
 
+#### Laptop Lid
+
+To prevent the laptop from going into hibernation when the lid is closed, you have to configure ACPI events.
+
+See:
+
+https://wiki.archlinux.org/title/Power_management#ACPI_events
+
 #### Mouse and Keyboard config
 
 Edit sway dot files, check outputs with this command:
@@ -234,6 +245,16 @@ https://github.com/lxqt/lxqt-archiver
 Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
 
 https://code.visualstudio.com/
+
+Extensions:
+- [Git Line Blame](https://marketplace.visualstudio.com/items?itemName=carlthome.git-line-blame)
+- [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
+- [Hex Editor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
+- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
+- [vscode-base64](https://marketplace.visualstudio.com/items?itemName=adamhartford.vscode-base64)
+
+[.config/Code/User/keybindings.json](.config/Code/User/keybindings.json)
+[.config/Code/User/settings.json](.config/Code/User/settings.json)
 
 #### Database manager (DBeaver)
 
@@ -357,7 +378,7 @@ Read this wiki entry for more context:
 
 https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
 
-Install the themes breeze, breeze-gtk, papirus-icon-theme and deepin-icon-theme. Also you should install qt6ct and lxqt-config to config graphically the qt and gtk themes.
+Install the themes breeze, breeze-gtk, papirus-icon-theme, deepin-icon-theme and ttf-hack-nerd. Also you have to install qt6ct and lxqt-config to config graphically the qt and gtk themes.
 
 Set the ```QT_QPA_PLATFORMTHEME=qt6ct``` enviroment variable globally by editing the file ```/etc/environment``` and then reboot.
 
@@ -366,9 +387,9 @@ $ sudo vim /etc/environment
 $ sudo reboot
 ```
 
-Open lxqt-config-appearance via terminal, in the Widget Style section select qt6ct-style in Qt Style combo box. In Icons Theme select Papirus-Dark, in Cursor select bloom and finally select Breeze-Dark in both GTK 3 and 4 Theme.
+Open lxqt-config-appearance via terminal, in the Widget Style section select qt6ct-style in Qt Style combo box. In Icons Theme select Papirus-Dark, in Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10, in Cursor select bloom and finally select Breeze-Dark in both GTK 3 and 4 Theme.
 
-Open Qt6 Settings, select Breeze in Style, in Paletter check Custom radio button and select Color scheme darker. Go to the Icon Theme tab and select Papirus-Dark.
+Open Qt6 Settings, select Breeze in Style, in Paletter check Custom radio button and select Color scheme darker. Go to Font tab, set the Font to "Hack Nerd Font Mono", Font style Normal and Size 10. Go to the Icon Theme tab and select Papirus-Dark.
 
 
 #### Mount and unmount pendrives (USB drive) (udisks)
@@ -432,16 +453,17 @@ https://wiki.archlinux.org/title/FAT
 #### Aditional packages
 
 - anki
-- btop
 - breeze
 - breeze-gtk
-- dosfstools
+- btop
 - cliphist
 - cmatrix
 - curl
+- deepin-icon-theme
+- dosfstools
 - fastfetch
-- font-manager
 - ffmpeg
+- font-manager
 - git
 - grim
 - htop
@@ -451,6 +473,8 @@ https://wiki.archlinux.org/title/FAT
 - khal
 - libreoffice-still
 - lsof
+- lximage-qt
+- lxqt-archiver
 - lxqt-config
 - mako
 - man-db
@@ -460,8 +484,9 @@ https://wiki.archlinux.org/title/FAT
 - open-ssh
 - openssl
 - otf-font-awesome
-- pavucontrol
 - papirus-icon-theme
+- pavucontrol
+- pcmanfm-qt
 - playerctl
 - qalculate-qt
 - qpwgraph
@@ -473,6 +498,7 @@ https://wiki.archlinux.org/title/FAT
 - swappy
 - syncthing
 - tree
+- ttf-hack-nerd
 - udisks2 
 - unzip
 - usbutils
@@ -484,7 +510,9 @@ https://wiki.archlinux.org/title/FAT
 - wl-clipboard
 - xdg-desktop-portal
 - xdg-desktop-portal-wlr
+- xorg-xwayland
 - xpdf
 - yay
+- zip
 - zsh
 - zsh-completions

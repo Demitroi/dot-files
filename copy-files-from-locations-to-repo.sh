@@ -1,6 +1,8 @@
 #!/bin/sh
 
 mkdir -p .config
+mkdir -p .config/Code
+mkdir -p .config/Code/User
 mkdir -p .local
 mkdir -p .local/share
 
@@ -13,3 +15,5 @@ cp -rf ~/.config/waybar .config/
 cp -f ~/.zshrc .
 cp -f ~/.vimrc .
 cp -rf ~/.local/share/wallpapers .local/share/
+cp -r ~/.config/Code/User/settings.json .config/Code/User
+cp -r ~/.config/Code/User/keybindings.json .config/Code/User

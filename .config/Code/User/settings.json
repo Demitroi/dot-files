@@ -1,0 +1,9 @@
+{
+    "window.titleBarStyle": "native",
+    "terminal.integrated.shellIntegration.history": 1000,
+    "files.autoSave": "afterDelay",
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'Hack Nerd Font Mono'",
+    "workbench.colorTheme": "GitHub Dark Default"
+}
