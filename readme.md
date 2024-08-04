@@ -484,6 +484,7 @@ https://wiki.archlinux.org/title/FAT
 - open-ssh
 - openssl
 - otf-font-awesome
+- p7zip
 - papirus-icon-theme
 - pavucontrol
 - pcmanfm-qt
@@ -500,6 +501,7 @@ https://wiki.archlinux.org/title/FAT
 - tree
 - ttf-hack-nerd
 - udisks2 
+- unrar
 - unzip
 - usbutils
 - uuid-gen
