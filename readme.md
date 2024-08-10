@@ -451,6 +451,22 @@ In order to format read:
 
 https://wiki.archlinux.org/title/FAT
 
+#### Microcode
+
+Processor manufacturers release stability and security updates to the processor microcode. These updates provide bug fixes that can be critical to the stability of your system. Without them, you may experience spurious crashes or unexpected system halts that can be difficult to track down. 
+
+https://wiki.archlinux.org/title/Microcode
+
+#### Touchpad (libinput)
+
+libinput is a library to handle input devices in Wayland compositors and to provide a generic X.Org input driver. It provides device detection, device handling, input device event processing and abstraction to minimize the amount of custom input code compositors need to provide the common set of functionality that users expect.
+
+https://wiki.archlinux.org/title/Libinput
+
+See ```man 5 sway-input``` for more details.
+
+[.config/sway/config](.config/sway/config)
+
 #### Aditional packages
 
 - anki
@@ -472,6 +488,7 @@ https://wiki.archlinux.org/title/FAT
 - jq
 - keepassxc
 - khal
+- libinput
 - libreoffice-still
 - lsof
 - lximage-qt
