@@ -467,6 +467,14 @@ See ```man 5 sway-input``` for more details.
 
 [.config/sway/config](.config/sway/config)
 
+#### Policy kit
+
+Polkit is an application-level toolkit for defining and handling the policy that allows unprivileged processes to speak to privileged processes: It is a framework for centralizing the decision making process with respect to granting access to privileged operations for unprivileged applications.
+
+https://github.com/lxqt/lxqt-policykit
+
+[.config/sway/config](.config/sway/config)
+
 #### Aditional packages
 
 - anki
@@ -494,6 +502,7 @@ See ```man 5 sway-input``` for more details.
 - lximage-qt
 - lxqt-archiver
 - lxqt-config
+- lxqt-policykit
 - mako
 - man-db
 - minidlna
