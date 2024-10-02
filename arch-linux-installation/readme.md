@@ -439,7 +439,7 @@ Set the timezone.
 ln -sf /usr/share/zoneinfo/America/Tijuana /etc/localtime
 ```
 
-Run hwclock(8) to generate /etc/adjtime
+Run hwclock to generate /etc/adjtime
 
 ```sh
 hwclock --systohc
@@ -507,6 +507,19 @@ Add the new user to the sudoers.
 
 ```sh
 echo "demitroi ALL=(ALL:ALL) ALL" > /etc/sudoers.d/demitroi
+```
+
+In order to create the user directores install ```xdg-user-dirs```.
+
+```sh
+pacman -S xdg-user-dirs
+```
+
+Switch to the user and run
+
+```sh
+su demitroi
+xdg-user-dirs-update
 ```
 
 #### Install Boot loader
