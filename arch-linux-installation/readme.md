@@ -364,6 +364,8 @@ Create the root and home subvolumes.
 ```sh
 btrfs subvolume create @
 btrfs subvolume create @home
+btrfs subvolume create @log
+btrfs subvolume create @pkg
 ```
 
 Exit from the ```/mnt``` directory and unoumnt it.
@@ -383,11 +385,25 @@ First mount the root subvolume.
 mount -o noatime,subvol=@ /dev/mapper/root /mnt
 ```
 
-Create the home directory and mount the home subvolume.
+Create the home directory and mount the @home subvolume.
 
 ```sh
 mkdir /mnt/home
 mount -o noatime,subvol=@home /dev/mapper/root /mnt/home
+```
+
+Create the log directory and mount the @log subvolume.
+
+```sh
+mkdir -p /mnt/var/log
+mount -o noatime,subvol=@log /dev/mapper/root /mnt/var/log
+```
+
+Create the package directory and mount the @pkg subvolume.
+
+```sh
+mkdir -p /mnt/var/cache/pacman/pkg
+mount -o noatime,subvol=@pkg /dev/mapper/root /mnt/var/cache/pacman/pkg
 ```
 
 Create boot directory and mount the boot partition.
@@ -588,3 +604,15 @@ It's recommended to see the next URL: https://wiki.archlinux.org/title/General_r
 You can see my main readme for mor of my personal preferences
 
 [readme.md](/readme.md)
+
+Configure parallel downloads in pacman. Edit the ```/etc/pacman.conf``` file.
+
+```sh
+vim /etc/pacman.conf
+```
+
+Look for the ```ParallelDownloads``` option and set it to 5..
+
+```sh
+ParallelDownloads = 5
+```
