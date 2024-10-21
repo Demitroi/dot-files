@@ -5,5 +5,8 @@
     "terminal.integrated.defaultProfile.linux": "zsh",
     "editor.minimap.enabled": false,
     "editor.fontFamily": "'Hack Nerd Font Mono'",
-    "workbench.colorTheme": "GitHub Dark Default"
+    "workbench.colorTheme": "GitHub Dark Dimmed",
+    "telemetry.telemetryLevel": "off",
+    "git.terminalAuthentication": false,
+    "editor.stickyScroll.enabled": true,
 }
