@@ -5,6 +5,7 @@ mkdir -p .config/Code
 mkdir -p .config/Code/User
 mkdir -p .local
 mkdir -p .local/share
+mkdir -p .config/mpv
 
 cp -rf ~/.config/sway .config/
 cp -rf ~/.config/foot .config/
@@ -18,3 +19,4 @@ cp -rf ~/.local/share/wallpapers .local/share/
 cp -f ~/.config/Code/User/settings.json .config/Code/User
 cp -f ~/.config/Code/User/keybindings.json .config/Code/User
 cp -f ~/.config/code-flags.conf .config/
+cp -f ~/.config/mpv/mpv.conf .config/mpv/
