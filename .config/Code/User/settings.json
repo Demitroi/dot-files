@@ -8,5 +8,5 @@
     "workbench.colorTheme": "GitHub Dark Dimmed",
     "telemetry.telemetryLevel": "off",
     "git.terminalAuthentication": false,
-    "editor.stickyScroll.enabled": true,
+    "editor.stickyScroll.enabled": true
 }
