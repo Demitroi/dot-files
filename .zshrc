@@ -78,9 +78,10 @@ zstyle ':completion:*' menu select
 alias l='ls --color'
 alias ll='ls -la --color'
 alias less='less -R'
+alias open='xdg-open'
 
 # Prompt
-prompt walters
+prompt bart
 
 # https://codeberg.org/dnkl/foot/issues/872#issuecomment-296157
 
