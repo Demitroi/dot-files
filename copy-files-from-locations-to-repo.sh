@@ -6,6 +6,7 @@ mkdir -p .config/Code\ -\ OSS/User
 mkdir -p .local
 mkdir -p .local/share
 mkdir -p .config/mpv
+mkdir -p .config/nvim
 
 cp -rf ~/.config/sway .config/
 cp -rf ~/.config/foot .config/
@@ -20,3 +21,4 @@ cp -f ~/.config/Code\ -\ OSS/User/settings.json .config/Code\ -\ OSS/User/
 cp -f ~/.config/Code\ -\ OSS/User/keybindings.json .config/Code\ -\ OSS/User/
 cp -f ~/.config/code-flags.conf .config/
 cp -f ~/.config/mpv/mpv.conf .config/mpv/
+cp -f ~/.config/nvim/init.vim .config/nvim/
