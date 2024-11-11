@@ -374,11 +374,11 @@ Tools to configure LXQt and the underlying operating system.
 
 https://github.com/lxqt/lxqt-config
 
-#### DLNA Server (ReadyMedia (previously MiniDLNA) )
+#### Jellyfin (Multimedia servier)
 
-ReadyMedia (previously MiniDLNA) is server software with the aim of being fully compliant with DLNA/UPnP clients. The MiniDLNA daemon serves media files (music, pictures, and video) to clients on a network.
+Jellyfin is a free and open-source multimedia application suite designed to organize, manage, and share digital media files to networked devices.
 
-https://wiki.archlinux.org/title/ReadyMedia
+https://wiki.archlinux.org/title/Jellyfin
 
 #### File synchronization (Syncthing)
 
@@ -522,7 +522,8 @@ https://github.com/lxqt/lxqt-policykit
 - lxqt-policykit
 - mako
 - man-db
-- minidlna
+- jellyfin-server
+- jellyfin-web
 - mpv
 - net-tools
 - ntfs-3g
