@@ -15,7 +15,6 @@ cp -rf ~/.config/screenshot .config/
 cp -rf ~/.config/wofi .config/
 cp -rf ~/.config/waybar .config/
 cp -f ~/.zshrc .
-cp -f ~/.vimrc .
 cp -rf ~/.local/share/wallpapers .local/share/
 cp -f ~/.config/Code\ -\ OSS/User/settings.json .config/Code\ -\ OSS/User/
 cp -f ~/.config/Code\ -\ OSS/User/keybindings.json .config/Code\ -\ OSS/User/
