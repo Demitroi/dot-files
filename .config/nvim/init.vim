@@ -36,3 +36,12 @@
 
 " No wrap
 :set nowrap
+
+" Plugins section
+" Clone plugins in ~/.local/share/nvim/site/pack/plugins/start/
+
+" gitsigns.nvim
+" https://github.com/lewis6991/gitsigns.nvim
+:lua require('gitsigns').setup()
+:lua vim.cmd("Gitsigns toggle_current_line_blame")
+

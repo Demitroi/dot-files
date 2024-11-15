@@ -83,6 +83,25 @@ https://codeberg.org/dnkl/foot
 
 [.config/foot/foot.ini](.config/foot/foot.ini)
 
+#### Terminal text editor (Neovim)
+
+Neovim is a fork of Vim aiming to improve the codebase, allowing for easier implementation of APIs, improved user experience and plugin implementation.
+
+In order to install plugins first create de plugins directory and clone them there.
+
+```sh
+$ mkdir -p ~/.local/share/nvim/site/pack/plugins/start/
+$ cd ~/.local/share/nvim/site/pack/plugins/start/
+$ git clone my_plugin
+```
+
+https://neovim.io/
+
+[.config/nvim/init.vim](.config/nvim/init.vim)
+
+Plugins:
+[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+
 #### Web Browser (Firefox)
 
 Firefox is a popular open source graphical web browser from Mozilla.
@@ -525,6 +544,7 @@ https://github.com/lxqt/lxqt-policykit
 - jellyfin-server
 - jellyfin-web
 - mpv
+- neovim
 - net-tools
 - ntfs-3g
 - open-ssh
