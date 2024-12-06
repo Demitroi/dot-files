@@ -37,6 +37,9 @@
 " No wrap
 :set nowrap
 
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+
 " Custom keymaps
 let mapleader=" "
 " List current
