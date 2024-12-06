@@ -37,6 +37,43 @@
 " No wrap
 :set nowrap
 
+" Custom keymaps
+let mapleader=" "
+" List current
+:nmap <Leader>lc :let @/=expand("%:t") <Bar> execute ':Lexplore' expand("%:h") <Bar> normal n<CR>
+" List root
+:nmap <Leader>lr <Cmd>:Lexplore<CR>
+" Buffer list
+:nmap <Leader>bl <Cmd>:buffers<CR>
+" Buffer delete
+:nmap <Leader>bd <Cmd>:bdelete<CR>
+" Buffer previous
+:nmap <Leader>bp <Cmd>:bprevious<CR>
+" Buffer next
+:nmap <Leader>bn <Cmd>:bnext<CR>
+" Open quickfix
+:nmap <Leader>co <Cmd>:copen<CR>
+:nmap <Leader>cl <Cmd>:copen<CR>
+" Previous quickfix
+:nmap <Leader>cp <Cmd>:cprevious<CR>
+" Next quickfix
+:nmap <Leader>cn <Cmd>:cnext<CR>
+
+" Lsp keymaps
+:nmap grn :lua vim.lsp.buf.rename()<CR>
+:nmap gra :lua vim.lsp.buf.code_action()<CR>
+:vmap gra :lua vim.lsp.buf.code_action()<CR>
+:nmap grr :lua vim.lsp.buf.references()<CR>
+:nmap gri :lua vim.lsp.buf.implementation()<CR>
+:nmap gO :lua vim.lsp.buf.document_symbol()<CR>
+:imap <C-S> <Cmd>:lua vim.lsp.buf.signature_help()<CR>
+" Not keymaps, just to remember the lsp-defaults
+" 'omnifunc' is set to vim.lsp.omnifunc(), use i_CTRL-X_CTRL-O to trigger completion.
+" 'tagfunc' is set to vim.lsp.tagfunc(). This enables features like go-to-definition, :tjump, and keymaps like CTRL-], CTRL-W_], CTRL-W_} to utilize the language server.
+" 'formatexpr' is set to vim.lsp.formatexpr(), so you can format lines via gq if the language server supports it.
+" To opt out of this use gw instead of gq, or clear 'formatexpr' on LspAttach.
+" K is mapped to vim.lsp.buf.hover() unless 'keywordprg' is customized or a custom keymap for K exists.
+
 " Plugins section
 " Clone plugins in ~/.local/share/nvim/site/pack/plugins/start/
 
@@ -44,4 +81,29 @@
 " https://github.com/lewis6991/gitsigns.nvim
 :lua require('gitsigns').setup()
 :lua vim.cmd("Gitsigns toggle_current_line_blame")
+:nmap <Leader>gd <Cmd>:Gitsigns preview_hunk<CR>
+:nmap <Leader>gn <Cmd>:Gitsigns next_hunk<CR>
+:nmap <Leader>gp <Cmd>:Gitsigns prev_hunk<CR>
+:nmap <Leader>gr <Cmd>:Gitsigns reset_hunk<CR>
 
+" nvim-jdtls
+" https://github.com/mfussenegger/nvim-jdtls
+
+" nvim-dap
+" https://github.com/mfussenegger/nvim-dap
+" Toggle breakpoint
+:nmap <Leader>tb <Cmd>:lua require'dap'.toggle_breakpoint()<CR>
+" Step continue
+:nmap <Leader>sc <Cmd>:lua require'dap'.continue()<CR>
+" Step over
+:nmap <Leader>so <Cmd>:lua require'dap'.step_over()<CR>
+" Step into
+:nmap <Leader>si <Cmd>:lua require'dap'.step_into()<CR>
+" Step exit, so is already used
+:nmap <Leader>se <Cmd>:lua require'dap'.step_out()<CR>
+" IDK, i'm not using it
+:nmap <Leader>ro <Cmd>:lua require'dap'.repl.open()<CR>
+" Debug hover
+:nmap <Leader>dh <Cmd>:lua require'dap.ui.widgets'.hover()<CR>
+" Debug preview
+:nmap <Leader>dp <Cmd>:lua require'dap.ui.widgets'.preview()<CR>
