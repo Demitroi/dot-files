@@ -67,8 +67,10 @@ let maplocalleader=" "
 :nmap <Leader>cn <Cmd>:cnext<CR>
 " Clear highlights by pressing <Esc> key
 :nmap <Esc> <Cmd>:nohlsearch<CR>
-" Open diagnostic quickfix list
-:nmap <Leader>q :lua vim.diagnostic.setloclist()<CR>
+" Diagnostic quickfix list
+:nmap <Leader>dl :lua vim.diagnostic.setloclist()<CR>
+" Diagnostic quickfix show
+:nmap <Leader>ds :lua vim.diagnostic.open_float()<CR>
 
 " Lsp keymaps
 :nmap grn :lua vim.lsp.buf.rename()<CR>
@@ -92,10 +94,15 @@ let maplocalleader=" "
 " https://github.com/lewis6991/gitsigns.nvim
 :lua require('gitsigns').setup()
 :lua vim.cmd("Gitsigns toggle_current_line_blame")
+" Git diff
 :nmap <Leader>gd <Cmd>:Gitsigns preview_hunk<CR>
+" Git next
 :nmap <Leader>gn <Cmd>:Gitsigns next_hunk<CR>
+" Git previous
 :nmap <Leader>gp <Cmd>:Gitsigns prev_hunk<CR>
+" Git reset
 :nmap <Leader>gr <Cmd>:Gitsigns reset_hunk<CR>
+" Git blame
 :nmap <Leader>gb <Cmd>:Gitsigns blame_line<CR>
 
 " nvim-jdtls
