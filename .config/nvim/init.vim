@@ -37,11 +37,15 @@
 " No wrap
 :set nowrap
 
+" Customize netrw
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 
-" Custom keymaps
+" Set <Space> as the leader key
 let mapleader=" "
+let maplocalleader=" "
+
+" Custom keymaps
 " List current
 :nmap <Leader>lc :let @/=expand("%:t") <Bar> execute ':Lexplore' expand("%:h") <Bar> normal n<CR>
 " List root
@@ -61,6 +65,10 @@ let mapleader=" "
 :nmap <Leader>cp <Cmd>:cprevious<CR>
 " Next quickfix
 :nmap <Leader>cn <Cmd>:cnext<CR>
+" Clear highlights by pressing <Esc> key
+:nmap <Esc> <Cmd>:nohlsearch<CR>
+" Open diagnostic quickfix list
+:nmap <Leader>q :lua vim.diagnostic.setloclist()<CR>
 
 " Lsp keymaps
 :nmap grn :lua vim.lsp.buf.rename()<CR>
@@ -88,6 +96,7 @@ let mapleader=" "
 :nmap <Leader>gn <Cmd>:Gitsigns next_hunk<CR>
 :nmap <Leader>gp <Cmd>:Gitsigns prev_hunk<CR>
 :nmap <Leader>gr <Cmd>:Gitsigns reset_hunk<CR>
+:nmap <Leader>gb <Cmd>:Gitsigns blame_line<CR>
 
 " nvim-jdtls
 " https://github.com/mfussenegger/nvim-jdtls
