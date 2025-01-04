@@ -17,6 +17,8 @@ https://github.com/fairyglade/ly
 #### Window manager (Sway)
 Sway (contracted from SirCmpwn's Wayland compositor [1]) is a compositor for Wayland designed to be fully compatible with i3.
 
+Don't forget to install the ```sway-bg``` package.
+
 https://swaywm.org/
 
 See: https://wiki.archlinux.org/title/Sway, https://github.com/swaywm/sway/wiki
@@ -516,6 +518,7 @@ https://github.com/lxqt/lxqt-policykit
 - anki
 - breeze
 - breeze-gtk
+- brightnessctl
 - btop
 - cliphist
 - cmatrix
