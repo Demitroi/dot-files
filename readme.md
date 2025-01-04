@@ -12,6 +12,24 @@ https://networkmanager.dev/
 
 TUI (ncurses-like) display manager for Linux and BSD. Supports X and Wayland sessions.
 
+Sway doesn't support proprietary drivers like Nvidia. In order to get Nvidia graphic working with sway it has to be run with ```--unsupported-gpu``` flag.
+
+Edit the ```/usr/share/wayland-sessions/sway.desktop``` file and and the flag in the Exec section.
+
+```sh
+sudo vim nvim /usr/share/wayland-sessions/sway.desktop
+```
+
+For example.
+
+```
+[Desktop Entry]
+Name=Sway
+Comment=An i3-compatible Wayland compositor
+Exec=sway --unsupported-gpu
+Type=Application
+```
+
 https://github.com/fairyglade/ly
 
 #### Window manager (Sway)
