@@ -334,6 +334,8 @@ bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
 bindsym $mod+Control+$left workspace prev
 bindsym $mod+Control+$right workspace next
+bindsym $mod+Control+left workspace prev
+bindsym $mod+Control+right workspace next
 
 #
 # Custom Apps
