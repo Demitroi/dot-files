@@ -149,6 +149,10 @@ See: https://wiki.archlinux.org/title/PipeWire, https://wiki.archlinux.org/title
 
 PulseAudio Volume Control (pavucontrol) is a simple GTK based volume control tool ("mixer") for the PulseAudio sound server. In contrast to classic mixer tools this one allows you to control both the volume of hardware devices and of each playback stream separately.
 
+In order to use speakers and headphones in the same souncard the "Auto-Mute Mode" has to be disabled. Install the ```alsa-utils``` package and disable the auto mute in start up.
+
+See: https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture#Disabling_auto_mute_on_startup
+
 https://freedesktop.org/software/pulseaudio/pavucontrol/
 
 #### Graph/Patchbay for PipeWire (qpwgraph)
@@ -535,6 +539,7 @@ https://github.com/lxqt/lxqt-policykit
 
 #### Aditional packages
 
+- alsa-utils
 - anki
 - breeze
 - breeze-gtk
