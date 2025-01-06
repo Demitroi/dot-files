@@ -306,10 +306,10 @@ https://wiki.archlinux.org/title/Power_management#ACPI_events
 
 #### Mouse and Keyboard config
 
-Edit sway dot files, check outputs with this command:
+Edit sway dot files, check inputs with this command:
 
 ```sh
-$ swaymsg -t get_outputs
+$ swaymsg -t get_inputs
 ```
 
 See ```man 5 sway-input``` for more details.
