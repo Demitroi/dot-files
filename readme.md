@@ -132,6 +132,8 @@ See: https://wiki.archlinux.org/title/Firefox
 
 Extensions:
 - [Matte Black (Red)](https://addons.mozilla.org/en-US/firefox/addon/matte-black-red/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+- [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 
 #### Multimedia Server (PipeWire)
 
