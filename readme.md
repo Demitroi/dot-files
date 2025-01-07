@@ -22,6 +22,15 @@ See: https://wiki.archlinux.org/title/System_time#Multiple_systems
 
 TUI (ncurses-like) display manager for Linux and BSD. Supports X and Wayland sessions.
 
+https://github.com/fairyglade/ly
+
+#### Window manager (Sway)
+Sway (contracted from SirCmpwn's Wayland compositor [1]) is a compositor for Wayland designed to be fully compatible with i3.
+
+Don't forget to install the ```sway-bg``` package.
+
+https://swaywm.org/
+
 Sway doesn't support proprietary drivers like Nvidia. In order to get Nvidia graphic working with sway it has to be run with ```--unsupported-gpu``` flag.
 
 Edit the ```/usr/share/wayland-sessions/sway.desktop``` file and and the flag in the Exec section.
@@ -39,15 +48,6 @@ Comment=An i3-compatible Wayland compositor
 Exec=sway --unsupported-gpu
 Type=Application
 ```
-
-https://github.com/fairyglade/ly
-
-#### Window manager (Sway)
-Sway (contracted from SirCmpwn's Wayland compositor [1]) is a compositor for Wayland designed to be fully compatible with i3.
-
-Don't forget to install the ```sway-bg``` package.
-
-https://swaywm.org/
 
 See: https://wiki.archlinux.org/title/Sway, https://github.com/swaywm/sway/wiki
 
