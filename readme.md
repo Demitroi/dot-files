@@ -8,6 +8,16 @@ NetworkManager is the standard Linux network configuration tool suite. It suppor
 
 https://networkmanager.dev/
 
+#### Time in multiple systems
+
+If it's doing dual boot with windows it probably has problems with time, to avoid this, it's recommended to set the local rtc.
+
+```sh
+timedatectl set-local-rtc 1
+```
+
+See: https://wiki.archlinux.org/title/System_time#Multiple_systems
+
 #### Display manager (ly)
 
 TUI (ncurses-like) display manager for Linux and BSD. Supports X and Wayland sessions.
@@ -43,18 +53,6 @@ See: https://wiki.archlinux.org/title/Sway, https://github.com/swaywm/sway/wiki
 
 [.config/sway/config](.config/sway/config)
 
-#### Application launcher (Wofi)
-
-Wofi is a launcher/menu program for wlroots based wayland compositors such as sway
-
-Don't forget to install the ```otf-font-awesome``` package.
-
-https://hg.sr.ht/~scoopta/wofi
-
-[.config/wofi/config](.config/wofi/config)
-
-[.config/wofi/style.css](.config/wofi/style.css)
-
 #### Statusbar (waybar)
 
 Highly customizable Wayland bar for Sway and Wlroots based compositors.
@@ -73,13 +71,33 @@ See: https://github.com/Alexays/Waybar/wiki
 
 [.config/waybar/style.css](.config/waybar/style.css)
 
-#### Show calendar (khal)
+#### Application launcher (Wofi)
 
-CLI calendar application.
+Wofi is a launcher/menu program for wlroots based wayland compositors such as sway
 
-Don't forget to run ```khal configure`` to configure it.
+Don't forget to install the ```otf-font-awesome``` package.
 
-https://github.com/pimutils/khal
+https://hg.sr.ht/~scoopta/wofi
+
+[.config/wofi/config](.config/wofi/config)
+
+[.config/wofi/style.css](.config/wofi/style.css)
+
+#### Lock screen (Swaylock)
+
+swaylock is a screen locking utility for Wayland compositors. It is compatible with any Wayland compositor which implements the ext-session-lock-v1 Wayland protocol.
+
+[.config/sway/config](.config/sway/config)
+
+#### Terminal Emulator (Foot)
+
+Foot is a fast, lightweight and minimalistic Wayland terminal emulator.
+
+Don't forget to install the ```ttf-hack-nerd``` package.
+
+https://codeberg.org/dnkl/foot
+
+[.config/foot/foot.ini](.config/foot/foot.ini)
 
 #### Shell (Zsh)
 
@@ -92,16 +110,6 @@ https://www.zsh.org/
 See: https://wiki.archlinux.org/title/Zsh
 
 [.zshrc](.zshrc)
-
-#### Terminal Emulator (Foot)
-
-Foot is a fast, lightweight and minimalistic Wayland terminal emulator.
-
-Don't forget to install the ```ttf-hack-nerd``` package.
-
-https://codeberg.org/dnkl/foot
-
-[.config/foot/foot.ini](.config/foot/foot.ini)
 
 #### Terminal text editor (Neovim)
 
@@ -122,18 +130,13 @@ https://neovim.io/
 Plugins:
 [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 
-#### Web Browser (Firefox)
+#### Clipboard manager (cliphist)
 
-Firefox is a popular open source graphical web browser from Mozilla.
+Wayland clipboard manager with support for multimedia.
 
-https://www.mozilla.org/en-US/firefox/
+Don't forget to install the ```wl-clipboard``` package.
 
-See: https://wiki.archlinux.org/title/Firefox
-
-Extensions:
-- [Matte Black (Red)](https://addons.mozilla.org/en-US/firefox/addon/matte-black-red/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
-- [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
-- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+https://github.com/sentriz/cliphist
 
 #### Multimedia Server (PipeWire)
 
@@ -163,17 +166,13 @@ Don't forget to install the ```qt5-wayland``` and ```qt6-wayland``` packages.
 
 https://gitlab.freedesktop.org/rncbc/qpwgraph
 
-#### Audio editor and recorder (Audacity)
+#### Notifications (Mako)
 
-Audacity is an easy-to-use, multi-track audio editor and recorder for Windows, macOS, GNU/Linux and other operating systems.
+A lightweight notification daemon for Wayland; it currently works on Sway and river.
 
-https://www.audacityteam.org/
+Don't forget to install the ```libnotify``` package.
 
-#### Audio Player (Audacious)
-
-Audacious is a free and advanced audio player. It is focused on audio quality and supports a wide variety of audio codecs, and is easily extensible through third-party plugins.
-
-https://audacious-media-player.org/
+https://github.com/emersion/mako
 
 #### Screencast
 
@@ -225,6 +224,52 @@ The image viewer and screenshot tool for lxqt.
 
 https://github.com/lxqt/lximage-qt
 
+#### Show calendar (khal)
+
+CLI calendar application.
+
+Don't forget to run ```khal configure`` to configure it.
+
+https://github.com/pimutils/khal
+
+#### Themes (breeze, breeze-gtk, bloom, qt6ct, lxqt-config-appearance)
+
+Read this wiki entry for more context:
+
+https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
+
+Install the themes breeze, breeze-gtk, papirus-icon-theme, deepin-icon-theme and ttf-hack-nerd. Also you have to install qt6ct and lxqt-config to config graphically the qt and gtk themes.
+
+Set the ```QT_QPA_PLATFORMTHEME=qt6ct``` enviroment variable globally by editing the file ```/etc/environment``` and then reboot.
+
+```sh
+$ sudo vim /etc/environment
+$ sudo reboot
+```
+
+Open lxqt-config-appearance via terminal, in the Widget Style section select qt6ct-style in Qt Style combo box. In Icons Theme select Papirus-Dark, in Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10, in Cursor select bloom and finally select Breeze-Dark in both GTK 3 and 4 Theme.
+
+Open Qt6 Settings, select Breeze in Style, in Paletter check Custom radio button and select Color scheme darker. Go to Font tab, set the Font to "Hack Nerd Font Mono", Font style Normal and Size 10. Go to the Icon Theme tab and select Papirus-Dark.
+
+#### Web Browser (Firefox)
+
+Firefox is a popular open source graphical web browser from Mozilla.
+
+https://www.mozilla.org/en-US/firefox/
+
+See: https://wiki.archlinux.org/title/Firefox
+
+Extensions:
+- [Matte Black (Red)](https://addons.mozilla.org/en-US/firefox/addon/matte-black-red/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+- [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
+- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+
+#### Audio Player (Audacious)
+
+Audacious is a free and advanced audio player. It is focused on audio quality and supports a wide variety of audio codecs, and is easily extensible through third-party plugins.
+
+https://audacious-media-player.org/
+
 #### Video player (mpv)
 
 mpv is a media player based on MPlayer and the now unmaintained mplayer2. It supports a wide variety of video file formats, audio and video codecs, and subtitle types. A detailed (although admittedly incomplete) list of differences between mpv and the aforementioned players can be found here. 
@@ -251,38 +296,11 @@ Qalculate! is a multi-purpose cross-platform desktop calculator. It is simple to
 
 https://qalculate.github.io/
 
-#### Themes (breeze, breeze-gtk, bloom, qt6ct, lxqt-config-appearance)
+#### Audio editor and recorder (Audacity)
 
-Read this wiki entry for more context:
+Audacity is an easy-to-use, multi-track audio editor and recorder for Windows, macOS, GNU/Linux and other operating systems.
 
-https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
-
-Install the themes breeze, breeze-gtk, papirus-icon-theme, deepin-icon-theme and ttf-hack-nerd. Also you have to install qt6ct and lxqt-config to config graphically the qt and gtk themes.
-
-Set the ```QT_QPA_PLATFORMTHEME=qt6ct``` enviroment variable globally by editing the file ```/etc/environment``` and then reboot.
-
-```sh
-$ sudo vim /etc/environment
-$ sudo reboot
-```
-
-Open lxqt-config-appearance via terminal, in the Widget Style section select qt6ct-style in Qt Style combo box. In Icons Theme select Papirus-Dark, in Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10, in Cursor select bloom and finally select Breeze-Dark in both GTK 3 and 4 Theme.
-
-Open Qt6 Settings, select Breeze in Style, in Paletter check Custom radio button and select Color scheme darker. Go to Font tab, set the Font to "Hack Nerd Font Mono", Font style Normal and Size 10. Go to the Icon Theme tab and select Papirus-Dark.
-
-#### Notifications (Mako)
-
-A lightweight notification daemon for Wayland; it currently works on Sway and river.
-
-Don't forget to install the ```libnotify``` package.
-
-https://github.com/emersion/mako
-
-#### Clipboard manager (cliphist)
-
-Wayland clipboard manager with support for multimedia.
-
-https://github.com/sentriz/cliphist
+https://www.audacityteam.org/
 
 #### Monitor config
 
@@ -345,12 +363,6 @@ Enabling communication between all your devices. Made for people like you.
 https://kdeconnect.kde.org/
 
 [.config/mako/config](.config/mako/config)
-
-#### Lock screen (Swaylock)
-
-swaylock is a screen locking utility for Wayland compositors. It is compatible with any Wayland compositor which implements the ext-session-lock-v1 Wayland protocol.
-
-[.config/sway/config](.config/sway/config)
 
 #### Code edition (Visual Studio Code)
 
