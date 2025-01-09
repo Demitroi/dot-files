@@ -316,7 +316,7 @@ input type:keyboard xkb_numlock enabled
 #
 # Screen Lock
 #
-bindsym $mod+m exec swaylock -c 000000 -e -F -i ~/.local/share/wallpapers/1065712.jpg
+bindsym $mod+m exec swaylock -c 000000 -e -F -i ~/.local/share/wallpapers/wallpaperflare.com_wallpaper.jpg
 
 #
 # Screen magnifier
