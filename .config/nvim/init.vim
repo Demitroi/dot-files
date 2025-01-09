@@ -71,6 +71,8 @@ let maplocalleader=" "
 :nmap <Leader>dl :lua vim.diagnostic.setloclist()<CR>
 " Diagnostic quickfix show
 :nmap <Leader>ds :lua vim.diagnostic.open_float()<CR>
+" Toggle wrap
+:nmap <Leader>tw :set wrap!<CR>
 
 " Lsp keymaps
 :nmap grn :lua vim.lsp.buf.rename()<CR>
