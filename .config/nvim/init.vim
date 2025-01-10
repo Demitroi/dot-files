@@ -36,6 +36,8 @@
 
 " No wrap
 :set nowrap
+" Linebreak
+:set linebreak
 
 " Customize netrw
 let g:netrw_banner=0
