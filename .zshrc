@@ -96,4 +96,8 @@ function preexec {
     print -Pn "\e]0;${(q)1}\e\\"
 }
 
+# User environment variables
+JAVA_HOME=/usr/lib/jvm/jdk-17.0.13+11
+PATH=$PATH:$JAVA_HOME/bin/
+PATH=$PATH:/opt/apache-maven-3.9.9/bin/
 

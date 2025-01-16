@@ -2,9 +2,9 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local home = os.getenv("HOME")
 
 local workspace_dir = home .. '/.local/share/eclipse.jdt.ls.workspace/' .. project_name
-local java_path = '/usr/java/jdk-17.0.13+11/bin/java'
+local java_path = '/usr/lib/jvm/jdk-17.0.13+11/bin/java'
 local lombok_path = home .. '/.local/share/java/lombok/1.18.36/lombok.jar'
-local eclipse_jdt_ls_dir = home .. '/.local/share/java/eclipse.jdt.ls/1.37.0'
+local eclipse_jdt_ls_dir = home .. '/.local/share/java/eclipse.jdt.ls/1.43.0'
 local eclipse_jdt_ls_jar = eclipse_jdt_ls_dir .. '/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'
 local java_debug_plugin_jar = home .. '/.local/share/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.1.jar'
 
@@ -32,22 +32,10 @@ local config = {
         configuration = {
           runtimes = {
             {
-              name = "JavaSE-11",
-              path = "/usr/java/jdk-11.0.22+7",
-            },
-            {
               name = "JavaSE-17",
-              path = "/usr/java/jdk-17.0.13+11",
-            },
-            {
-              name = "JavaSE-1.7",
-              path = "/usr/java/jdk1.7.0_80",
-            },
-            {
-              name = "JavaSE-1.8",
-              path = "/usr/java/jdk1.8.0_202",
+              path = "/usr/lib/jvm/jdk-17.0.13+11/bin/java",
               default = true
-            },
+            }
           }
         },
         import = {
