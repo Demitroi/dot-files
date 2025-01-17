@@ -240,7 +240,7 @@ https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
 
 Install the themes breeze, breeze-gtk, papirus-icon-theme, deepin-icon-theme and ttf-hack-nerd. Also you have to install qt6ct and lxqt-config to config graphically the qt and gtk themes.
 
-Set the ```QT_QPA_PLATFORMTHEME=qt6ct``` enviroment variable globally by editing the file ```/etc/environment``` and then reboot.
+Set the ```QT_QPA_PLATFORMTHEME=qt6ct``` and ```QT_QPA_PLATFORM=wayland``` enviroment variable globally by editing the file ```/etc/environment``` and then reboot.
 
 ```sh
 $ sudo vim /etc/environment
