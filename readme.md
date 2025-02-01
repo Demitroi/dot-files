@@ -613,6 +613,7 @@ https://github.com/lxqt/lxqt-policykit
 - smartmontools
 - swappy
 - syncthing
+- tmux
 - tree
 - ttf-font-awesome
 - ttf-hack-nerd
