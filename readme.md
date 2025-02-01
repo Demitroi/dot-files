@@ -75,7 +75,7 @@ See: https://github.com/Alexays/Waybar/wiki
 
 Wofi is a launcher/menu program for wlroots based wayland compositors such as sway
 
-Don't forget to install the ```otf-font-awesome``` package.
+Don't forget to install the ```otf-font-awesome``` and the ```ttf-font-awesome``` packages.
 
 https://hg.sr.ht/~scoopta/wofi
 
@@ -93,7 +93,7 @@ swaylock is a screen locking utility for Wayland compositors. It is compatible w
 
 Foot is a fast, lightweight and minimalistic Wayland terminal emulator.
 
-Don't forget to install the ```ttf-hack-nerd``` package.
+Don't forget to install the ```ttf-hack-nerd``` and the ```noto-fonts-emoji``` packages.
 
 https://codeberg.org/dnkl/foot
 
@@ -246,7 +246,7 @@ Read this wiki entry for more context:
 
 https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
 
-Install the themes breeze, breeze-gtk, papirus-icon-theme, deepin-icon-theme and ttf-hack-nerd. Also you have to install qt6ct and lxqt-config to config graphically the qt and gtk themes.
+Install the themes breeze, breeze-gtk, papirus-icon-theme, deepin-icon-theme, ttf-hack-nerd and noto-fonts-emoji. Also you have to install qt6ct and lxqt-config to config graphically the qt and gtk themes.
 
 Set the ```QT_QPA_PLATFORMTHEME=qt6ct``` and ```QT_QPA_PLATFORM=wayland``` enviroment variable globally by editing the file ```/etc/environment``` and then reboot.
 
@@ -577,6 +577,8 @@ https://github.com/lxqt/lxqt-policykit
 - grim
 - htop
 - inxi
+- jellyfin-server
+- jellyfin-web
 - jq
 - keepassxc
 - khal
@@ -589,11 +591,10 @@ https://github.com/lxqt/lxqt-policykit
 - lxqt-policykit
 - mako
 - man-db
-- jellyfin-server
-- jellyfin-web
 - mpv
 - neovim
 - net-tools
+- noto-fonts-emoji
 - ntfs-3g
 - open-ssh
 - openssl
@@ -613,8 +614,9 @@ https://github.com/lxqt/lxqt-policykit
 - swappy
 - syncthing
 - tree
+- ttf-font-awesome
 - ttf-hack-nerd
-- udisks2 
+- udisks2
 - unrar
 - unzip
 - usbutils
