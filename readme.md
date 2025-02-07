@@ -123,6 +123,8 @@ $ cd ~/.local/share/nvim/site/pack/plugins/start/
 $ git clone my_plugin
 ```
 
+Don't forget to install the ```ripgrep``` package.
+
 https://neovim.io/
 
 [.config/nvim/init.vim](.config/nvim/init.vim)
@@ -606,6 +608,7 @@ https://github.com/lxqt/lxqt-policykit
 - playerctl
 - qalculate-qt
 - qpwgraph
+- ripgrep
 - rsync
 - screenfetch
 - sddm

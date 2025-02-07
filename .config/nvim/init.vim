@@ -130,3 +130,13 @@ let maplocalleader=" "
 :nmap <Leader>dh <Cmd>:lua require'dap.ui.widgets'.hover()<CR>
 " Debug preview
 :nmap <Leader>dp <Cmd>:lua require'dap.ui.widgets'.preview()<CR>
+
+" plenary.nvim
+" https://github.com/nvim-lua/plenary.nvim
+
+" telescope.nvim
+" https://github.com/nvim-telescope/telescope.nvim
+:nmap <Leader>ff <Cmd>Telescope find_files<CR>
+:nmap <Leader>fg <Cmd>Telescope live_grep<CR>
+:nmap <Leader>fb <Cmd>Telescope buffers<CR>
+:nmap <Leader>fh <Cmd>Telescope help_tags<CR>
