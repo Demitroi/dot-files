@@ -274,6 +274,8 @@ Extensions:
 - [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
 - [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 
+Customize toolbar. Right click tab bar, select customize toolbar and enable Title Bar.
+
 #### Audio Player (Audacious)
 
 Audacious is a free and advanced audio player. It is focused on audio quality and supports a wide variety of audio codecs, and is easily extensible through third-party plugins.
