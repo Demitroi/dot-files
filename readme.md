@@ -24,6 +24,8 @@ TUI (ncurses-like) display manager for Linux and BSD. Supports X and Wayland ses
 
 https://github.com/fairyglade/ly
 
+Edit the file ```/etc/ly/config.ini``` and enable the big clock.
+
 #### Window manager (Sway)
 Sway (contracted from SirCmpwn's Wayland compositor [1]) is a compositor for Wayland designed to be fully compatible with i3.
 
