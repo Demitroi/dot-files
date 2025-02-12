@@ -58,15 +58,19 @@ let maplocalleader=" "
 :nmap <Leader>bd <Cmd>:bdelete<CR>
 " Buffer previous
 :nmap <Leader>bp <Cmd>:bprevious<CR>
+:nmap [b <Cmd>:bprevious<CR>
 " Buffer next
 :nmap <Leader>bn <Cmd>:bnext<CR>
+:nmap ]b <Cmd>:bnext<CR>
 " Open quickfix
 :nmap <Leader>co <Cmd>:copen<CR>
 :nmap <Leader>cl <Cmd>:copen<CR>
 " Previous quickfix
 :nmap <Leader>cp <Cmd>:cprevious<CR>
+:nmap [q <Cmd>:cprevious<CR>
 " Next quickfix
 :nmap <Leader>cn <Cmd>:cnext<CR>
+:nmap ]q <Cmd>:cnext<CR>
 " Clear highlights by pressing <Esc> key
 :nmap <Esc> <Cmd>:nohlsearch<CR>
 " Diagnostic quickfix list
@@ -100,10 +104,12 @@ let maplocalleader=" "
 :lua vim.cmd("Gitsigns toggle_current_line_blame")
 " Git diff
 :nmap <Leader>gd <Cmd>:Gitsigns preview_hunk<CR>
-" Git next
-:nmap <Leader>gn <Cmd>:Gitsigns next_hunk<CR>
 " Git previous
 :nmap <Leader>gp <Cmd>:Gitsigns prev_hunk<CR>
+:nmap [g <Cmd>:Gitsigns prev_hunk<CR>
+" Git next
+:nmap <Leader>gn <Cmd>:Gitsigns next_hunk<CR>
+:nmap ]g <Cmd>:Gitsigns next_hunk<CR>
 " Git reset
 :nmap <Leader>gr <Cmd>:Gitsigns reset_hunk<CR>
 " Git blame
