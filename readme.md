@@ -597,6 +597,7 @@ https://github.com/lxqt/lxqt-policykit
 - lxqt-policykit
 - mako
 - man-db
+- maven
 - mpv
 - neovim
 - net-tools

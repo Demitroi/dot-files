@@ -97,7 +97,5 @@ function preexec {
 }
 
 # User environment variables
-JAVA_HOME=/usr/lib/jvm/jdk-17.0.13+11
-PATH=$PATH:$JAVA_HOME/bin/
-PATH=$PATH:/opt/apache-maven-3.9.9/bin/
+export JAVA_HOME=/usr/lib/jvm/java-21-temurin
 
