@@ -1,30 +1,14 @@
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local home = os.getenv("HOME")
 
-local workspace_dir = home .. '/.local/share/eclipse.jdt.ls.workspace/' .. project_name
-local java_path = '/usr/lib/jvm/jdk-17.0.13+11/bin/java'
-local lombok_path = home .. '/.local/share/java/lombok/1.18.36/lombok.jar'
-local eclipse_jdt_ls_dir = home .. '/.local/share/java/eclipse.jdt.ls/1.43.0'
-local eclipse_jdt_ls_jar = eclipse_jdt_ls_dir .. '/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'
 local java_debug_plugin_jar = home .. '/.local/share/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.1.jar'
 
 local config = {
     cmd = {
-        java_path,
-        '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-        '-Dosgi.bundles.defaultStartLevel=4',
-        '-Declipse.product=org.eclipse.jdt.ls.core.product',
-        '-Dlog.protocol=true',
-        '-Dlog.level=ALL',
-        '-Xms1g',
-        '-Xmx4g',
-        '-javaagent:' .. lombok_path,
-        '--add-modules=ALL-SYSTEM',
-        '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-        '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-        '-jar', eclipse_jdt_ls_jar,
-        '-configuration', eclipse_jdt_ls_dir .. '/config_linux',
-        '-data', workspace_dir
+        '/usr/share/java/jdtls/bin/jdtls',
+        '--jvm-arg=-javaagent:/usr/share/java/lombok/lombok.jar',
+        '-configuration', home .. '/.cache/jdtls',
+        '-data', home .. '/.cache/jdtls.workspace/' .. project_name
     },
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     settings = {
@@ -33,7 +17,13 @@ local config = {
           runtimes = {
             {
               name = "JavaSE-17",
-              path = "/usr/lib/jvm/jdk-17.0.13+11/bin/java",
+              path = '/usr/lib/jvm/java-17-temurin/'
+            }
+          },
+          runtimes = {
+            {
+              name = "JavaSE-21",
+              path = '/usr/lib/jvm/java-21-temurin/',
               default = true
             }
           }
