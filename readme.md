@@ -278,6 +278,10 @@ Extensions:
 
 Customize toolbar. Right click tab bar, select customize toolbar and enable Title Bar.
 
+Make it more efficient by enabling gfx.webrender.compositor.force-enabled in about:config.
+
+https://www.reddit.com/r/swaywm/comments/1iuqclq/firefox_is_now_way_more_efficient_under_sway_it/
+
 #### Audio Player (Audacious)
 
 Audacious is a free and advanced audio player. It is focused on audio quality and supports a wide variety of audio codecs, and is easily extensible through third-party plugins.
