@@ -61,12 +61,6 @@ Highly customizable Wayland bar for Sway and Wlroots based compositors.
 
 https://github.com/Alexays/Waybar
 
-You must be a member of the ```input`` group to Keyboard State module. Don't forget reboot.
-
-```sh
-$ sudo usermod -aG input demitroi
-```
-
 See: https://github.com/Alexays/Waybar/wiki
 
 [.config/waybar/config.jsonc](.config/waybar/config.jsonc)
