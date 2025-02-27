@@ -14,8 +14,6 @@
     "modules-right": [
         "privacy",
         "tray",
-        "keyboard-state#capslock",
-        "keyboard-state#numlock",
         "pulseaudio#audio",
         "pulseaudio#mic",
         "network",
@@ -63,26 +61,6 @@
     },
     "tray": {
         "spacing": 10
-    },
-    "keyboard-state#capslock": {
-        "capslock": true,
-        "format": {
-            "capslock": "A {icon}"
-        },
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "keyboard-state#numlock": {
-        "numlock": true,
-        "format": {
-            "numlock": "N {icon}"
-        },
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
     },
     "pulseaudio#audio": {
         "format": "{volume}% {icon}",
