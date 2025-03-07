@@ -578,6 +578,7 @@ https://github.com/lxqt/lxqt-policykit
 - ffmpeg
 - font-manager
 - git
+- glow
 - grim
 - htop
 - inxi
