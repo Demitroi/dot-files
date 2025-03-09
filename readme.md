@@ -606,6 +606,7 @@ https://github.com/lxqt/lxqt-policykit
 - openssl
 - otf-font-awesome
 - p7zip
+- pacman-contrib
 - papirus-icon-theme
 - pavucontrol
 - pcmanfm-qt
