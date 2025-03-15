@@ -302,6 +302,8 @@ https://www.libreoffice.org/
 
 In order to set the dark theme, see: https://wiki.archlinux.org/title/LibreOffice#LibreOffice_toolbars_unreadable_with_dark_Breeze/Plasma_5_theme
 
+Enable spell cheking by installing the following packages: hunspell, hunspell-en_us, hunspell-es_mx
+
 #### Calculator (Qalculate)
 
 Qalculate! is a multi-purpose cross-platform desktop calculator. It is simple to use but provides power and versatility normally reserved for complicated math packages, as well as useful tools for everyday needs (such as currency conversion and percent calculation).
@@ -581,6 +583,9 @@ https://github.com/lxqt/lxqt-policykit
 - glow
 - grim
 - htop
+- hunspell
+- hunspell-en_us
+- hunspell-es_mx
 - inxi
 - jellyfin-server
 - jellyfin-web
