@@ -571,6 +571,7 @@ https://github.com/lxqt/lxqt-policykit
 - breeze-gtk
 - brightnessctl
 - btop
+- caddy
 - cliphist
 - cmatrix
 - curl
@@ -606,6 +607,7 @@ https://github.com/lxqt/lxqt-policykit
 - neovim
 - net-tools
 - noto-fonts-emoji
+- npm
 - ntfs-3g
 - open-ssh
 - openssl
