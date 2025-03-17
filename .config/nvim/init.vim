@@ -146,3 +146,8 @@ let maplocalleader=" "
 :nmap <Leader>fg <Cmd>Telescope live_grep<CR>
 :nmap <Leader>fb <Cmd>Telescope buffers<CR>
 :nmap <Leader>fh <Cmd>Telescope help_tags<CR>
+
+" oil.nvim
+" https://github.com/stevearc/oil.nvim.git
+:lua require("oil").setup()
+:nmap - <CMD>Oil<CR>
