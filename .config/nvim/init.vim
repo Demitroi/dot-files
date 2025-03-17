@@ -151,3 +151,20 @@ let maplocalleader=" "
 " https://github.com/stevearc/oil.nvim.git
 :lua require("oil").setup()
 :nmap - <CMD>Oil<CR>
+
+" nvim-lspconfig
+" https://github.com/neovim/nvim-lspconfig.git
+
+" HTML
+" npm i -g vscode-langservers-extracted
+":lua require'lspconfig'.html.setup{configurationSection = { "html", "css", "javascript" }, embeddedLanguages = { css = true, javascript = true }, provideFormatter = true}
+:lua require'lspconfig'.html.setup{}
+
+" CSS
+" npm i -g vscode-langservers-extracted
+":lua require'lspconfig'.cssls.setup{provideFormatter = true}
+:lua require'lspconfig'.cssls.setup{}
+
+" JavaScript
+" npm i -g vscode-langservers-extracted
+:lua require'lspconfig'.eslint.setup{}
