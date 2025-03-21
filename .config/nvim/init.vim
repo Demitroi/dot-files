@@ -86,6 +86,7 @@ let maplocalleader=" "
 :vmap gra :lua vim.lsp.buf.code_action()<CR>
 :nmap grr :lua vim.lsp.buf.references()<CR>
 :nmap gri :lua vim.lsp.buf.implementation()<CR>
+:nmap grf :lua vim.lsp.buf.format({async = true})<CR>
 :nmap gO :lua vim.lsp.buf.document_symbol()<CR>
 :imap <C-S> <Cmd>:lua vim.lsp.buf.signature_help()<CR>
 " Not keymaps, just to remember the lsp-defaults
@@ -157,14 +158,16 @@ let maplocalleader=" "
 
 " HTML
 " npm i -g vscode-langservers-extracted
-":lua require'lspconfig'.html.setup{configurationSection = { "html", "css", "javascript" }, embeddedLanguages = { css = true, javascript = true }, provideFormatter = true}
 :lua require'lspconfig'.html.setup{}
 
 " CSS
 " npm i -g vscode-langservers-extracted
-":lua require'lspconfig'.cssls.setup{provideFormatter = true}
 :lua require'lspconfig'.cssls.setup{}
 
 " JavaScript
 " npm i -g vscode-langservers-extracted
 :lua require'lspconfig'.eslint.setup{}
+
+" Golang
+" sudo pacman -S gopls
+:lua require'lspconfig'.gopls.setup{settings = { gopls = { analyses = { unusedparams = true, }, staticcheck = true, gofumpt = true, }, }, }
