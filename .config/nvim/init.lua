@@ -28,10 +28,14 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 
 -- " Tabsize and when insert spaces with the '>' and '<' commands
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+-- vim.opt.tabstop = 4
+-- vim.opt.softtabstop = 4
+-- vim.opt.shiftwidth = 4
+-- vim.opt.expandtab = true
+
+-- Configure how new splits should be opened
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- No wrap
 vim.opt.wrap = false
@@ -93,6 +97,9 @@ vim.keymap.set('i', '<C-S>', vim.lsp.buf.signature_help)
 
 -- Plugins section
 -- Clone plugins in ~/.local/share/nvim/site/pack/plugins/start/
+
+-- vim-sleuth
+-- https://github.com/tpope/vim-sleuth.git
 
 -- gitsigns.nvim
 -- https://github.com/lewis6991/gitsigns.nvim
