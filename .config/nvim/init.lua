@@ -75,14 +75,14 @@ vim.keymap.set('n', '<Leader>ds', vim.diagnostic.open_float)
 vim.keymap.set('n', '<Leader>tw', '<Cmd>:set wrap!<CR>')
 
 -- Lsp keymaps
-vim.keymap.set('n', 'grn', ':lua vim.lsp.buf.rename()<CR>')
-vim.keymap.set('n', 'gra', ':lua vim.lsp.buf.code_action()<CR>')
-vim.keymap.set('v', 'gra', ':lua vim.lsp.buf.code_action()<CR>')
-vim.keymap.set('n', 'grr', ':lua vim.lsp.buf.references()<CR>')
-vim.keymap.set('n', 'gri', ':lua vim.lsp.buf.implementation()<CR>')
-vim.keymap.set('n', 'grf', ':lua vim.lsp.buf.format({async = true})<CR>')
-vim.keymap.set('n', 'gO', ':lua vim.lsp.buf.document_symbol()<CR>')
-vim.keymap.set('i', '<C-S>', '<Cmd>:lua vim.lsp.buf.signature_help()<CR>')
+vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
+vim.keymap.set('n', 'gra', vim.lsp.buf.code_action)
+vim.keymap.set('v', 'gra', vim.lsp.buf.code_action)
+vim.keymap.set('n', 'grr', vim.lsp.buf.references)
+vim.keymap.set('n', 'gri', vim.lsp.buf.implementation)
+vim.keymap.set('n', 'grf', vim.lsp.buf.format)
+vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol)
+vim.keymap.set('i', '<C-S>', vim.lsp.buf.signature_help)
 -- Not keymaps, just to remember the lsp-defaults
 -- 'omnifunc' is set to vim.lsp.omnifunc(), use i_CTRL-X_CTRL-O to trigger completion.
 -- 'tagfunc' is set to vim.lsp.tagfunc(). This enables features like go-to-definition, :tjump, and keymaps like CTRL-], CTRL-W_], CTRL-W_} to utilize the language server.
