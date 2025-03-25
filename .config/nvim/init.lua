@@ -69,6 +69,7 @@ vim.keymap.set('n', ']Q', '<Cmd>:clast<CR>')
 vim.keymap.set('n', '<Esc>', '<Cmd>:nohlsearch<CR>')
 -- Diagnostic quickfix list
 vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 -- Diagnostic quickfix show
 vim.keymap.set('n', '<Leader>ds', vim.diagnostic.open_float)
 -- Toggle wrap
@@ -145,23 +146,29 @@ vim.keymap.set('n', '<Leader>fh', '<Cmd>Telescope help_tags<CR>')
 require("oil").setup()
 vim.keymap.set('n', '-', '<CMD>Oil<CR>')
 
+-- mason.nvim
+-- https://github.com/williamboman/mason.nvim.git
+require("mason").setup()
+
+-- mason-lspconfig.nvim
+-- https://github.com/williamboman/mason-lspconfig.nvim.git
+require("mason-lspconfig").setup{
+    ensure_installed = { "cssls", "eslint", "jdtls", "gopls", "html", },
+}
+
 -- nvim-lspconfig
 -- https://github.com/neovim/nvim-lspconfig.git
 
 -- HTML
--- npm i -g vscode-langservers-extracted
 require'lspconfig'.html.setup{}
 
 -- CSS
--- npm i -g vscode-langservers-extracted
 require'lspconfig'.cssls.setup{}
 
 -- JavaScript
--- npm i -g vscode-langservers-extracted
 require'lspconfig'.eslint.setup{}
 
 -- Golang
--- sudo pacman -S gopls
 require'lspconfig'.gopls.setup{
     settings = {
         gopls = {
