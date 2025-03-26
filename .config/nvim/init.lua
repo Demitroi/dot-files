@@ -174,7 +174,11 @@ require('lazy').setup({
     {
         'stevearc/oil.nvim',
         config = function()
-            require('oil').setup()
+            require('oil').setup({
+                view_options = {
+                    show_hidden = true,
+                },
+            })
             vim.keymap.set('n', '-', '<CMD>Oil<CR>')
         end,
         lazy = false,
@@ -195,7 +199,7 @@ require('lazy').setup({
             {
                 'williamboman/mason-lspconfig.nvim',
                 opts = {
-                    ensure_installed = { 'cssls', 'eslint', 'jdtls', 'gopls', 'html', },
+                    ensure_installed = { 'cssls', 'jdtls', 'gopls', 'html', 'ts_ls', },
                 }
             },
         },
@@ -207,7 +211,7 @@ require('lazy').setup({
             require'lspconfig'.cssls.setup{}
 
             -- JavaScript
-            require'lspconfig'.eslint.setup{}
+            require'lspconfig'.ts_ls.setup{}
 
             -- Golang
             require'lspconfig'.gopls.setup{
@@ -273,53 +277,68 @@ require('lazy').setup({
         },
         opts_extend = { 'sources.default', },
     },
-    -- Linters: work in progress..
-    -- {
-    --     -- mason-nvim-lint
-    --     -- https://github.com/rshkarin/mason-nvim-lint
-    --     'rshkarin/mason-nvim-lint',
-    --     dependencies = {
-    --         {
-    --             -- mason.nvim
-    --             -- https://github.com/williamboman/mason.nvim
-    --             'williamboman/mason.nvim',
-    --             opts = {},
-    --         },
-    --         {
-    --             -- nvim-lint
-    --             -- https://github.com/mfussenegger/nvim-lint
-    --             'mfussenegger/nvim-lint',
-    --             event = { 'BufReadPre', 'BufNewFile', },
-    --             config = function()
-    --                 local lint = require 'lint'
-    --                 lint.linters_by_ft = {
-    --                     go = { 'golangcilint' },
-    --                     javascript = { 'eslint_d' },
-    --                     typescript = { 'eslint_d' },
-    --                     javascriptreact = { 'eslint_d' },
-    --                     typescriptreact = { 'eslint_d' },
-    --                     html = { 'htmlhint' },
-    --                     css = { 'stylelint' },
-    --                 }
-    --                 local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
-    --                 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
-    --                     group = lint_augroup,
-    --                     callback = function()
-    --                         -- Only run the linter in buffers that you can modify in order to
-    --                         -- avoid superfluous noise, notably within the handy LSP pop-ups that
-    --                         -- describe the hovered symbol using Markdown.
-    --                         if vim.opt_local.modifiable:get() then
-    --                             lint.try_lint()
-    --                         end
-    --                     end,
-    --                 })
-    --             end,
-    --         },
-    --     },
-    --     config = function ()
-    --         require("mason-nvim-lint").setup({
-    --             ensure_installed = { 'golangci-lint', 'eslint_d', 'htmlhint', 'stylelint' },
-    --         })
-    --     end,
-    -- },
+    {
+        -- mason-nvim-lint
+        -- https://github.com/rshkarin/mason-nvim-lint
+        'rshkarin/mason-nvim-lint',
+        dependencies = {
+            {
+                -- mason.nvim
+                -- https://github.com/williamboman/mason.nvim
+                'williamboman/mason.nvim',
+                opts = {},
+            },
+            {
+                -- nvim-lint
+                -- https://github.com/mfussenegger/nvim-lint
+                'mfussenegger/nvim-lint',
+                event = { 'BufReadPre', 'BufNewFile', },
+                config = function()
+                    local lint = require 'lint'
+                    lint.linters_by_ft = {
+                        -- check: https://golangci-lint.run/
+                        go = { 'golangcilint' },
+                        -- check: https://eslint.org/docs/latest/use/getting-started
+                        javascript = { 'eslint_d' },
+                        typescript = { 'eslint_d' },
+                        javascriptreact = { 'eslint_d' },
+                        typescriptreact = { 'eslint_d' },
+                        -- check: https://htmlhint.com/docs/user-guide/getting-started
+                        html = { 'htmlhint' },
+                        -- check: https://github.com/stylelint/stylelint/blob/main/docs/user-guide/get-started.md
+                        css = { 'stylelint' },
+                    }
+                    -- FIX: golang
+                    -- check: https://github.com/mfussenegger/nvim-lint/pull/761
+                    local golangcilint = require('lint').linters.golangcilint
+                    golangcilint.args = {
+                        'run',
+                        '--output.json.path=stdout',
+                        '--issues-exit-code=0',
+                        '--show-stats=false',
+                        '--output.text.print-issued-lines=false',
+                        '--output.text.print-linter-name=false',
+                        '--output.text.path=stderr',
+                    }
+                    local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
+                    vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
+                        group = lint_augroup,
+                        callback = function()
+                            -- Only run the linter in buffers that you can modify in order to
+                            -- avoid superfluous noise, notably within the handy LSP pop-ups that
+                            -- describe the hovered symbol using Markdown.
+                            if vim.opt_local.modifiable:get() then
+                                lint.try_lint()
+                            end
+                        end,
+                    })
+                end,
+            },
+        },
+        config = function ()
+            require("mason-nvim-lint").setup({
+                ensure_installed = { 'eslint_d', 'golangci-lint', 'htmlhint', 'stylelint' },
+            })
+        end,
+    },
 })
