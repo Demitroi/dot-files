@@ -9,7 +9,7 @@ vim.opt.smartcase = true
 
 -- Use system clipboard
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+    vim.opt.clipboard = 'unnamedplus'
 end)
 
 -- Prefered colorscheme, wildcharm and desert are cool two
@@ -96,11 +96,11 @@ vim.keymap.set('i', '<C-S>', vim.lsp.buf.signature_help)
 -- https://github.com/nvim-lua/kickstart.nvim
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-  if vim.v.shell_error ~= 0 then
-    error('Error cloning lazy.nvim:\n' .. out)
-  end
+    local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+    local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+    if vim.v.shell_error ~= 0 then
+        error('Error cloning lazy.nvim:\n' .. out)
+    end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
@@ -231,16 +231,16 @@ require('lazy').setup({
             require'nvim-treesitter.configs'.setup {
                 -- A list of parser names, or "all" (the listed parsers MUST always be installed)
                 ensure_installed = {
-                  "bash", "css", "desktop", "diff", "dockerfile", "git_config", "gitignore", "go",
-                  "gomod", "gosum", "gotmpl", "gowork", "html", "java", "javascript", "jq", "json",
-                  "lua", "make", "markdown", "markdown_inline", "nginx", "php", "php_only", "python",
-                  "sql", "ssh_config", "templ", "tmux", "toml", "typescript", "vue", "xml", "yaml",
+                    "bash", "css", "desktop", "diff", "dockerfile", "git_config", "gitignore", "go",
+                    "gomod", "gosum", "gotmpl", "gowork", "html", "java", "javascript", "jq", "json",
+                    "lua", "make", "markdown", "markdown_inline", "nginx", "php", "php_only", "python",
+                    "sql", "ssh_config", "templ", "tmux", "toml", "typescript", "vue", "xml", "yaml",
                 },
                 highlight = {
-                  enable = true,
+                    enable = true,
                 },
                 indent = {
-                  enable = true,
+                    enable = true,
                 },
             }
         end,
