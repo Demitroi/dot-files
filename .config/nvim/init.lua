@@ -27,12 +27,6 @@ vim.opt.list = true
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 
--- " Tabsize and when insert spaces with the '>' and '<' commands
--- vim.opt.tabstop = 4
--- vim.opt.softtabstop = 4
--- vim.opt.shiftwidth = 4
--- vim.opt.expandtab = true
-
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -96,114 +90,159 @@ vim.keymap.set('i', '<C-S>', vim.lsp.buf.signature_help)
 -- K is mapped to vim.lsp.buf.hover() unless 'keywordprg' is customized or a custom keymap for K exists.
 
 -- Plugins section
--- Clone plugins in ~/.local/share/nvim/site/pack/plugins/start/
+-- Install lazy.nvim automatically
+-- https://github.com/folke/lazy.nvim
+-- Thanks to kickstart.nvim
+-- https://github.com/nvim-lua/kickstart.nvim
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then
+    error('Error cloning lazy.nvim:\n' .. out)
+  end
+end ---@diagnostic disable-next-line: undefined-field
+vim.opt.rtp:prepend(lazypath)
 
--- vim-sleuth
--- https://github.com/tpope/vim-sleuth.git
-
--- gitsigns.nvim
--- https://github.com/lewis6991/gitsigns.nvim
-require('gitsigns').setup()
-vim.cmd("Gitsigns toggle_current_line_blame")
--- Git diff
-vim.keymap.set('n', '<Leader>gd', '<Cmd>:Gitsigns preview_hunk<CR>')
--- Git previous
-vim.keymap.set('n', '[g', '<Cmd>:Gitsigns prev_hunk<CR>')
--- Git next
-vim.keymap.set('n', ']g', '<Cmd>:Gitsigns next_hunk<CR>')
--- Git reset
-vim.keymap.set('n', '<Leader>gr', '<Cmd>:Gitsigns reset_hunk<CR>')
--- Git blame
-vim.keymap.set('n', '<Leader>gb', '<Cmd>:Gitsigns blame_line<CR>')
-
--- nvim-jdtls
--- https://github.com/mfussenegger/nvim-jdtls
-
--- nvim-dap
--- https://github.com/mfussenegger/nvim-dap
--- Toggle breakpoint
-vim.keymap.set('n', '<Leader>tb', require'dap'.toggle_breakpoint)
--- Step continue
-vim.keymap.set('n', '<Leader>sc', require'dap'.continue)
--- Step over
-vim.keymap.set('n', '<Leader>so', require'dap'.step_over)
--- Step into
-vim.keymap.set('n', '<Leader>si', require'dap'.step_into)
--- Step exit, so is already used
-vim.keymap.set('n', '<Leader>se', require'dap'.step_out)
--- IDK, i'm not using it
-vim.keymap.set('n', '<Leader>ro', require'dap'.repl.open)
--- Debug hover
-vim.keymap.set('n', '<Leader>dh', require'dap.ui.widgets'.hover)
--- Debug preview
-vim.keymap.set('n', '<Leader>dp', require'dap.ui.widgets'.preview)
-
--- plenary.nvim
--- https://github.com/nvim-lua/plenary.nvim
-
--- telescope.nvim
--- https://github.com/nvim-telescope/telescope.nvim
-vim.keymap.set('n', '<Leader>ff', '<Cmd>Telescope find_files<CR>')
-vim.keymap.set('n', '<Leader>fg', '<Cmd>Telescope live_grep<CR>')
-vim.keymap.set('n', '<Leader>fb', '<Cmd>Telescope buffers<CR>')
-vim.keymap.set('n', '<Leader>fh', '<Cmd>Telescope help_tags<CR>')
-
--- oil.nvim
--- https://github.com/stevearc/oil.nvim.git
-require("oil").setup()
-vim.keymap.set('n', '-', '<CMD>Oil<CR>')
-
--- mason.nvim
--- https://github.com/williamboman/mason.nvim.git
-require("mason").setup()
-
--- mason-lspconfig.nvim
--- https://github.com/williamboman/mason-lspconfig.nvim.git
-require("mason-lspconfig").setup{
-    ensure_installed = { "cssls", "eslint", "jdtls", "gopls", "html", },
-}
-
--- nvim-lspconfig
--- https://github.com/neovim/nvim-lspconfig.git
-
--- HTML
-require'lspconfig'.html.setup{}
-
--- CSS
-require'lspconfig'.cssls.setup{}
-
--- JavaScript
-require'lspconfig'.eslint.setup{}
-
--- Golang
-require'lspconfig'.gopls.setup{
-    settings = {
-        gopls = {
-            analyses = {
-                unusedparams = true,
-            },
-            staticcheck = true,
-            gofumpt = true,
-        },
+require('lazy').setup({
+    -- vim-sleuth
+    -- https://github.com/tpope/vim-sleuth.git
+    'tpope/vim-sleuth',
+    -- gitsigns.nvim
+    -- https://github.com/lewis6991/gitsigns.nvim
+    {
+        'https://github.com/lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+            vim.cmd("Gitsigns toggle_current_line_blame")
+            -- Git diff
+            vim.keymap.set('n', '<Leader>gd', '<Cmd>:Gitsigns preview_hunk<CR>')
+            -- Git previous
+            vim.keymap.set('n', '[g', '<Cmd>:Gitsigns prev_hunk<CR>')
+            -- Git next
+            vim.keymap.set('n', ']g', '<Cmd>:Gitsigns next_hunk<CR>')
+            -- Git reset
+            vim.keymap.set('n', '<Leader>gr', '<Cmd>:Gitsigns reset_hunk<CR>')
+            -- Git blame
+            vim.keymap.set('n', '<Leader>gb', '<Cmd>:Gitsigns blame_line<CR>')
+        end,
     },
-}
+    -- nvim-jdtls
+    -- https://github.com/mfussenegger/nvim-jdtls
+    'mfussenegger/nvim-jdtls',
+    -- nvim-dap
+    -- https://github.com/mfussenegger/nvim-dap
+    {
+        'mfussenegger/nvim-dap',
+        config = function()
+            -- Toggle breakpoint
+            vim.keymap.set('n', '<Leader>tb', require'dap'.toggle_breakpoint)
+            -- Step continue
+            vim.keymap.set('n', '<Leader>sc', require'dap'.continue)
+            -- Step over
+            vim.keymap.set('n', '<Leader>so', require'dap'.step_over)
+            -- Step into
+            vim.keymap.set('n', '<Leader>si', require'dap'.step_into)
+            -- Step exit, so is already used
+            vim.keymap.set('n', '<Leader>se', require'dap'.step_out)
+            -- IDK, i'm not using it
+            vim.keymap.set('n', '<Leader>ro', require'dap'.repl.open)
+            -- Debug hover
+            vim.keymap.set('n', '<Leader>dh', require'dap.ui.widgets'.hover)
+            -- Debug preview
+            vim.keymap.set('n', '<Leader>dp', require'dap.ui.widgets'.preview)
+        end,
+    },
+    -- telescope.nvim
+    -- https://github.com/nvim-telescope/telescope.nvim
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = {
+            -- plenary.nvim
+            -- https://github.com/nvim-lua/plenary.nvim
+            'nvim-lua/plenary.nvim',
+        },
+        config = function()
+            vim.keymap.set('n', '<Leader>ff', '<Cmd>Telescope find_files<CR>')
+            vim.keymap.set('n', '<Leader>fg', '<Cmd>Telescope live_grep<CR>')
+            vim.keymap.set('n', '<Leader>fb', '<Cmd>Telescope buffers<CR>')
+            vim.keymap.set('n', '<Leader>fh', '<Cmd>Telescope help_tags<CR>')
+        end,
+    },
+    -- oil.nvim
+    -- https://github.com/stevearc/oil.nvim
+    {
+        'stevearc/oil.nvim',
+        config = function()
+            require("oil").setup()
+            vim.keymap.set('n', '-', '<CMD>Oil<CR>')
+        end,
+        lazy = false,
+    },
+    -- nvim-lspconfig
+    -- https://github.com/neovim/nvim-lspconfig
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = {
+            -- mason.nvim
+            -- https://github.com/williamboman/mason.nvim
+            {
+                'williamboman/mason.nvim',
+                opts = {},
+            },
+            -- mason-lspconfig.nvim
+            -- https://github.com/williamboman/mason-lspconfig.nvim
+            {
+                'williamboman/mason-lspconfig.nvim',
+                opts = {
+                    ensure_installed = { "cssls", "eslint", "jdtls", "gopls", "html", },
+                }
+            },
+        },
+        config = function()
+            -- HTML
+            require'lspconfig'.html.setup{}
 
--- nvim-treesitter
--- https://github.com/nvim-treesitter/nvim-treesitter.git
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-  ensure_installed = {
-    "bash", "css", "desktop", "diff", "dockerfile", "git_config", "gitignore", "go",
-    "gomod", "gosum", "gotmpl", "gowork", "html", "java", "javascript", "jq", "json",
-    "lua", "make", "markdown", "markdown_inline", "nginx", "php", "php_only", "python",
-    "sql", "ssh_config", "templ", "tmux", "toml", "typescript", "vue", "xml", "yaml",
-  },
+            -- CSS
+            require'lspconfig'.cssls.setup{}
 
-  highlight = {
-    enable = true,
-  },
+            -- JavaScript
+            require'lspconfig'.eslint.setup{}
 
-  indent = {
-    enable = true,
-  }
-}
+            -- Golang
+            require'lspconfig'.gopls.setup{
+                settings = {
+                    gopls = {
+                        analyses = {
+                            unusedparams = true,
+                        },
+                        staticcheck = true,
+                        gofumpt = true,
+                    },
+                },
+            }
+        end,
+    },
+    {
+        -- nvim-treesitter
+        -- https://github.com/nvim-treesitter/nvim-treesitter
+        'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require'nvim-treesitter.configs'.setup {
+                -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+                ensure_installed = {
+                  "bash", "css", "desktop", "diff", "dockerfile", "git_config", "gitignore", "go",
+                  "gomod", "gosum", "gotmpl", "gowork", "html", "java", "javascript", "jq", "json",
+                  "lua", "make", "markdown", "markdown_inline", "nginx", "php", "php_only", "python",
+                  "sql", "ssh_config", "templ", "tmux", "toml", "typescript", "vue", "xml", "yaml",
+                },
+                highlight = {
+                  enable = true,
+                },
+                indent = {
+                  enable = true,
+                },
+            }
+        end,
+    },
+})
