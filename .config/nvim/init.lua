@@ -79,7 +79,7 @@ vim.keymap.set('n', '<Leader>tw', '<Cmd>:set wrap!<CR>')
 -- vim.keymap.set('v', 'gra', vim.lsp.buf.code_action)
 -- vim.keymap.set('n', 'grr', vim.lsp.buf.references)
 -- vim.keymap.set('n', 'gri', vim.lsp.buf.implementation)
--- vim.keymap.set('n', 'grf', vim.lsp.buf.format)
+vim.keymap.set('n', 'grf', vim.lsp.buf.format)
 -- vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol)
 -- vim.keymap.set('i', '<C-S>', vim.lsp.buf.signature_help)
 -- Not keymaps, just to remember the lsp-defaults
@@ -91,7 +91,7 @@ vim.keymap.set('n', '<Leader>tw', '<Cmd>:set wrap!<CR>')
 
 -- Enable diagnostic virtual lines
 -- See: https://neovim.io/doc/user/diagnostic.html#vim.diagnostic.config()
-vim.diagnostic.config({ virtual_lines = true})
+vim.diagnostic.config({ virtual_text = true})
 
 -- Plugins section
 -- Install lazy.nvim automatically
