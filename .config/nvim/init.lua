@@ -35,10 +35,15 @@ vim.opt.splitbelow = true
 vim.opt.wrap = false
 -- Linebreak
 vim.opt.linebreak = true
+-- Breakindent
+vim.opt.breakindent = true
 
 -- Set <Space> as the leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- Disable show mode
+vim.opt.showmode = false
 
 -- Buffer list
 vim.keymap.set('n', '<Leader>bl', '<Cmd>:buffers<CR>')
@@ -72,6 +77,22 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 vim.keymap.set('n', '<Leader>ds', vim.diagnostic.open_float)
 -- Toggle wrap
 vim.keymap.set('n', '<Leader>tw', '<Cmd>:set wrap!<CR>')
+
+-- Move the focus between windows
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>')
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>')
+
+-- Move windows
+vim.keymap.set("n", "<C-S-h>", "<C-w>H")
+vim.keymap.set("n", "<C-S-l>", "<C-w>L")
+vim.keymap.set("n", "<C-S-j>", "<C-w>J")
+vim.keymap.set("n", "<C-S-k>", "<C-w>K")
+
+-- Create window splits
+vim.keymap.set('n', '<Leader>hs', '<Cmd>:split<CR>')
+vim.keymap.set('n', '<Leader>vs', '<Cmd>:vsplit<CR>')
 
 -- Lsp keymaps
 -- vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
