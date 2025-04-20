@@ -188,10 +188,17 @@ require('lazy').setup({
             'nvim-lua/plenary.nvim',
         },
         config = function()
+            vim.keymap.set('n', '<Leader>fb', '<Cmd>Telescope buffers<CR>')
+            vim.keymap.set('n', '<Leader>fd', '<Cmd>Telescope diagnostics<CR>')
             vim.keymap.set('n', '<Leader>ff', '<Cmd>Telescope find_files<CR>')
             vim.keymap.set('n', '<Leader>fg', '<Cmd>Telescope live_grep<CR>')
-            vim.keymap.set('n', '<Leader>fb', '<Cmd>Telescope buffers<CR>')
             vim.keymap.set('n', '<Leader>fh', '<Cmd>Telescope help_tags<CR>')
+            vim.keymap.set('n', '<Leader>fj', '<Cmd>Telescope jumplist<CR>')
+            vim.keymap.set('n', '<Leader>fk', '<Cmd>Telescope keymaps<CR>')
+            vim.keymap.set('n', '<Leader>fm', '<Cmd>Telescope marks<CR>')
+            vim.keymap.set('n', '<Leader>fq', '<Cmd>Telescope quickfix<CR>')
+            vim.keymap.set('n', '<Leader>fr', '<Cmd>Telescope registers<CR>')
+            vim.keymap.set('n', '<Leader>fs', '<Cmd>Telescope git_status<CR>')
         end,
     },
     -- oil.nvim
