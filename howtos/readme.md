@@ -2,7 +2,7 @@
 
 In this section I'll write my personal tutorials.
 
-Index:
+Table of Content:
 
 - [Arch linux installation](arch-linux-installation.md)
 - [Time in multiple Systems](time-in-multiple-systems.md)
