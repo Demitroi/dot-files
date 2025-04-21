@@ -1,22 +1,22 @@
-### Demitroi's dot files
+## Demitroi's dot files
 
 Software preferences and settings.
 
-#### Wifi (NetworkManager)
+### Base System
+
+#### NetworkManager (Ethernet and WiFi)
 
 NetworkManager is the standard Linux network configuration tool suite. It supports large range of networking setups, from desktop to servers and mobile and integrates well with popular desktop environments and server configuration management tools.
 
 https://networkmanager.dev/
 
-#### Time in multiple systems
+#### Microcode
 
-If it's doing dual boot with windows it probably has problems with time, to avoid this, it's recommended to set the local rtc.
+Processor manufacturers release stability and security updates to the processor microcode. These updates provide bug fixes that can be critical to the stability of your system. Without them, you may experience spurious crashes or unexpected system halts that can be difficult to track down. 
 
-```sh
-timedatectl set-local-rtc 1
-```
+https://wiki.archlinux.org/title/Microcode
 
-See: https://wiki.archlinux.org/title/System_time#Multiple_systems
+### Desktop Environment
 
 #### Display manager (ly)
 
@@ -106,35 +106,6 @@ https://www.zsh.org/
 See: https://wiki.archlinux.org/title/Zsh
 
 [.zshrc](.zshrc)
-
-#### Terminal text editor (Neovim)
-
-Neovim is a fork of Vim aiming to improve the codebase, allowing for easier implementation of APIs, improved user experience and plugin implementation.
-
-In order to install plugins first create de plugins directory and clone them there.
-
-```sh
-$ mkdir -p ~/.local/share/nvim/site/pack/plugins/start/
-$ cd ~/.local/share/nvim/site/pack/plugins/start/
-$ git clone my_plugin
-```
-
-Don't forget to install the ```ripgrep``` package.
-
-https://neovim.io/
-
-[.config/nvim/init.vim](.config/nvim/init.vim)
-
-Plugins:
-[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-
-#### Terminal multiplexer (Tmux)
-
-tmux is a "terminal multiplexer: it enables a number of terminals (or windows), each running a separate program, to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached."
-
-https://github.com/tmux/tmux/wiki
-
-[.config/tmux/tmux.conf](.config/tmux/tmux.conf)
 
 #### Clipboard manager (cliphist)
 
@@ -257,6 +228,102 @@ Open lxqt-config-appearance via terminal, in the Widget Style section select qt6
 
 Open Qt6 Settings, select Breeze in Style, in Paletter check Custom radio button and select Color scheme darker. Go to Font tab, set the Font to "Hack Nerd Font Mono", Font style Normal and Size 10. Go to the Icon Theme tab and select Papirus-Dark.
 
+#### Screen magnifier
+
+It's not possible yet on sway, see:
+
+https://www.reddit.com/r/swaywm/comments/15v29nf/does_a_swaywlroots_magnifying_glass_tool_exists/
+
+https://github.com/swaywm/sway/issues/2781
+
+#### Snapshots (Timeshift)
+
+System restore tool for Linux. Creates filesystem snapshots using rsync+hardlinks, or BTRFS snapshots. Supports scheduled snapshots, multiple backup levels, and exclude filters. Snapshots can be restored while system is running or from Live CD/USB.
+
+Don't forget to install the ```xorg-xwayland``` package.
+
+https://github.com/linuxmint/timeshift
+
+#### Icon manager (lxqt-config)
+
+Tools to configure LXQt and the underlying operating system.
+
+https://github.com/lxqt/lxqt-config
+
+#### Mouse cursor (lxqt-config)
+
+Tools to configure LXQt and the underlying operating system.
+
+https://github.com/lxqt/lxqt-config
+
+#### File associations config (lxqt-config)
+
+Tools to configure LXQt and the underlying operating system.
+
+https://github.com/lxqt/lxqt-config
+
+#### Policy kit
+
+Polkit is an application-level toolkit for defining and handling the policy that allows unprivileged processes to speak to privileged processes: It is a framework for centralizing the decision making process with respect to granting access to privileged operations for unprivileged applications.
+
+https://github.com/lxqt/lxqt-policykit
+
+[.config/sway/config](.config/sway/config)
+
+### Development tools
+
+#### Terminal text editor (Neovim)
+
+Neovim is a fork of Vim aiming to improve the codebase, allowing for easier implementation of APIs, improved user experience and plugin implementation.
+
+Don't forget to install the ```ripgrep``` package.
+
+https://neovim.io/
+
+[.config/nvim/init.vim](.config/nvim/init.vim)
+
+Plugins:
+[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+
+#### Terminal multiplexer (Tmux)
+
+tmux is a "terminal multiplexer: it enables a number of terminals (or windows), each running a separate program, to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached."
+
+https://github.com/tmux/tmux/wiki
+
+[.config/tmux/tmux.conf](.config/tmux/tmux.conf)
+
+#### Code edition (Visual Studio Code)
+
+Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
+
+https://code.visualstudio.com/
+
+Extensions:
+- [Git Line Blame](https://marketplace.visualstudio.com/items?itemName=carlthome.git-line-blame)
+- [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
+- [Hex Editor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
+- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
+- [vscode-base64](https://marketplace.visualstudio.com/items?itemName=adamhartford.vscode-base64)
+
+[.config/Code/User/keybindings.json](.config/Code/User/keybindings.json)
+[.config/Code/User/settings.json](.config/Code/User/settings.json)
+[.config/code-flags.conf](.config/code-flags.conf)
+
+#### Database manager (DBeaver)
+
+DBeaver Community is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data.
+
+https://dbeaver.io/
+
+#### System resource monitor (btop)
+
+Resource monitor that shows usage and stats for processor, memory, disks, network and processes.
+
+https://github.com/aristocratos/btop
+
+### Applicatons
+
 #### Web Browser (Firefox)
 
 Firefox is a popular open source graphical web browser from Mozilla.
@@ -316,46 +383,6 @@ Audacity is an easy-to-use, multi-track audio editor and recorder for Windows, m
 
 https://www.audacityteam.org/
 
-#### Monitor config
-
-Edit sway dot files, check outputs with this command:
-
-```sh
-$ swaymsg -t get_outputs
-```
-
-See ```man 5 sway-output``` for more details.
-
-[.config/sway/config](.config/sway/config)
-
-#### Laptop Lid
-
-To prevent the laptop from going into hibernation when the lid is closed, you have to configure ACPI events.
-
-See:
-
-https://wiki.archlinux.org/title/Power_management#ACPI_events
-
-#### Mouse and Keyboard config
-
-Edit sway dot files, check inputs with this command:
-
-```sh
-$ swaymsg -t get_inputs
-```
-
-See ```man 5 sway-input``` for more details.
-
-[.config/sway/config](.config/sway/config)
-
-#### Screen magnifier
-
-It's not possible yet on sway, see:
-
-https://www.reddit.com/r/swaywm/comments/15v29nf/does_a_swaywlroots_magnifying_glass_tool_exists/
-
-https://github.com/swaywm/sway/issues/2781
-
 #### Open Broadcaster Software
 
 Open Broadcaster Software (OBS) is an open source cross-platform video recording and live-streaming application. It provides an easy to pick up and extensible workflow with customizable scenes, volume mixers, transitions, filters and more.
@@ -378,29 +405,6 @@ https://kdeconnect.kde.org/
 
 [.config/mako/config](.config/mako/config)
 
-#### Code edition (Visual Studio Code)
-
-Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
-
-https://code.visualstudio.com/
-
-Extensions:
-- [Git Line Blame](https://marketplace.visualstudio.com/items?itemName=carlthome.git-line-blame)
-- [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
-- [Hex Editor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
-- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
-- [vscode-base64](https://marketplace.visualstudio.com/items?itemName=adamhartford.vscode-base64)
-
-[.config/Code/User/keybindings.json](.config/Code/User/keybindings.json)
-[.config/Code/User/settings.json](.config/Code/User/settings.json)
-[.config/code-flags.conf](.config/code-flags.conf)
-
-#### Database manager (DBeaver)
-
-DBeaver Community is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data.
-
-https://dbeaver.io/
-
 #### Flashcards (Anki)
 
 Powerful, intelligent flash cards. Remembering things just became much easier.
@@ -419,31 +423,7 @@ Let KeePassXC safely store your passwords and auto-fill them into your favorite 
 
 https://keepassxc.org/
 
-#### Snapshots (Timeshift)
-
-System restore tool for Linux. Creates filesystem snapshots using rsync+hardlinks, or BTRFS snapshots. Supports scheduled snapshots, multiple backup levels, and exclude filters. Snapshots can be restored while system is running or from Live CD/USB.
-
-Don't forget to install the ```xorg-xwayland``` package.
-
-https://github.com/linuxmint/timeshift
-
-#### Icon manager (lxqt-config)
-
-Tools to configure LXQt and the underlying operating system.
-
-https://github.com/lxqt/lxqt-config
-
-#### Mouse cursor (lxqt-config)
-
-Tools to configure LXQt and the underlying operating system.
-
-https://github.com/lxqt/lxqt-config
-
-#### File associations config (lxqt-config)
-
-Tools to configure LXQt and the underlying operating system.
-
-https://github.com/lxqt/lxqt-config
+### Servers
 
 #### Jellyfin (Multimedia servier)
 
@@ -457,111 +437,15 @@ Syncthing is a continuous file synchronization program. It synchronizes files be
 
 https://syncthing.net/
 
-#### System information viewer (inxi)
-
-inxi is a full featured CLI system information tool. It is available in most Linux distribution repositories, and does its best to support the BSDs. 
-
-https://smxi.org/docs/inxi.htm
-
-#### System resource monitor (btop)
-
-Resource monitor that shows usage and stats for processor, memory, disks, network and processes.
-
-https://github.com/aristocratos/btop
-
 #### SSH Server (OpenSSH)
 
 OpenSSH (OpenBSD Secure Shell) is a set of computer programs providing encrypted communication sessions over a computer network using the Secure Shell (SSH) protocol.
 
 https://wiki.archlinux.org/title/OpenSSH
 
-#### Monitoring SSDs y HDDs
+### Howtos
 
-Self-Monitoring, Analysis, and Reporting Technology (S.M.A.R.T., often written as SMART) is a monitoring system included in computer hard disk drives (HDDs) and solid-state drives (SSDs).[2] Its primary function is to detect and report various indicators of drive reliability with the intent of anticipating imminent hardware failures.
-
-https://wiki.archlinux.org/title/S.M.A.R.T.
-
-#### Mount and unmount pendrives (USB drive) (udisks)
-
-udisks provides a daemon udisksd, that implements D-Bus interfaces used to query and manipulate storage devices, and a command-line tool udisksctl, used to query and use the daemon. 
-
-https://www.freedesktop.org/wiki/Software/udisks/
-
-For the root user, to list the drives user the following command:
-
-```sh
-$ fdisk -l
-```
-
-To mount the drives use:
-
-```sh
-$ sudo mount /dev/sdd1 /media/usb
-```
-
-To unmount the drives use:
-
-```sh
-$ sudo umount /dev/sdd1
-```
-
-For the normal user, to list the drives user the following command:
-
-```sh
-$ lsblk
-```
-
-To mount the drives use:
-
-```sh
-$ udisksctl mount -b /dev/sdd1
-```
-
-To unmount the drives use:
-
-```sh
-$ udisksctl unmount -b /dev/sdd1
-```
-
-See all mounts with:
-
-```sh
-findmnt
-```
-
-#### Format USB drives
-
-Read how create a partition table and partitions in the wiki:
-
-https://wiki.archlinux.org/title/Fdisk
-
-In order to format read:
-
-https://wiki.archlinux.org/title/FAT
-
-#### Microcode
-
-Processor manufacturers release stability and security updates to the processor microcode. These updates provide bug fixes that can be critical to the stability of your system. Without them, you may experience spurious crashes or unexpected system halts that can be difficult to track down. 
-
-https://wiki.archlinux.org/title/Microcode
-
-#### Touchpad (libinput)
-
-libinput is a library to handle input devices in Wayland compositors and to provide a generic X.Org input driver. It provides device detection, device handling, input device event processing and abstraction to minimize the amount of custom input code compositors need to provide the common set of functionality that users expect.
-
-https://wiki.archlinux.org/title/Libinput
-
-See ```man 5 sway-input``` for more details.
-
-[.config/sway/config](.config/sway/config)
-
-#### Policy kit
-
-Polkit is an application-level toolkit for defining and handling the policy that allows unprivileged processes to speak to privileged processes: It is a framework for centralizing the decision making process with respect to granting access to privileged operations for unprivileged applications.
-
-https://github.com/lxqt/lxqt-policykit
-
-[.config/sway/config](.config/sway/config)
+Go to the [howtos](howtos/readme.md) section.
 
 #### Aditional packages
 
