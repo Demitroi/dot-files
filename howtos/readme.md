@@ -5,7 +5,7 @@ In this section I'll write my personal tutorials.
 Index:
 
 - [Arch linux installation](arch-linux-installation.md)
-- [Time in multiple Systems][time-in-multiple-systems.md)
+- [Time in multiple Systems](time-in-multiple-systems.md)
 - [Display configuration](display-configuration.md)
 - [Laptop lid configuration](laptop-lid-configuration.md)
 - [Mouse and keyboard configuration](mouse-and-keyboard-configuration.md)
