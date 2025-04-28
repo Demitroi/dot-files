@@ -28,7 +28,7 @@ ln -s -f $PWD/.config/waybar/config.jsonc ~/.config/waybar/
 ln -s -f $PWD/.config/waybar/style.css ~/.config/waybar/
 
 # Zsh
-ln -s -f .zshrc ~/
+ln -s -f $PWD/.zshrc ~/
 
 # Wallpapers
 mkdir -p ~/.local/share/wallpapers
