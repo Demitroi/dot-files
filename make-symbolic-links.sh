@@ -14,7 +14,7 @@ ln -s -f $PWD/.config/mako/config ~/.config/mako/
 
 # Screenshot scripts
 mkdir -p ~/.config/screenshot
-ln -s -f $PWD/.config/screenshot/take_full_screenshot.sh mkdir ~/.config/screenshot/
+ln -s -f $PWD/.config/screenshot/take_full_screenshot.sh ~/.config/screenshot/
 ln -s -f $PWD/.config/screenshot/take_region_screenshot.sh ~/.config/screenshot/
 
 # Wofi
@@ -45,3 +45,16 @@ ln -s -f $PWD/.config/code-flags.conf ~/.config/
 # MPV
 mkdir -p ~/.config/mpv
 ln -s -f $PWD/.config/mpv/mpv.conf ~/.config/mpv/
+
+# Git
+ln -s -f $PWD/.gitconfig ~/
+
+# Neovim
+mkdir -p ~/.config/nvim/ftplugin
+ln -s -f $PWD/.config/nvim/ftplugin/java.lua ~/.config/nvim/ftplugin/
+ln -s -f $PWD/.config/nvim/init.lua ~/.config/nvim/
+ln -s -f $PWD/.config/nvim/lazy-lock.json ~/.config/nvim/
+
+# Tmux
+mkdir -p ~/.config/tmux
+ln -s -f $PWD/.config/tmux/tmux.conf ~/.config/tmux/
