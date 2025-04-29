@@ -44,7 +44,7 @@ label:focus {
 }
 
 #workspaces button {
-    padding: 0 7px;
+    padding: 0 8px;
     background-color: transparent;
     color: #ffffff;
 }
@@ -64,17 +64,21 @@ label:focus {
 
 #mode {
     background-color: #64727D;
-    padding: 0 10px;
+    padding: 0 8px;
     box-shadow: inset 0 -3px #ffffff;
 }
 
 #scratchpad {
     background: rgba(0, 0, 0, 0.2);
-    padding: 0 10px;
+    padding: 0 8px;
 }   
     
 #scratchpad.empty {
    background-color: transparent;
+}
+
+#window {
+    padding: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
@@ -82,12 +86,16 @@ label:focus {
    margin-right: 0;
 }
 
+#mpris {
+    padding: 0 4px;
+}
+
 #privacy {
    padding: 0;
 }
 
 #privacy-item {
-   padding: 0 6px;
+   padding: 0 4px;
    color: white;
 }
 
@@ -104,7 +112,7 @@ label:focus {
 }
 
 #tray {
-   padding: 0 6px;
+   padding: 0 4px;
 }
 
 #tray > .passive {
@@ -116,11 +124,16 @@ label:focus {
    background-color: #eb4d4b;
 }
 
-#pulseaudio,
-#network,
-#backlight,
+#pulseaudio {
+    padding: 0 6px;
+}
+
+#network {
+    padding: 0 4px;
+}
+
 #clock {
-    padding: 0 8px;
+    padding: 0 6px;
     color: #ffffff;
 }
 
