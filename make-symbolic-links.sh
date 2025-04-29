@@ -58,3 +58,6 @@ ln -s -f $PWD/.config/nvim/lazy-lock.json ~/.config/nvim/
 # Tmux
 mkdir -p ~/.config/tmux
 ln -s -f $PWD/.config/tmux/tmux.conf ~/.config/tmux/
+
+# mimeapps.list
+ln -s -f $PWD/.config/mimeapps.list ~/.config/
