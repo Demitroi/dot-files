@@ -83,3 +83,7 @@ ln -s -f $PWD/.icons/default/index.theme ~/.icons/default/
 # XSettingsd
 mkdir -p ~/.config/xsettingsd
 ln -s -f $PWD/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
+
+# nwg-look
+mkdir -p ~/.local/share/nwg-look
+ln -s -f $PWD/.local/share/nwg-look/gsettings ~/.local/share/nwg-look/

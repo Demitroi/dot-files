@@ -326,6 +326,12 @@ bindsym Print exec sh ~/.config/screenshot/take_full_screenshot.sh
 bindsym Control+Print exec sh ~/.config/screenshot/take_region_screenshot.sh
 
 #
+# Apply nwg-look settings
+#
+exec nwg-look -a
+exec nwg-look -x
+
+#
 # Clipboard
 #
 exec wl-paste --watch cliphist store
