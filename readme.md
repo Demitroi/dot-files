@@ -26,12 +26,9 @@ Software preferences and settings.
     - [File archiver (LXQt Archiver)](#file-archiver-lxqt-archiver)
     - [Image viewer (LXImage-Qt)](#image-viewer-lximage-qt)
     - [Show calendar (khal)](#show-calendar-khal)
-    - [Themes (breeze, breeze-gtk, bloom, qt6ct, lxqt-config-appearance)](#themes-breeze,-breeze-gtk,-bloom,-qt6ct,-lxqt-config-appearance)
+    - [Themes](#themes)
     - [Screen magnifier](#screen-magnifier)
     - [Snapshots (Timeshift)](#snapshots-timeshift)
-    - [Icon manager (lxqt-config)](#icon-manager-lxqt-config)
-    - [Mouse cursor (lxqt-config)](#mouse-cursor-lxqt-config)
-    - [File associations config (lxqt-config)](#file-associations-config-lxqt-config)
     - [Policy kit](#policy-kit)
 - [Development tools](#development-tools)
     - [Terminal text editor (Neovim)](#terminal-text-editor-neovim)
@@ -247,17 +244,17 @@ Don't forget to run ```khal configure`` to configure it.
 
 https://github.com/pimutils/khal
 
-#### Themes (breeze, breeze-gtk, bloom, qt6ct, lxqt-config-appearance)
+#### Themes
 
 Read this wiki entry for more context:
 
 https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
 
-Install the themes breeze, breeze-gtk, papirus-icon-theme, deepin-icon-theme, ttf-hack-nerd and noto-fonts-emoji. Also you have to install qt6ct and lxqt-config to config graphically the qt and gtk themes.
+Install the themes breeze, oxygen, breeze-gtk and gnome-themes-extra. The icons papirus-icon-theme and deepin-icon-theme. And the fonts ttf-hack-nerd and noto-fonts-emoji. Also you have to install qt6ct and nwg-look to config graphically the qt and gtk themes.
 
-Open lxqt-config-appearance via terminal, in the Widget Style section select qt6ct-style in Qt Style combo box. In Icons Theme select Papirus-Dark, in Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10, in Cursor select bloom and finally select Breeze-Dark in both GTK 3 and 4 Theme.
+Open GTK Settings, in the Widgets section select Adwaita-dark. In Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10. In Icon Theme select Papirus-Dark. In Mouse cursor select bloom and.
 
-Open Qt6 Settings, select Fusion in Style, in Paletter check Custom radio button and select Color scheme darker. Go to Font tab, set the Font to "Hack Nerd Font Mono", Font style Normal and Size 10. Go to the Icon Theme tab and select Papirus-Dark.
+Open Qt6 Settings, select Oxygen in Style and select Color scheme darker. Go to Font tab, set the Font to "Hack Nerd Font Mono", Font style Normal and Size 10. Go to the Icon Theme tab and select Papirus-Dark.
 
 #### Screen magnifier
 
@@ -274,24 +271,6 @@ System restore tool for Linux. Creates filesystem snapshots using rsync+hardlink
 Don't forget to install the ```xorg-xwayland``` package.
 
 https://github.com/linuxmint/timeshift
-
-#### Icon manager (lxqt-config)
-
-Tools to configure LXQt and the underlying operating system.
-
-https://github.com/lxqt/lxqt-config
-
-#### Mouse cursor (lxqt-config)
-
-Tools to configure LXQt and the underlying operating system.
-
-https://github.com/lxqt/lxqt-config
-
-#### File associations config (lxqt-config)
-
-Tools to configure LXQt and the underlying operating system.
-
-https://github.com/lxqt/lxqt-config
 
 #### Policy kit
 
@@ -513,7 +492,6 @@ Go to the [howtos](howtos/readme.md) section.
 - lsof
 - lximage-qt
 - lxqt-archiver
-- lxqt-config
 - lxqt-policykit
 - mako
 - man-db
@@ -525,6 +503,7 @@ Go to the [howtos](howtos/readme.md) section.
 - npm
 - ntfs-3g
 - nwg-displays
+- nwg-look
 - open-ssh
 - openssl
 - otf-font-awesome
