@@ -524,6 +524,7 @@ Go to the [howtos](howtos/readme.md) section.
 - noto-fonts-emoji
 - npm
 - ntfs-3g
+- nwg-displays
 - open-ssh
 - openssl
 - otf-font-awesome
