@@ -37,6 +37,7 @@ output * bg ~/.local/share/wallpapers/ir-black.png fill
 # nwg-displays config
 #
 include ~/.config/sway/outputs
+include ~/.config/sway/workspaces
 
 ### Idle configuration
 #
