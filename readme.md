@@ -26,7 +26,7 @@ Software preferences and settings.
     - [File Manager (PCManFM-Qt)](#file-manager-pcmanfm-qt)
     - [File archiver (LXQt Archiver)](#file-archiver-lxqt-archiver)
     - [Image viewer (LXImage-Qt)](#image-viewer-lximage-qt)
-    - [Show calendar (khal)](#show-calendar-khal)
+    - [Calendar](#calendar)
     - [Themes](#themes)
     - [Screen magnifier](#screen-magnifier)
     - [Snapshots (Timeshift)](#snapshots-timeshift)
@@ -243,13 +243,9 @@ The image viewer and screenshot tool for lxqt.
 
 https://github.com/lxqt/lximage-qt
 
-#### Show calendar (khal)
+#### Calendar
 
-CLI calendar application.
-
-Don't forget to run ```khal configure`` to configure it.
-
-https://github.com/pimutils/khal
+calcurse is a calendar and scheduling application for the command line. It helps keep track of events, appointments and everyday tasks.
 
 #### Themes
 
@@ -473,6 +469,7 @@ Go to the [howtos](howtos/readme.md) section.
 - brightnessctl
 - btop
 - caddy
+- calcurse
 - cliphist
 - cmatrix
 - curl
@@ -493,7 +490,6 @@ Go to the [howtos](howtos/readme.md) section.
 - jellyfin-web
 - jq
 - keepassxc
-- khal
 - libinput
 - libreoffice-still
 - lsof
