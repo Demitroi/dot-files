@@ -8,7 +8,6 @@ Software preferences and settings.
     - [NetworkManager (Ethernet and WiFi)](#networkmanager-ethernet-and-wifi)
     - [Microcode](#microcode)
 - [Desktop Environment](#desktop-environment)
-    - [Display manager (ly)](#display-manager-ly)
     - [Window manager (Sway)](#window-manager-sway)
     - [Statusbar (waybar)](#statusbar-waybar)
     - [Application launcher (Wofi)](#application-launcher-wofi)
@@ -76,14 +75,6 @@ Processor manufacturers release stability and security updates to the processor 
 https://wiki.archlinux.org/title/Microcode
 
 ### Desktop Environment
-
-#### Display manager (ly)
-
-TUI (ncurses-like) display manager for Linux and BSD. Supports X and Wayland sessions.
-
-https://github.com/fairyglade/ly
-
-Edit the file ```/etc/ly/config.ini``` and enable the big clock.
 
 #### Window manager (Sway)
 Sway (contracted from SirCmpwn's Wayland compositor [1]) is a compositor for Wayland designed to be fully compatible with i3.
@@ -275,13 +266,6 @@ Read this wiki entry for more context:
 https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
 
 Install the themes breeze, breeze-gtk, papirus-icon-theme, deepin-icon-theme, ttf-hack-nerd and noto-fonts-emoji. Also you have to install qt6ct and lxqt-config to config graphically the qt and gtk themes.
-
-Set the ```QT_QPA_PLATFORMTHEME=qt6ct``` and ```QT_QPA_PLATFORM=wayland``` enviroment variable globally by editing the file ```/etc/environment``` and then reboot.
-
-```sh
-$ sudo vim /etc/environment
-$ sudo reboot
-```
 
 Open lxqt-config-appearance via terminal, in the Widget Style section select qt6ct-style in Qt Style combo box. In Icons Theme select Papirus-Dark, in Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10, in Cursor select bloom and finally select Breeze-Dark in both GTK 3 and 4 Theme.
 

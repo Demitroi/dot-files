@@ -30,6 +30,9 @@ ln -s -f $PWD/.config/waybar/style.css ~/.config/waybar/
 # Zsh
 ln -s -f $PWD/.zshrc ~/
 
+# Bash
+ln -s -f $PWD/.bashrc ~/
+
 # Wallpapers
 mkdir -p ~/.local/share/wallpapers
 ln -s -f $PWD/.local/share/wallpapers/1065712.jpg ~/.local/share/wallpapers/

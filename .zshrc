@@ -96,6 +96,3 @@ function preexec {
     print -Pn "\e]0;${(q)1}\e\\"
 }
 
-# User environment variables
-export JAVA_HOME=/usr/lib/jvm/java-21-temurin
-
