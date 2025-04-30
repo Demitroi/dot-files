@@ -83,27 +83,15 @@ Don't forget to install the ```sway-bg``` package.
 
 https://swaywm.org/
 
-Sway doesn't support proprietary drivers like Nvidia. In order to get Nvidia graphic working with sway it has to be run with ```--unsupported-gpu``` flag.
-
-Edit the ```/usr/share/wayland-sessions/sway.desktop``` file and and the flag in the Exec section.
-
-```sh
-sudo vim nvim /usr/share/wayland-sessions/sway.desktop
-```
-
-For example.
-
-```
-[Desktop Entry]
-Name=Sway
-Comment=An i3-compatible Wayland compositor
-Exec=sway --unsupported-gpu
-Type=Application
-```
-
 See: https://wiki.archlinux.org/title/Sway, https://github.com/swaywm/sway/wiki
 
 [.config/sway/config](.config/sway/config)
+
+#### Display settings (nwg-displays)
+
+Output management utility for sway and Hyprland.
+
+Install the ```nwg-displays``` package.
 
 #### Statusbar (waybar)
 
