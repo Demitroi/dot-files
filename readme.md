@@ -10,6 +10,7 @@ Software preferences and settings.
 - [Desktop Environment](#desktop-environment)
     - [Window manager (Sway)](#window-manager-sway)
     - [Statusbar (waybar)](#statusbar-waybar)
+    - [Power Button](#power-button)
     - [Application launcher (Wofi)](#application-launcher-wofi)
     - [Lock screen (Swaylock)](#lock-screen-swaylock)
     - [Terminal Emulator (Foot)](#terminal-emulator-foot)
@@ -101,6 +102,12 @@ See: https://github.com/Alexays/Waybar/wiki
 [.config/waybar/config.jsonc](.config/waybar/config.jsonc)
 
 [.config/waybar/style.css](.config/waybar/style.css)
+
+#### Power Button
+
+GTK3-based button bar for wlroots-based compositors.
+
+install the ```nwg-bar``` package.
 
 #### Application launcher (Wofi)
 
@@ -502,6 +509,7 @@ Go to the [howtos](howtos/readme.md) section.
 - noto-fonts-emoji
 - npm
 - ntfs-3g
+- nwg-bar
 - nwg-displays
 - nwg-look
 - open-ssh

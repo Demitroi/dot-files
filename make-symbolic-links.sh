@@ -89,3 +89,8 @@ mkdir -p ~/.local/share/nwg-look
 ln -s -f $PWD/.local/share/nwg-look/gsettings ~/.local/share/nwg-look/
 mkdir -p ~/.config/nwg-look
 ln -s -f $PWD/.config/nwg-look/config ~/.config/nwg-look/
+
+# nwg-bar
+mkdir -p ~/.config/nwg-bar
+ln -s -f $PWD/.config/nwg-bar/bar.json ~/.config/nwg-bar/
+ln -s -f $PWD/.config/nwg-bar/style.css ~/.config/nwg-bar/

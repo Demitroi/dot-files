@@ -18,7 +18,8 @@
         "pulseaudio#audio",
         "pulseaudio#mic",
         "network",
-        "clock"
+        "clock",
+        "custom/power"
     ],
     // Modules configuration
     "sway/workspaces": {
@@ -105,5 +106,9 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%a %b-%d-%Y %H:%M}",
         "on-click": "exec foot --app-id=foot.khal khal interactive"
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "nwg-bar -x"
     }
 }
