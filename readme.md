@@ -41,7 +41,7 @@ Software preferences and settings.
     - [Web Browser (Firefox)](#web-browser-firefox)
     - [Audio Player (Audacious)](#audio-player-audacious)
     - [Video player (mpv)](#video-player-mpv)
-    - [Document viewer (XpdfReader)](#document-viewer-xpdfreader)
+    - [Document viewer](#document-viewer)
     - [Office suite (Libre Office)](#office-suite-libre-office)
     - [Calculator (Qalculate)](#calculator-qalculate)
     - [Audio editor and recorder (Audacity)](#audio-editor-and-recorder-audacity)
@@ -368,11 +368,13 @@ mpv is a media player based on MPlayer and the now unmaintained mplayer2. It sup
 
 https://mpv.io/
 
-#### Document viewer (XpdfReader)
+#### Document viewer
 
-Xpdf is a free PDF viewer and toolkit, including a text extractor, image converter, HTML converter, and more. Most of the tools are available as open source.
+zathura is a customizable document viewer with vi-like keybindings. It provides a minimalistic and space-saving interface. Users interact with zathura primarily with the keyboard. Different file formats are supported through plugins.
 
-https://www.xpdfreader.com/
+https://wiki.archlinux.org/title/Zathura
+
+Install the ```zathura``` and ```zathura-pdf-mupdf``` packages.
 
 #### Office suite (Libre Office)
 
@@ -544,8 +546,8 @@ Go to the [howtos](howtos/readme.md) section.
 - xdg-desktop-portal
 - xdg-desktop-portal-wlr
 - xorg-xwayland
-- xpdf
-- yay
+- zathura
+- zathura-pdf-mupdf
 - zip
 - zsh
 - zsh-completions

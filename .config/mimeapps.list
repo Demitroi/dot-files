@@ -2,4 +2,4 @@
 image/png=lximage-qt.desktop
 image/jpeg=lximage-qt.desktop
 audio/mpeg=mpv.desktop
-application/pdf=xpdf.desktop
+application/pdf=zathura.desktop

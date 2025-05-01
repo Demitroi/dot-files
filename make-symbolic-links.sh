@@ -106,3 +106,7 @@ ln -s -f $PWD/.config/lximage-qt/settings.conf ~/.config/lximage-qt/
 # LXQt File Archiver
 mkdir -p ~/.config/lxqt
 ln -s -f $PWD/.config/lxqt/archiver.conf ~/.config/lxqt/
+
+# Zathura
+mkdir -p ~/.config/zathura
+ln -s -f $PWD/.config/zathura/zathurarc ~/.config/zathura/
