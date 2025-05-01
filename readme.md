@@ -380,7 +380,7 @@ LibreOffice is the free power-packed Open Source personal productivity suite for
 
 https://www.libreoffice.org/
 
-In order to set the dark theme, see: https://wiki.archlinux.org/title/LibreOffice#LibreOffice_toolbars_unreadable_with_dark_Breeze/Plasma_5_theme
+In order to set the Icons for the dark theme go to: Tools / Options, in the floating menu select LibreOffice / View, in the Icon Theme select Breeze (Dark).
 
 Enable spell cheking by installing the following packages: hunspell, hunspell-en_us, hunspell-es_mx
 
