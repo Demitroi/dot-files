@@ -98,3 +98,7 @@ ln -s -f $PWD/.config/nwg-bar/style.css ~/.config/nwg-bar/
 # PCManFM-Qt
 mkdir -p ~/.config/pcmanfm-qt/default
 ln -s -f $PWD/.config/pcmanfm-qt/default/settings.conf ~/.config/pcmanfm-qt/default/
+
+# LXImage-Qt
+mkdir -p ~/.config/lximage-qt
+ln -s -f $PWD/.config/lximage-qt/settings.conf ~/.config/lximage-qt/
