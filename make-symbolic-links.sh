@@ -102,3 +102,7 @@ ln -s -f $PWD/.config/pcmanfm-qt/default/settings.conf ~/.config/pcmanfm-qt/defa
 # LXImage-Qt
 mkdir -p ~/.config/lximage-qt
 ln -s -f $PWD/.config/lximage-qt/settings.conf ~/.config/lximage-qt/
+
+# LXQt File Archiver
+mkdir -p ~/.config/lxqt
+ln -s -f $PWD/.config/lxqt/archiver.conf ~/.config/lxqt/
