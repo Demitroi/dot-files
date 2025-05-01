@@ -94,3 +94,7 @@ ln -s -f $PWD/.config/nwg-look/config ~/.config/nwg-look/
 mkdir -p ~/.config/nwg-bar
 ln -s -f $PWD/.config/nwg-bar/bar.json ~/.config/nwg-bar/
 ln -s -f $PWD/.config/nwg-bar/style.css ~/.config/nwg-bar/
+
+# PCManFM-Qt
+mkdir -p ~/.config/pcmanfm-qt/default
+ln -s -f $PWD/.config/pcmanfm-qt/default/settings.conf ~/.config/pcmanfm-qt/default/
