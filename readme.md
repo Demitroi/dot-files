@@ -776,6 +776,8 @@ Git is a free and open source distributed version control system designed to han
 
 - [git](https://archlinux.org/packages/extra/x86_64/git/)
 
+[.gitconfig](.gitconfig)
+
 #### Markdown Renderer
 
 **Glow**
