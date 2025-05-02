@@ -5,259 +5,441 @@ Software preferences and settings.
 ### Table of content
 
 - [Base System](#base-system)
-    - [NetworkManager (Ethernet and WiFi)](#networkmanager-ethernet-and-wifi)
-    - [Microcode](#microcode)
-- [Desktop Environment](#desktop-environment)
-    - [Window manager (Sway)](#window-manager-sway)
-    - [Statusbar (waybar)](#statusbar-waybar)
+    - [Nvidia Drivers](#nvidia-drivers)
+    - [Desktop Environment](#desktop-environment)
+    - [Window Manager](#window-manager)
+    - [Fonts](#fonts)
+    - [Qt Wayland](#qt-wayland)
+    - [Statusbar](#statusbar)
     - [Power Button](#power-button)
-    - [Application launcher (Wofi)](#application-launcher-wofi)
-    - [Lock screen (Swaylock)](#lock-screen-swaylock)
-    - [Terminal Emulator (Foot)](#terminal-emulator-foot)
-    - [Shell (Zsh)](#shell-zsh)
-    - [Clipboard manager (cliphist)](#clipboard-manager-cliphist)
-    - [Multimedia Server (PipeWire)](#multimedia-server-pipewire)
-    - [Volume Control (PulseAudio Volume Control)](#volume-control-pulseaudio-volume-control)
-    - [Graph/Patchbay for PipeWire (qpwgraph)](#graph/patchbay-for-pipewire-qpwgraph)
-    - [Notifications (Mako)](#notifications-mako)
-    - [Screencast](#screencast)
-    - [Screenshots (Grim and Slurp)](#screenshots-grim-and-slurp)
-    - [Screenshot editor (Swappy)](#screenshot-editor-swappy)
-    - [File Manager (PCManFM-Qt)](#file-manager-pcmanfm-qt)
-    - [File archiver (LXQt Archiver)](#file-archiver-lxqt-archiver)
-    - [Image viewer (LXImage-Qt)](#image-viewer-lximage-qt)
+    - [Application Launcher](#application-launcher)
+    - [Lock Screen](#lock-screen)
+    - [Terminal Emulator](#terminal-emulator)
+    - [Shell](#shell)
+    - [Clipboard Manager](#clipboard-manager)
+    - [Multimedia Server](#multimedia-server)
+    - [Volume Control](#volume-control)
+    - [PipeWire Graph](#pipewire-graph)
+    - [Brightness Control](#brightness-control)
+    - [Notifications](#notifications)
+    - [Screencasting](#screencasting)
+    - [Screen Recorder](#screen-recorder)
+    - [Screenshots](#screenshots)
+    - [Screenshot editor](#screenshot-editor)
+    - [File Manager](#file-manager)
+    - [File Archiver](#file-archiver)
+    - [Image Viewer](#image-viewer)
     - [Calendar](#calendar)
-    - [Themes](#themes)
+    - [GTK Look and Feel](#gtk-look-and-feel)
+    - [Qt Look and Feel](#qt-look-and-feel)
+    - [Display Settings](#display-settings)
     - [Screen magnifier](#screen-magnifier)
-    - [Snapshots (Timeshift)](#snapshots-timeshift)
-    - [Policy kit](#policy-kit)
+    - [Policy Kit](#policy-kit)
+- [General Tools](#general-tools)
+    - [Web Browser](#web-browser)
+    - [Audio Player](#audio-player)
+    - [Video Player](#video-player)
+    - [Document Viewer](#document-viewer)
+    - [Office Suite](#office-suite)
+    - [Calculator](#calculator)
+    - [Audio Editor and Recorder](#audio-editor-and-recorder)
+    - [Recording and Broadcasting](#recording-and-broadcasting)
+    - [Flashcards](#flashcards)
+    - [Video Editor](#video-editor)
+    - [Password Manager](#password-manager)
+    - [System Information Tool](#system-information-tool)
+    - [File Transferring and Synchronization](#file-transferring-and-synchronization)
+    - [SSD and HDD Monitoring](#ssd-and-hdd-monitoring)
+    - [Directory Tree Listing](#directory-tree-listing)
+    - [Access and Manipulate Disks](#access-and-manipulate-disks)
+    - [List Connected USB Devices](#list-connected-usb-devices)
+    - [Snapshots](#snapshots)
 - [Development tools](#development-tools)
-    - [Terminal text editor (Neovim)](#terminal-text-editor-neovim)
-    - [Terminal multiplexer (Tmux)](#terminal-multiplexer-tmux)
-    - [Code edition (Visual Studio Code)](#code-edition-visual-studio-code)
-    - [Database manager (DBeaver)](#database-manager-dbeaver)
-    - [System resource monitor (btop)](#system-resource-monitor-btop)
-    - [Applicatons](#applicatons)
-    - [Web Browser (Firefox)](#web-browser-firefox)
-    - [Audio Player (Audacious)](#audio-player-audacious)
-    - [Video player (mpv)](#video-player-mpv)
-    - [Document viewer](#document-viewer)
-    - [Office suite (Libre Office)](#office-suite-libre-office)
-    - [Calculator (Qalculate)](#calculator-qalculate)
-    - [Audio editor and recorder (Audacity)](#audio-editor-and-recorder-audacity)
-    - [Open Broadcaster Software](#open-broadcaster-software)
-    - [Font Manager](#font-manager)
-    - [Communication with Mobile Phone (KDE Connect)](#communication-with-mobile-phone-kde-connect)
-    - [Flashcards (Anki)](#flashcards-anki)
-    - [Video Editor (Kdenlive)](#video-editor-kdenlive)
-    - [Password manager (KeePassXC)](#password-manager-keepassxc)
+    - [Terminal Text Editor](#terminal-text-editor)
+    - [Terminal Multiplexer](#terminal-multiplexer)
+    - [Code Editor](#code-editor)
+    - [Database Manager](#database-manager)
+    - [System Resource Monitor](#system-resource-monitor)
+    - [Process Viewer](#process-viewer)
+    - [API Tester](#api-tester)
+    - [Version Control System](#version-control-system)
+    - [Markdown Renderer](#markdown-renderer)
+    - [JSON Processor](#json-processor)
+    - [Open File Listing Tool](#open-file-listing-tool)
+    - [Networking Utilities](#networking-utilities)
+    - [TLS/SSL and crypto library](#tls/ssl-and-crypto-library)
+    - [Java Development](#java-development)
+    - [JavaScript Development](#javascript-development)
+    - [Go Development](#go-development)
 - [Servers](#servers)
-    - [Jellyfin (Multimedia servier)](#jellyfin-multimedia-servier)
-    - [File synchronization (Syncthing)](#file-synchronization-syncthing)
-    - [SSH Server (OpenSSH)](#ssh-server-openssh)
+    - [Multimedia Server](#multimedia-server)
+    - [File Synchronization](#file-synchronization)
+    - [SSH Server](#ssh-server)
+    - [Web Server](#web-server)
 - [Howtos](#howtos)
-- [Aditional packages](#aditional-packages)
 
 ### Base System
 
-#### NetworkManager (Ethernet and WiFi)
+**Arch Linux**
 
-NetworkManager is the standard Linux network configuration tool suite. It supports large range of networking setups, from desktop to servers and mobile and integrates well with popular desktop environments and server configuration management tools.
+https://archlinux.org/
 
-https://networkmanager.dev/
+My base system consists in a basic arch linux installation that uses btrfs filesystem, network manager, vim and man pages.
 
-#### Microcode
+- [base](https://archlinux.org/packages/core/any/base/)
+- [linux-lts](https://archlinux.org/packages/core/x86_64/linux-lts/)
+- [linux-firmware](https://archlinux.org/packages/core/x86_64/linux-firmware/)
+- [btrfs-progs](https://archlinux.org/packages/core/x86_64/btrfs-progs/)
+- [sudo](https://archlinux.org/packages/core/x86_64/sudo/)
+- [intel-ucode](https://archlinux.org/packages/extra/any/intel-ucode/)
+- [amd-ucode](https://archlinux.org/packages/core/any/amd-ucode/)
+- [networkmanager](https://archlinux.org/packages/extra/x86_64/networkmanager/)
+- [vim](https://archlinux.org/packages/extra/x86_64/vim/)
+- [man-db](https://archlinux.org/packages/core/x86_64/man-db/)
+- [man-pages](https://archlinux.org/packages/core/x86_64/man-pages/)
+- [texinfo](https://archlinux.org/packages/core/x86_64/texinfo/)
+- [xdg-user-dirs](https://archlinux.org/packages/extra/x86_64/xdg-user-dirs/)
+- [grub](https://archlinux.org/packages/core/x86_64/grub/)
+- [efibootmgr](https://archlinux.org/packages/core/x86_64/efibootmgr/)
+- [dosfstools](https://archlinux.org/packages/core/x86_64/dosfstools/)
+- [ntfs-3g](https://archlinux.org/packages/extra/x86_64/ntfs-3g/)
+- [pacman-contrib](https://archlinux.org/packages/extra/x86_64/pacman-contrib/)
 
-Processor manufacturers release stability and security updates to the processor microcode. These updates provide bug fixes that can be critical to the stability of your system. Without them, you may experience spurious crashes or unexpected system halts that can be difficult to track down. 
+Check out the [Arch Linux Installation](howtos/arch-linux-installation.md) for the full manual.
 
-https://wiki.archlinux.org/title/Microcode
+#### Nvidia Drivers
+
+https://wiki.archlinux.org/title/NVIDIA
+
+In case a Nvidia Graphic Card ins installed, the drivers must be installed, follow the arch linux wiki.
+
+- [nvidia-open-dkms](https://archlinux.org/packages/extra/x86_64/nvidia-open-dkms/)
 
 ### Desktop Environment
 
-#### Window manager (Sway)
-Sway (contracted from SirCmpwn's Wayland compositor [1]) is a compositor for Wayland designed to be fully compatible with i3.
+#### Window Manager
 
-Don't forget to install the ```sway-bg``` package.
+**Sway**
 
 https://swaywm.org/
 
-See: https://wiki.archlinux.org/title/Sway, https://github.com/swaywm/sway/wiki
+Sway (contracted from SirCmpwn's Wayland compositor [1]) is a compositor for Wayland designed to be fully compatible with i3.
+
+- [sway](https://archlinux.org/packages/extra/x86_64/sway/)
+- [sway-bg](https://archlinux.org/packages/extra/x86_64/swaybg/)
+- [xorg-xwayland](https://archlinux.org/packages/extra/x86_64/xorg-xwayland/)
 
 [.config/sway/config](.config/sway/config)
 
-#### Display settings (nwg-displays)
+#### Fonts
 
-Output management utility for sway and Hyprland.
+The following is the list of fonts that I use.
 
-Install the ```nwg-displays``` package.
+- [otf-font-awesome](https://archlinux.org/packages/extra/any/otf-font-awesome/)
+- [ttf-font-awesome](https://archlinux.org/packages/extra/any/ttf-font-awesome/)
+- [ttf-hack-nerd](https://archlinux.org/packages/extra/any/ttf-hack-nerd/)
+- [noto-fonts-emoji](https://archlinux.org/packages/extra/any/noto-fonts-emoji/)
 
-#### Statusbar (waybar)
+#### Qt Wayland
 
-Highly customizable Wayland bar for Sway and Wlroots based compositors.
+Some Apps like KeePassXC and qpwgraph requires the qt-wayland packages to work properly.
+
+- [qt5-wayland](https://archlinux.org/packages/extra/x86_64/qt5-wayland/)
+- [qt6-wayland](https://archlinux.org/packages/extra/x86_64/qt6-wayland/)
+
+#### Statusbar
+
+**Waybar**
 
 https://github.com/Alexays/Waybar
 
-See: https://github.com/Alexays/Waybar/wiki
+Highly customizable Wayland bar for Sway and Wlroots based compositors.
 
 [.config/waybar/config.jsonc](.config/waybar/config.jsonc)
-
 [.config/waybar/style.css](.config/waybar/style.css)
 
 #### Power Button
 
+**nwg-bar**
+
+https://github.com/nwg-piotr/nwg-bar
+
 GTK3-based button bar for wlroots-based compositors.
 
-install the ```nwg-bar``` package.
+- [nwg-bar](https://archlinux.org/packages/extra/x86_64/nwg-bar/)
 
-#### Application launcher (Wofi)
+[.config/nwg-bar/bar.json](.config/nwg-bar/bar.json)
+[.config/nwg-bar/style.css](.config/nwg-bar/style.css)
 
-Wofi is a launcher/menu program for wlroots based wayland compositors such as sway
+#### Application Launcher
 
-Don't forget to install the ```otf-font-awesome``` and the ```ttf-font-awesome``` packages.
+**Wofi**
 
 https://hg.sr.ht/~scoopta/wofi
 
-[.config/wofi/config](.config/wofi/config)
+Wofi is a launcher/menu program for wlroots based wayland compositors such as sway.
 
+- [wofi](https://archlinux.org/packages/extra/x86_64/wofi/)
+
+[.config/wofi/config](.config/wofi/config)
 [.config/wofi/style.css](.config/wofi/style.css)
 
-#### Lock screen (Swaylock)
+#### Lock Screen
 
-swaylock is a screen locking utility for Wayland compositors. It is compatible with any Wayland compositor which implements the ext-session-lock-v1 Wayland protocol.
+**Swaylock**
+
+https://github.com/swaywm/swaylock
+
+swaylock is a screen locking utility for Wayland compositors.
+
+- [swaylock](https://archlinux.org/packages/extra/x86_64/swaylock/)
 
 [.config/sway/config](.config/sway/config)
 
-#### Terminal Emulator (Foot)
+#### Terminal Emulator
 
-Foot is a fast, lightweight and minimalistic Wayland terminal emulator.
-
-Don't forget to install the ```ttf-hack-nerd``` and the ```noto-fonts-emoji``` packages.
+**Foot**
 
 https://codeberg.org/dnkl/foot
 
+Foot is a fast, lightweight and minimalistic Wayland terminal emulator.
+
+- [foot](https://archlinux.org/packages/extra/x86_64/foot/)
+
 [.config/foot/foot.ini](.config/foot/foot.ini)
 
-#### Shell (Zsh)
+#### Shell
 
-Zsh is a powerful shell that operates as both an interactive shell and as a scripting language interpreter. While being compatible with the POSIX sh (not by default, only if issuing emulate sh), it offers advantages such as improved tab completion and globbing.
-
-Don't forget to install the ```zsh-completions``` package.
+**Zsh**
 
 https://www.zsh.org/
 
-See: https://wiki.archlinux.org/title/Zsh
+Zsh is a powerful shell that operates as both an interactive shell and as a scripting language interpreter.
+
+- [zsh](https://archlinux.org/packages/extra/x86_64/zsh/)
+- [zsh-completions](https://archlinux.org/packages/extra/any/zsh-completions/)
 
 [.zshrc](.zshrc)
 
-#### Clipboard manager (cliphist)
+#### Clipboard Manager
 
-Wayland clipboard manager with support for multimedia.
-
-Don't forget to install the ```wl-clipboard``` package.
+**Cliphist**
 
 https://github.com/sentriz/cliphist
 
-#### Multimedia Server (PipeWire)
+Wayland clipboard manager with support for multimedia.
 
-PipeWire is a new low-level multimedia framework. It aims to offer capture and playback for both audio and video with minimal latency and support for PulseAudio, JACK, ALSA and GStreamer-based applications.
+- [cliphist](https://archlinux.org/packages/extra/x86_64/cliphist/)
+- [wl-clipboard](https://archlinux.org/packages/extra/x86_64/wl-clipboard/)
+- [xdg-utils](https://archlinux.org/packages/extra/any/xdg-utils/)
 
-Don't forget to install the ```pipewire-pulse``` and ```wireplumber``` package.
+#### Multimedia Server
+
+**PipeWire**
 
 https://pipewire.org/
 
-See: https://wiki.archlinux.org/title/PipeWire, https://wiki.archlinux.org/title/WirePlumber
+PipeWire is a project that aims to greatly improve handling of audio and video under Linux.
 
-#### Volume Control (PulseAudio Volume Control)
+- [pipewire](https://archlinux.org/packages/extra/x86_64/pipewire/)
+- [pipewire-pulse](https://archlinux.org/packages/extra/x86_64/pipewire-pulse/)
+- [wireplumber](https://archlinux.org/packages/extra/x86_64/wireplumber/)
 
-PulseAudio Volume Control (pavucontrol) is a simple GTK based volume control tool ("mixer") for the PulseAudio sound server. In contrast to classic mixer tools this one allows you to control both the volume of hardware devices and of each playback stream separately.
+#### Volume Control
 
-In order to use speakers and headphones in the same souncard the "Auto-Mute Mode" has to be disabled. Install the ```alsa-utils``` package and disable the auto mute in start up.
-
-See: https://wiki.archlinux.org/title/Advanced_Linux_Sound_Architecture#Disabling_auto_mute_on_startup
+**PulseAudio Volume Control**
 
 https://freedesktop.org/software/pulseaudio/pavucontrol/
 
-#### Graph/Patchbay for PipeWire (qpwgraph)
+PulseAudio Volume Control (pavucontrol) is a simple GTK based volume control tool ("mixer") for the PulseAudio sound server.
 
-Qpwgraph is a graph manager dedicated to PipeWire, using the Qt C++ framework, based and pretty much like the same of QjackCtl.
+- [pavucontrol](https://archlinux.org/packages/extra/x86_64/pavucontrol/)
+- [alsa-utils](https://archlinux.org/packages/extra/x86_64/pavucontrol/)
 
-Don't forget to install the ```qt5-wayland``` and ```qt6-wayland``` packages.
+In order to use speakers and headphones in the same sound card the "Auto-Mute Mode" has to be disabled. Exec ```alsamixer```, select the sound card and disable the Auto-Mute.
+
+#### PipeWire Graph
+
+**qpwgraph**
 
 https://gitlab.freedesktop.org/rncbc/qpwgraph
 
-#### Notifications (Mako)
+Qpwgraph is a graph manager dedicated to PipeWire, using the Qt C++ framework, based and pretty much like the same of QjackCtl.
 
-A lightweight notification daemon for Wayland; it currently works on Sway and river.
+- [qpwgraph](https://archlinux.org/packages/extra/x86_64/qpwgraph/)
 
-Don't forget to install the ```libnotify``` package.
+#### Brightness Control
+
+**brightnessctl**
+
+https://github.com/Hummer12007/brightnessctl
+
+A program to read and control device brightness.
+
+- [brightnessctl](https://archlinux.org/packages/extra/x86_64/brightnessctl/)
+
+#### Notifications
+
+**Mako**
 
 https://github.com/emersion/mako
 
-#### Screencast
+A lightweight notification daemon for Wayland. Works on Sway.
 
-Install ```xdg-desktop-portal```, ```xdg-desktop-portal-wlr```, ```slurp```, ```wf-recorder``` in order to get Screencast working in firefox and obs. You can test screen cast here:
+- [mako](https://archlinux.org/packages/extra/x86_64/mako/)
+- [libnotify](https://archlinux.org/packages/extra/x86_64/libnotify/)
+
+[.config/mako/config](.config/mako/config)
+
+#### Screencasting
+
+https://wiki.archlinux.org/title/Screen_capture#Wayland
+
+https://wiki.archlinux.org/title/PipeWire#WebRTC_screen_sharing
+
+The Screencasting in Wayland can be achieved by installing the following packages.
+
+- [xdg-desktop-portal](https://archlinux.org/packages/extra/x86_64/xdg-desktop-portal/)
+- [xdg-desktop-portal-wlr](https://archlinux.org/packages/extra/x86_64/xdg-desktop-portal-wlr/)
+- [slurp](https://archlinux.org/packages/extra/x86_64/slurp/)
+
+The Screencasting can be tested in the following page:
 
 https://mozilla.github.io/webrtc-landing/gum_test.html
 
-See: https://wiki.archlinux.org/title/PipeWire#WebRTC_screen_sharing
+#### Screen Recorder
 
-#### Screenshots (Grim and Slurp)
+**wf-recorder**
 
-Grab images from a Wayland compositor.
+https://archlinux.org/packages/extra/x86_64/wf-recorder/
+
+wf-recorder is a utility program for screen recording of wlroots-based compositors (more specifically, those that support wlr-screencopy-v1 and xdg-output).
+
+- [wf-recorder](https://archlinux.org/packages/extra/x86_64/wf-recorder/)
+
+#### Screenshots
+
+**grim**
 
 https://sr.ht/~emersion/grim
 
-Also instal slurp: Select a region in a Wayland compositor
+Grab images from a Wayland compositor.
 
-https://github.com/emersion/slurp
-
-Don't forget to install the ```wl-clipboard``` package.
-
-See: https://wiki.archlinux.org/title/Screen_capture#Wayland
+- [grim](https://archlinux.org/packages/extra/x86_64/grim/)
 
 [.config/screenshot/take_full_screenshot.sh](.config/screenshot/take_full_screenshot.sh)
-
 [.config/screenshot/take_region_screenshot.sh](.config/screenshot/take_region_screenshot.sh)
 
-#### Screenshot editor (Swappy)
+#### Screenshot editor
 
-A Wayland native snapshot editing tool, inspired by Snappy on macOS.
+**swappy**
 
 https://github.com/jtheoof/swappy
 
-#### File Manager (PCManFM-Qt)
+A Wayland native snapshot editing tool, inspired by Snappy on macOS.
 
-File manager and desktop icon manager (Qt port of PCManFM and libfm).
+- [swappy](https://archlinux.org/packages/extra/x86_64/swappy/)
+
+#### File Manager
+
+**PCManFM-Qt**
 
 https://github.com/lxqt/pcmanfm-qt
 
-#### File archiver (LXQt Archiver)
+File manager and desktop icon manager (Qt port of PCManFM and libfm).
 
-A simple & lightweight desktop-agnostic Qt file archiver.
+- [pcmanfm-qt](https://archlinux.org/packages/extra/x86_64/pcmanfm-qt/)
+
+[.config/pcmanfm-qt/default/settings.conf](.config/pcmanfm-qt/default/settings.conf)
+
+#### File Archiver
+
+**LXQt Archiver**
 
 https://github.com/lxqt/lxqt-archiver
 
-#### Image viewer (LXImage-Qt)
+A simple & lightweight desktop-agnostic Qt file archiver.
 
-The image viewer and screenshot tool for lxqt.
+- [lxqt-archiver](https://archlinux.org/packages/extra/x86_64/lxqt-archiver/)
+- [zip](https://archlinux.org/packages/extra/x86_64/zip/)
+- [unzip](https://archlinux.org/packages/extra/x86_64/unzip/)
+- [unrar](https://archlinux.org/packages/extra/x86_64/unrar/)
+- [7zip](https://archlinux.org/packages/extra/x86_64/7zip/)
+
+[.config/lxqt/archiver.conf](.config/lxqt/archiver.conf)
+
+#### Image Viewer
+
+**LXImage-Qt**
 
 https://github.com/lxqt/lximage-qt
 
+The image viewer and screenshot tool for lxqt.
+
+- [lximage-qt](https://archlinux.org/packages/extra/x86_64/lximage-qt/)
+
+[.config/lximage-qt/settings.conf](.config/lximage-qt/settings.conf)
+
 #### Calendar
+
+**calcurse**
+
+https://calcurse.org/
 
 calcurse is a calendar and scheduling application for the command line. It helps keep track of events, appointments and everyday tasks.
 
-#### Themes
+- [calcurse](https://archlinux.org/packages/extra/x86_64/calcurse/)
 
-Read this wiki entry for more context:
+#### GTK Look and Feel
 
-https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
+**nwg-look**
 
-Install the themes breeze, oxygen, breeze-gtk and gnome-themes-extra. The icons papirus-icon-theme and deepin-icon-theme. And the fonts ttf-hack-nerd and noto-fonts-emoji. Also you have to install qt6ct and nwg-look to config graphically the qt and gtk themes.
+https://github.com/nwg-piotr/nwg-look
 
-Open GTK Settings, in the Widgets section select Adwaita-dark. In Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10. In Icon Theme select Papirus-Dark. In Mouse cursor select bloom and.
+GTK3 settings editor adapted to work in the wlroots environment.
+
+- [nwg-look](https://archlinux.org/packages/extra/x86_64/nwg-look/)
+- [breeze-gtk](https://archlinux.org/packages/extra/any/breeze-gtk/)
+- [gnome-themes-extra](https://archlinux.org/packages/extra/x86_64/gnome-themes-extra/)
+- [papirus-icon-theme](https://archlinux.org/packages/extra/any/papirus-icon-theme/)
+- [deepin-icon-theme](https://archlinux.org/packages/extra/any/deepin-icon-theme/)
+
+Open GTK Settings, in the Widgets section select Adwaita-dark. In Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10. In Icon Theme select Papirus-Dark. In Mouse cursor select bloom.
+
+[.config/gtk-3.0/settings.ini](.config/gtk-3.0/settings.ini)
+[.gtkrc-2.0](.gtkrc-2.0)
+[.icons/default/index.theme](.icons/default/index.theme)
+[.config/xsettingsd/xsettingsd.conf](.config/xsettingsd/xsettingsd.conf)
+[.local/share/nwg-look/gsettings](.local/share/nwg-look/gsettings)
+[.config/nwg-look/config](.config/nwg-look/config)
+
+#### Qt Look and Feel
+
+**qt6ct**
+
+https://www.opencode.net/trialuser/qt6ct
+
+Qt6 Configuration Tool.
+
+- [qt6ct](https://archlinux.org/packages/extra/x86_64/qt6ct/)
+- [breeze](https://archlinux.org/packages/extra/x86_64/breeze/)
+- [oxygen](https://archlinux.org/packages/extra/x86_64/oxygen/)
+- [papirus-icon-theme](https://archlinux.org/packages/extra/any/papirus-icon-theme/)
+- [deepin-icon-theme](https://archlinux.org/packages/extra/any/deepin-icon-theme/)
 
 Open Qt6 Settings, select Oxygen in Style and select Color scheme darker. Go to Font tab, set the Font to "Hack Nerd Font Mono", Font style Normal and Size 10. Go to the Icon Theme tab and select Papirus-Dark.
+
+[.config/qt6ct/qt6ct.conf](.config/qt6ct/qt6ct.conf)
+
+#### Display Settings
+
+**nwg-displays**
+
+https://github.com/nwg-piotr/nwg-displays
+
+Output management utility for sway and Hyprland.
+
+- [nwg-displays](https://archlinux.org/packages/extra/any/nwg-displays/)
 
 #### Screen magnifier
 
@@ -267,85 +449,30 @@ https://www.reddit.com/r/swaywm/comments/15v29nf/does_a_swaywlroots_magnifying_g
 
 https://github.com/swaywm/sway/issues/2781
 
-#### Snapshots (Timeshift)
+#### Policy Kit
 
-System restore tool for Linux. Creates filesystem snapshots using rsync+hardlinks, or BTRFS snapshots. Supports scheduled snapshots, multiple backup levels, and exclude filters. Snapshots can be restored while system is running or from Live CD/USB.
-
-Don't forget to install the ```xorg-xwayland``` package.
-
-https://github.com/linuxmint/timeshift
-
-#### Policy kit
-
-Polkit is an application-level toolkit for defining and handling the policy that allows unprivileged processes to speak to privileged processes: It is a framework for centralizing the decision making process with respect to granting access to privileged operations for unprivileged applications.
+**lxqt-policykit**
 
 https://github.com/lxqt/lxqt-policykit
 
-[.config/sway/config](.config/sway/config)
+Polkit is an application-level toolkit for defining and handling the policy that allows unprivileged processes to speak to privileged processes: It is a framework for centralizing the decision making process with respect to granting access to privileged operations for unprivileged applications.
 
-### Development tools
+- [lxqt-policykit](https://archlinux.org/packages/extra/x86_64/lxqt-policykit/)
 
-#### Terminal text editor (Neovim)
+### General Tools
 
-Neovim is a fork of Vim aiming to improve the codebase, allowing for easier implementation of APIs, improved user experience and plugin implementation.
+#### Web Browser
 
-Don't forget to install the ```ripgrep``` package.
-
-https://neovim.io/
-
-[.config/nvim/init.vim](.config/nvim/init.vim)
-
-Plugins:
-[gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-
-#### Terminal multiplexer (Tmux)
-
-tmux is a "terminal multiplexer: it enables a number of terminals (or windows), each running a separate program, to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached."
-
-https://github.com/tmux/tmux/wiki
-
-[.config/tmux/tmux.conf](.config/tmux/tmux.conf)
-
-#### Code edition (Visual Studio Code)
-
-Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
-
-https://code.visualstudio.com/
-
-Extensions:
-- [Git Line Blame](https://marketplace.visualstudio.com/items?itemName=carlthome.git-line-blame)
-- [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
-- [Hex Editor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
-- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
-- [vscode-base64](https://marketplace.visualstudio.com/items?itemName=adamhartford.vscode-base64)
-
-[.config/Code/User/keybindings.json](.config/Code/User/keybindings.json)
-[.config/Code/User/settings.json](.config/Code/User/settings.json)
-[.config/code-flags.conf](.config/code-flags.conf)
-
-#### Database manager (DBeaver)
-
-DBeaver Community is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data.
-
-https://dbeaver.io/
-
-#### System resource monitor (btop)
-
-Resource monitor that shows usage and stats for processor, memory, disks, network and processes.
-
-https://github.com/aristocratos/btop
-
-### Applicatons
-
-#### Web Browser (Firefox)
-
-Firefox is a popular open source graphical web browser from Mozilla.
+**Firefox**
 
 https://www.mozilla.org/en-US/firefox/
 
-See: https://wiki.archlinux.org/title/Firefox
+Firefox is a popular open source graphical web browser from Mozilla.
 
-Extensions:
+- [firefox](https://archlinux.org/packages/extra/x86_64/firefox/)
+
+Install the following Extensions:
+
 - [Matte Black (Red)](https://addons.mozilla.org/en-US/firefox/addon/matte-black-red/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 - [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
 - [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
@@ -356,198 +483,447 @@ Make it more efficient by enabling gfx.webrender.compositor.force-enabled in abo
 
 https://www.reddit.com/r/swaywm/comments/1iuqclq/firefox_is_now_way_more_efficient_under_sway_it/
 
-#### Audio Player (Audacious)
+#### Audio Player
 
-Audacious is a free and advanced audio player. It is focused on audio quality and supports a wide variety of audio codecs, and is easily extensible through third-party plugins.
+**Audacious**
 
 https://audacious-media-player.org/
 
-#### Video player (mpv)
+Audacious is a free and advanced audio player. It is focused on audio quality and supports a wide variety of audio codecs, and is easily extensible through third-party plugins.
 
-mpv is a media player based on MPlayer and the now unmaintained mplayer2. It supports a wide variety of video file formats, audio and video codecs, and subtitle types. A detailed (although admittedly incomplete) list of differences between mpv and the aforementioned players can be found here. 
+- [audacious](https://archlinux.org/packages/extra/x86_64/audacious/)
+- [playerctl](https://archlinux.org/packages/extra/x86_64/playerctl/)
+
+#### Video Player
+
+**mpv**
 
 https://mpv.io/
 
-#### Document viewer
+mpv is a media player based on MPlayer and the now unmaintained mplayer2.
+
+- [mpv](https://archlinux.org/packages/extra/x86_64/mpv/)
+
+[.config/mpv/mpv.conf](.config/mpv/mpv.conf)
+
+#### Document Viewer
+
+**zathura**
+
+https://pwmt.org/projects/zathura/
 
 zathura is a customizable document viewer with vi-like keybindings. It provides a minimalistic and space-saving interface. Users interact with zathura primarily with the keyboard. Different file formats are supported through plugins.
 
-https://wiki.archlinux.org/title/Zathura
-
 Install the ```zathura``` and ```zathura-pdf-mupdf``` packages.
 
-#### Office suite (Libre Office)
+- [zathura](https://archlinux.org/packages/extra/x86_64/zathura/)
+- [zathura-pdf-mupdf](https://archlinux.org/packages/extra/x86_64/zathura-pdf-mupdf/)
 
-LibreOffice is the free power-packed Open Source personal productivity suite for Windows, Macintosh and Linux, that gives you six feature-rich applications for all your document production and data processing needs: Writer, Calc, Impress, Draw, Math and Base.
+[.config/zathura/zathurarc](.config/zathura/zathurarc)
+
+#### Office Suite
+
+**LibreOffice**
 
 https://www.libreoffice.org/
 
+LibreOffice is a private, free and open source office suite.
+
+- [libreoffice-still](https://archlinux.org/packages/extra/x86_64/libreoffice-still/)
+- [hunspell](https://archlinux.org/packages/extra/x86_64/hunspell/)
+- [hunspell-en_us](https://archlinux.org/packages/extra/any/hunspell-en_us/)
+- [hunspell-es_mx](https://archlinux.org/packages/extra/any/hunspell-es_mx/)
+
 In order to set the Icons for the dark theme go to: Tools / Options, in the floating menu select LibreOffice / View, in the Icon Theme select Breeze (Dark).
 
-Enable spell cheking by installing the following packages: hunspell, hunspell-en_us, hunspell-es_mx
+#### Calculator
 
-#### Calculator (Qalculate)
-
-Qalculate! is a multi-purpose cross-platform desktop calculator. It is simple to use but provides power and versatility normally reserved for complicated math packages, as well as useful tools for everyday needs (such as currency conversion and percent calculation).
+**Qalculate**
 
 https://qalculate.github.io/
 
-#### Audio editor and recorder (Audacity)
+Qalculate! is a multi-purpose cross-platform desktop calculator.
 
-Audacity is an easy-to-use, multi-track audio editor and recorder for Windows, macOS, GNU/Linux and other operating systems.
+- [qalculate-qt](https://archlinux.org/packages/extra/x86_64/qalculate-qt/)
+
+#### Audio Editor and Recorder
+
+**Audacity**
 
 https://www.audacityteam.org/
 
-#### Open Broadcaster Software
+Audacity is an easy-to-use, multi-track audio editor and recorder for Windows, macOS, GNU/Linux and other operating systems.
 
-Open Broadcaster Software (OBS) is an open source cross-platform video recording and live-streaming application. It provides an easy to pick up and extensible workflow with customizable scenes, volume mixers, transitions, filters and more.
+- [audacity](https://archlinux.org/packages/extra/x86_64/audacity/)
+
+#### Recording and Broadcasting
+
+**OBS Studio**
 
 https://obsproject.com/
 
-See: https://wiki.archlinux.org/title/Open_Broadcaster_Software
+Open Broadcaster Software (OBS) is an open source cross-platform video recording and live-streaming application.
 
-#### Font Manager
+- [obs-studio](https://archlinux.org/packages/extra/x86_64/obs-studio/)
 
-A simple font management application for GTK Desktop Environments.
+#### Flashcards
 
-https://github.com/FontManager/font-manager
-
-#### Communication with Mobile Phone (KDE Connect)
-
-Enabling communication between all your devices. Made for people like you.
-
-https://kdeconnect.kde.org/
-
-[.config/mako/config](.config/mako/config)
-
-#### Flashcards (Anki)
-
-Powerful, intelligent flash cards. Remembering things just became much easier.
+**Anki**
 
 https://apps.ankiweb.net/
 
-#### Video Editor (Kdenlive)
+Anki is a flashcard program that helps you spend more time on challenging material, and less on what you already know.
 
-Kdenlive is a powerful free and open source cross-platform video editing program made by the KDE community.
+- [anki-bin](https://aur.archlinux.org/packages/anki-bin)
+
+#### Video Editor
+
+**Kdenlive**
 
 https://kdenlive.org/en/
 
-#### Password manager (KeePassXC)
+Kdenlive is a powerful free and open source cross-platform video editing program made by the KDE community.
 
-Let KeePassXC safely store your passwords and auto-fill them into your favorite apps, so you can forget all about them.
+- [kdenlive](https://archlinux.org/packages/extra/x86_64/kdenlive/)
+
+#### Password Manager
+
+**KeePassXC**
 
 https://keepassxc.org/
 
+Let KeePassXC safely store your passwords and auto-fill them into your favorite apps, so you can forget all about them.
+
+- [keepassxc](https://archlinux.org/packages/extra/x86_64/keepassxc/)
+
+#### System Information Tool
+
+**Fastfetch**
+
+https://github.com/fastfetch-cli/fastfetch
+
+Fastfetch is a neofetch-like tool for fetching system information and displaying it in a visually appealing way.
+
+- [fastfetch](https://archlinux.org/packages/extra/x86_64/fastfetch/)
+
+#### File Transferring and Synchronization
+
+**rsync**
+
+rsync is an open source utility that provides fast incremental file transfer.
+
+- [rsync](https://archlinux.org/packages/extra/x86_64/rsync/)
+
+#### SSD and HDD Monitoring
+
+**Smartmontools**
+
+https://www.smartmontools.org/
+
+Control and monitor S.M.A.R.T. enabled ATA and SCSI Hard Drives.
+
+- [smartmontools](https://archlinux.org/packages/extra/x86_64/smartmontools/)
+
+#### Directory Tree Listing
+
+**tree**
+
+https://gitlab.com/OldManProgrammer/unix-tree
+
+A directory listing program displaying a depth indented list of files.
+
+- [tree](https://archlinux.org/packages/extra/x86_64/tree/)
+
+#### Access and Manipulate Disks
+
+**udisks**
+
+https://www.freedesktop.org/wiki/Software/udisks/
+
+Daemon, tools and libraries to access and manipulate disks, storage devices and technologies.
+
+- [udisks2](https://archlinux.org/packages/extra/x86_64/udisks2/)
+
+#### List Connected USB Devices
+
+**usbutils**
+
+https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usbutils.git/
+
+A collection of USB tools to query connected USB devices.
+
+- [usbutils](https://archlinux.org/packages/core/x86_64/usbutils/)
+
+#### Snapshots
+
+**Timeshift**
+
+https://github.com/linuxmint/timeshift
+
+System restore tool for Linux. Creates filesystem snapshots using rsync+hardlinks, or BTRFS snapshots.
+
+- [timeshift](https://archlinux.org/packages/extra/x86_64/timeshift/)
+
+### Development tools
+
+#### Terminal Text Editor
+
+**Neovim**
+
+https://neovim.io/
+
+Neovim is a fork of Vim aiming to improve the codebase, allowing for easier implementation of APIs, improved user experience and plugin implementation.
+
+- [neovim](https://archlinux.org/packages/extra/x86_64/neovim/)
+- [ripgrep](https://archlinux.org/packages/extra/x86_64/ripgrep/)
+
+[.config/nvim/init.vim](.config/nvim/init.vim)
+[.config/nvim/lazy-lock.json](.config/nvim/lazy-lock.json)
+[.config/nvim/ftplugin/java.lua](.config/nvim/ftplugin/java.lua)
+
+#### Terminal Multiplexer
+
+**Tmux**
+
+https://github.com/tmux/tmux/wiki
+
+tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
+
+[.config/tmux/tmux.conf](.config/tmux/tmux.conf)
+
+#### Code Editor
+
+**Visual Studio Code**
+
+https://code.visualstudio.com/
+
+Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications.
+
+- [code](https://archlinux.org/packages/extra/x86_64/code/)
+
+Install the following Extensions:
+
+- [Git Line Blame](https://marketplace.visualstudio.com/items?itemName=carlthome.git-line-blame)
+- [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
+- [Hex Editor](https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor)
+- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
+- [vscode-base64](https://marketplace.visualstudio.com/items?itemName=adamhartford.vscode-base64)
+
+[.config/Code/User/keybindings.json](.config/Code/User/keybindings.json)
+[.config/Code/User/settings.json](.config/Code/User/settings.json)
+[.config/code-flags.conf](.config/code-flags.conf)
+
+#### Database Manager
+
+**DBeaver**
+
+https://dbeaver.io/
+
+DBeaver Community is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data.
+
+- [dbeaver](https://archlinux.org/packages/extra/x86_64/dbeaver/)
+
+#### System Resource Monitor
+
+**btop**
+
+https://github.com/aristocratos/btop
+
+A monitor of resources.
+
+- [btop](https://archlinux.org/packages/extra/x86_64/btop/)
+
+#### Process Viewer
+
+**htop**
+
+https://htop.dev/
+
+A cross-platform interactive process viewer.
+
+- [htop](https://archlinux.org/packages/extra/x86_64/htop/)
+
+#### API Tester
+
+**curl**
+
+https://curl.se/
+
+Command line tool and library for transferring data with URLs.
+
+- [curl](https://archlinux.org/packages/core/x86_64/curl/)
+
+#### Version Control System
+
+**Git**
+
+https://git-scm.com/
+
+Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+- [git](https://archlinux.org/packages/extra/x86_64/git/)
+
+#### Markdown Renderer
+
+**Glow**
+
+https://github.com/charmbracelet/glow
+
+Command-line markdown renderer.
+
+- [glow](https://archlinux.org/packages/extra/x86_64/glow/)
+
+#### JSON Processor
+
+**jq**
+
+https://jqlang.org/
+
+jq is a lightweight and flexible command-line JSON processor.
+
+- [jq](https://archlinux.org/packages/extra/x86_64/jq/)
+
+#### Open File Listing Tool
+
+**lsof**
+
+https://github.com/lsof-org/lsof
+
+lsof is a command listing open files.
+
+- [lsof](https://archlinux.org/packages/extra/x86_64/lsof/)
+
+#### Networking Utilities
+
+**net-tools**
+
+https://net-tools.sourceforge.io/
+
+net-tools, the collection of base networking utilities for Linux.
+
+- [net-tools](https://archlinux.org/packages/core/x86_64/net-tools/)
+
+#### TLS/SSL and crypto library
+
+**OpenSSL**
+
+https://www.openssl.org/
+
+OpenSSL is a software library for applications that provide secure communications over computer networks against eavesdropping, and identify the party at the other end. It is widely used by Internet servers, including the majority of HTTPS websites.
+
+- [openssl](https://archlinux.org/packages/core/x86_64/openssl/)
+
+#### Java Development
+
+Java is a programming language originally developed by Sun Microsystems and released in 1995 as a core component of Sun Microsystems' Java platform.
+
+- [jdk21-temurin](https://aur.archlinux.org/packages/jdk21-temurin)
+- [jdk17-temurin](https://aur.archlinux.org/packages/jdk17-temurin)
+- [maven](https://archlinux.org/packages/extra/any/maven/)
+
+#### JavaScript Development
+
+JavaScript often abbreviated as JS, is a programming language and core technology of the World Wide Web, alongside HTML and CSS.
+
+- [nodejs](https://archlinux.org/packages/extra/x86_64/nodejs/]
+- [npm](https://archlinux.org/packages/extra/any/npm/)
+
+#### Go Development
+
+Go is an open source programming language supported by Google.
+
+- [go](https://archlinux.org/packages/extra/x86_64/go/)
+
 ### Servers
 
-#### Jellyfin (Multimedia servier)
+#### Multimedia Server
+
+**Jellyfin**
+
+https://jellyfin.org/
 
 Jellyfin is a free and open-source multimedia application suite designed to organize, manage, and share digital media files to networked devices.
 
-https://wiki.archlinux.org/title/Jellyfin
+- [jellyfin-server](https://archlinux.org/packages/extra/x86_64/jellyfin-server/)
+- [jellyfin-web](https://archlinux.org/packages/extra/any/jellyfin-web/)
 
-#### File synchronization (Syncthing)
+Enable and start the service.
 
-Syncthing is a continuous file synchronization program. It synchronizes files between two or more computers in real time, safely protected from prying eyes. Your data is your data alone and you deserve to choose where it is stored, whether it is shared with some third party, and how it’s transmitted over the internet.
+```sh
+systemctl enable jellyfin.service
+systemctl start jellyfin.service
+```
+
+#### File Synchronization
+
+**Syncthing**
 
 https://syncthing.net/
 
-#### SSH Server (OpenSSH)
+Syncthing is a continuous file synchronization program.
 
-OpenSSH (OpenBSD Secure Shell) is a set of computer programs providing encrypted communication sessions over a computer network using the Secure Shell (SSH) protocol.
+- [syncthing](https://archlinux.org/packages/extra/x86_64/syncthing/)
 
-https://wiki.archlinux.org/title/OpenSSH
+Enable and start the service.
+
+```sh
+systemctl enable syncthing@myusername.service
+systemctl start syncthing@myusername.service
+```
+
+#### SSH Server
+
+**OpenSSH**
+
+https://www.openssh.com/portable.html
+
+SSH protocol implementation for remote login, command execution and file transfer.
+
+- [openssh](https://archlinux.org/packages/core/x86_64/openssh/)
+
+Enable and start the service.
+
+```sh
+systemctl enable sshd.service
+systemctl start sshd.service
+```
+
+#### Web Server
+
+**caddy**
+
+https://caddyserver.com/
+
+Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS.
+
+- [caddy](https://archlinux.org/packages/extra/x86_64/caddy/)
 
 ### Howtos
 
 Go to the [howtos](howtos/readme.md) section.
 
-#### Aditional packages
+<!--
+### My section
 
-- alsa-utils
-- anki
-- breeze
-- breeze-gtk
-- brightnessctl
-- btop
-- caddy
-- calcurse
-- cliphist
-- cmatrix
-- curl
-- deepin-icon-theme
-- dosfstools
-- fastfetch
-- ffmpeg
-- font-manager
-- git
-- glow
-- grim
-- htop
-- hunspell
-- hunspell-en_us
-- hunspell-es_mx
-- inxi
-- jellyfin-server
-- jellyfin-web
-- jq
-- keepassxc
-- libinput
-- libreoffice-still
-- lsof
-- lximage-qt
-- lxqt-archiver
-- lxqt-policykit
-- mako
-- man-db
-- maven
-- mpv
-- neovim
-- net-tools
-- noto-fonts-emoji
-- npm
-- ntfs-3g
-- nwg-bar
-- nwg-displays
-- nwg-look
-- open-ssh
-- openssl
-- otf-font-awesome
-- p7zip
-- pacman-contrib
-- papirus-icon-theme
-- pavucontrol
-- pcmanfm-qt
-- playerctl
-- qalculate-qt
-- qpwgraph
-- ripgrep
-- rsync
-- screenfetch
-- sddm
-- slurp
-- smartmontools
-- swappy
-- syncthing
-- tmux
-- tree
-- ttf-font-awesome
-- ttf-hack-nerd
-- udisks2
-- unrar
-- unzip
-- usbutils
-- uuid-gen
-- vim
-- visual-studio-code-bin
-- vlc
-- wf-recorder
-- wl-clipboard
-- xdg-desktop-portal
-- xdg-desktop-portal-wlr
-- xorg-xwayland
-- zathura
-- zathura-pdf-mupdf
-- zip
-- zsh
-- zsh-completions
+**Name of the tool I chose**
+
+[url to the project](https://archlinux.org)
+
+Long description of the tool.
+
+- List
+- of
+- the
+- packages
+- needed
+
+Aditional instructions for the package, e.g. execute the following command:
+
+```sh
+$ echo 'hello world'
+```
+
+[dot](dot)
+[files](files)
+[list](list)
+-->

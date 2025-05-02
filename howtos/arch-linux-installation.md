@@ -432,7 +432,7 @@ reflector --country Mexico --latest 5 --age 12 --sort rate --save /etc/pacman.d/
 Install essencial packages by running the next command, remember to change intel-ucode to amd-ucode in case the computer has and amd processor.
 
 ```sh
-pacstrap -K /mnt base linux-lts linux-firmware btrfs-progs sudo intel-ucode networkmanager vim man-db man-pages texinfo
+pacstrap -K /mnt base linux-lts linux-firmware btrfs-progs sudo intel-ucode amd-ucode networkmanager vim man-db man-pages texinfo dosfstools ntfs-3g pacman-contrib
 ```
 
 #### Configure the system
