@@ -197,7 +197,7 @@ swaylock is a screen locking utility for Wayland compositors.
 
 - [swaylock](https://archlinux.org/packages/extra/x86_64/swaylock/)
 
-[.config/sway/config](.config/sway/config)
+[.config/swaylock/config](.config/swaylock/config)
 
 #### Terminal Emulator
 
