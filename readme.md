@@ -6,7 +6,7 @@ Software preferences and settings.
 
 - [Base System](#base-system)
     - [Nvidia Drivers](#nvidia-drivers)
-    - [Desktop Environment](#desktop-environment)
+- [Desktop Environment](#desktop-environment)
     - [Window Manager](#window-manager)
     - [Fonts](#fonts)
     - [Qt Wayland](#qt-wayland)
@@ -324,7 +324,7 @@ wf-recorder is a utility program for screen recording of wlroots-based composito
 
 **grim**
 
-https://sr.ht/~emersion/grim
+https://gitlab.freedesktop.org/emersion/grim
 
 Grab images from a Wayland compositor.
 
@@ -450,7 +450,7 @@ Output management utility for sway and Hyprland.
 
 - [nwg-displays](https://archlinux.org/packages/extra/any/nwg-displays/)
 
-#### Screen magnifier
+#### Screen Magnifier
 
 It's not possible yet on sway, see:
 
@@ -618,6 +618,8 @@ Fastfetch is a neofetch-like tool for fetching system information and displaying
 #### File Transferring and Synchronization
 
 **rsync**
+
+https://rsync.samba.org/
 
 rsync is an open source utility that provides fast incremental file transfer.
 
