@@ -840,7 +840,7 @@ Java is a programming language originally developed by Sun Microsystems and rele
 
 JavaScript often abbreviated as JS, is a programming language and core technology of the World Wide Web, alongside HTML and CSS.
 
-- [nodejs](https://archlinux.org/packages/extra/x86_64/nodejs/]
+- [nodejs](https://archlinux.org/packages/extra/x86_64/nodejs/)
 - [npm](https://archlinux.org/packages/extra/any/npm/)
 
 #### Go Development
