@@ -67,7 +67,7 @@ Software preferences and settings.
     - [JSON Processor](#json-processor)
     - [Open File Listing Tool](#open-file-listing-tool)
     - [Networking Utilities](#networking-utilities)
-    - [TLS/SSL and crypto library](#tls/ssl-and-crypto-library)
+    - [TLS and SSL crypto library](#tls-and-ssl-crypto-library)
     - [Java Development](#java-development)
     - [JavaScript Development](#javascript-development)
     - [Go Development](#go-development)
@@ -156,6 +156,7 @@ https://github.com/Alexays/Waybar
 Highly customizable Wayland bar for Sway and Wlroots based compositors.
 
 [.config/waybar/config.jsonc](.config/waybar/config.jsonc)
+
 [.config/waybar/style.css](.config/waybar/style.css)
 
 #### Power Button
@@ -169,6 +170,7 @@ GTK3-based button bar for wlroots-based compositors.
 - [nwg-bar](https://archlinux.org/packages/extra/x86_64/nwg-bar/)
 
 [.config/nwg-bar/bar.json](.config/nwg-bar/bar.json)
+
 [.config/nwg-bar/style.css](.config/nwg-bar/style.css)
 
 #### Application Launcher
@@ -182,6 +184,7 @@ Wofi is a launcher/menu program for wlroots based wayland compositors such as sw
 - [wofi](https://archlinux.org/packages/extra/x86_64/wofi/)
 
 [.config/wofi/config](.config/wofi/config)
+
 [.config/wofi/style.css](.config/wofi/style.css)
 
 #### Lock Screen
@@ -328,6 +331,7 @@ Grab images from a Wayland compositor.
 - [grim](https://archlinux.org/packages/extra/x86_64/grim/)
 
 [.config/screenshot/take_full_screenshot.sh](.config/screenshot/take_full_screenshot.sh)
+
 [.config/screenshot/take_region_screenshot.sh](.config/screenshot/take_region_screenshot.sh)
 
 #### Screenshot editor
@@ -407,10 +411,15 @@ GTK3 settings editor adapted to work in the wlroots environment.
 Open GTK Settings, in the Widgets section select Adwaita-dark. In Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10. In Icon Theme select Papirus-Dark. In Mouse cursor select bloom.
 
 [.config/gtk-3.0/settings.ini](.config/gtk-3.0/settings.ini)
+
 [.gtkrc-2.0](.gtkrc-2.0)
+
 [.icons/default/index.theme](.icons/default/index.theme)
+
 [.config/xsettingsd/xsettingsd.conf](.config/xsettingsd/xsettingsd.conf)
+
 [.local/share/nwg-look/gsettings](.local/share/nwg-look/gsettings)
+
 [.config/nwg-look/config](.config/nwg-look/config)
 
 #### Qt Look and Feel
@@ -678,7 +687,9 @@ Neovim is a fork of Vim aiming to improve the codebase, allowing for easier impl
 - [ripgrep](https://archlinux.org/packages/extra/x86_64/ripgrep/)
 
 [.config/nvim/init.vim](.config/nvim/init.vim)
+
 [.config/nvim/lazy-lock.json](.config/nvim/lazy-lock.json)
+
 [.config/nvim/ftplugin/java.lua](.config/nvim/ftplugin/java.lua)
 
 #### Terminal Multiplexer
@@ -710,7 +721,9 @@ Install the following Extensions:
 - [vscode-base64](https://marketplace.visualstudio.com/items?itemName=adamhartford.vscode-base64)
 
 [.config/Code/User/keybindings.json](.config/Code/User/keybindings.json)
+
 [.config/Code/User/settings.json](.config/Code/User/settings.json)
+
 [.config/code-flags.conf](.config/code-flags.conf)
 
 #### Database Manager
@@ -803,7 +816,7 @@ net-tools, the collection of base networking utilities for Linux.
 
 - [net-tools](https://archlinux.org/packages/core/x86_64/net-tools/)
 
-#### TLS/SSL and crypto library
+#### TLS and SSL crypto library
 
 **OpenSSL**
 
