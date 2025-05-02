@@ -720,9 +720,9 @@ Install the following Extensions:
 - [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
 - [vscode-base64](https://marketplace.visualstudio.com/items?itemName=adamhartford.vscode-base64)
 
-[.config/Code\ -\ OSS/User/settings.json](.config/Code%20-%20OSS/User/settings.json)
+[.config/Code - OSS/User/settings.json](.config/Code%20-%20OSS/User/settings.json)
 
-[.config/Code\ -\ OSS/User/keybindings.json](.config/Code%20-%20OSS/User/keybindings.json)
+[.config/Code - OSS/User/keybindings.json](.config/Code%20-%20OSS/User/keybindings.json)
 
 [.config/code-flags.conf](.config/code-flags.conf)
 
