@@ -686,7 +686,7 @@ Neovim is a fork of Vim aiming to improve the codebase, allowing for easier impl
 - [neovim](https://archlinux.org/packages/extra/x86_64/neovim/)
 - [ripgrep](https://archlinux.org/packages/extra/x86_64/ripgrep/)
 
-[.config/nvim/init.vim](.config/nvim/init.vim)
+[.config/nvim/init.lua](.config/nvim/init.lua)
 
 [.config/nvim/lazy-lock.json](.config/nvim/lazy-lock.json)
 
