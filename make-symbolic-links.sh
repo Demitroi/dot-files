@@ -4,6 +4,11 @@
 mkdir -p ~/.config/sway
 ln -s -f $PWD/.config/sway/config ~/.config/sway/
 
+# Swaylock
+
+mkdir -p ~/.config/swaylock
+ln -s -f $PWD/.config/swaylock/config ~/.config/swaylock/
+
 # Foot
 mkdir -p ~/.config/foot
 ln -s -f $PWD/.config/foot/foot.ini ~/.config/foot/
@@ -38,6 +43,8 @@ mkdir -p ~/.local/share/wallpapers
 ln -s -f $PWD/.local/share/wallpapers/1065712.jpg ~/.local/share/wallpapers/
 ln -s -f $PWD/.local/share/wallpapers/ir-black.png ~/.local/share/wallpapers/
 ln -s -f $PWD/.local/share/wallpapers/wallpaperflare.com_wallpaper.jpg ~/.local/share/wallpapers/
+ln -s -f $PWD/.local/share/wallpapers/lock_screen1.png ~/.local/share/wallpapers/
+ln -s -f $PWD/.local/share/wallpapers/lock_screen2.jpg ~/.local/share/wallpapers/
 
 # VS Code
 mkdir -p ~/.config/Code\ -\ OSS/User
