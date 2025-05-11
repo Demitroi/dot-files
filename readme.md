@@ -488,10 +488,6 @@ Install the following Extensions:
 
 Customize toolbar. Right click tab bar, select customize toolbar and enable Title Bar.
 
-Make it more efficient by enabling gfx.webrender.compositor.force-enabled in about:config.
-
-https://www.reddit.com/r/swaywm/comments/1iuqclq/firefox_is_now_way_more_efficient_under_sway_it/
-
 #### Audio Player
 
 **Audacious**
