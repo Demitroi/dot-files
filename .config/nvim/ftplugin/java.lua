@@ -48,17 +48,6 @@ local config = {
 }
 require('jdtls').start_or_attach(config)
 
--- Auto document highlight
-vim.api.nvim_exec([[
-          augroup lsp_document_highlight
-            autocmd!
-            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-            autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-            autocmd CursorMovedI <buffer> lua vim.lsp.buf.clear_references()
-          augroup END
-      ]], false)
-
 -- Debug
 local dap = require('dap')
 dap.configurations.java = {
