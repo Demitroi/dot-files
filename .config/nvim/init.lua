@@ -221,15 +221,15 @@ require('lazy').setup({
         'neovim/nvim-lspconfig',
         dependencies = {
             -- mason.nvim
-            -- https://github.com/williamboman/mason.nvim
+            -- https://github.com/mason-org/mason.nvim
             {
-                'williamboman/mason.nvim',
+                'mason-org/mason.nvim',
                 opts = {},
             },
             -- mason-lspconfig.nvim
-            -- https://github.com/williamboman/mason-lspconfig.nvim
+            -- https://github.com/mason-org/mason-lspconfig.nvim
             {
-                'williamboman/mason-lspconfig.nvim',
+                'mason-org/mason-lspconfig.nvim',
                 opts = {
                     ensure_installed = { 'cssls', 'jdtls', 'gopls', 'html', 'ts_ls', },
                 }
@@ -316,8 +316,8 @@ require('lazy').setup({
         dependencies = {
             {
                 -- mason.nvim
-                -- https://github.com/williamboman/mason.nvim
-                'williamboman/mason.nvim',
+                -- https://github.com/mason-org/mason.nvim
+                'mason-org/mason.nvim',
                 opts = {},
             },
             {
