@@ -367,7 +367,18 @@ bindsym $mod+Control+right workspace next
 # Borders
 #
 default_border pixel 2
-client.focused #626666 #5c0303 #e4eded #d61a1a
+client.focused #d61a1a #222222 #ffffff #d61a1a #5c0303
+client.focused_inactive #d61a1a #222222 #ffffff #333333 #333333
+
+#
+# Font
+#
+font 'Hack Nerd Font Mono' 10
+
+#
+# Gaps
+#
+gaps inner 10
 
 #
 # Floating windows
