@@ -71,7 +71,8 @@
         ]
     },
     "tray": {
-        "spacing": 8
+        "spacing": 12,
+        "icon-size": 18
     },
     "pulseaudio#audio": {
         "format": "{volume}% {icon}",
