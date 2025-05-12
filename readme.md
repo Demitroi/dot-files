@@ -21,6 +21,7 @@ Software preferences and settings.
     - [Volume Control](#volume-control)
     - [PipeWire Graph](#pipewire-graph)
     - [Brightness Control](#brightness-control)
+    - [Wallpapers](#wallpapers)
     - [Notifications](#notifications)
     - [Screencasting](#screencasting)
     - [Screen Recorder](#screen-recorder)
@@ -280,6 +281,16 @@ https://github.com/Hummer12007/brightnessctl
 A program to read and control device brightness.
 
 - [brightnessctl](https://archlinux.org/packages/extra/x86_64/brightnessctl/)
+
+#### Wallpapers
+
+**azote**
+
+https://github.com/nwg-piotr/azote
+
+Wallpaper manager for wlroots-based compositors and some other WMs.
+
+- [azote](https://archlinux.org/packages/extra/any/azote/)
 
 #### Notifications
 
