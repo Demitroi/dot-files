@@ -369,6 +369,7 @@ bindsym $mod+Control+right workspace next
 default_border pixel 2
 client.focused #d61a1a #222222 #ffffff #d61a1a #5c0303
 client.focused_inactive #d61a1a #222222 #ffffff #333333 #333333
+client.unfocused #2f343a #000000 #888888 #333333 #333333
 
 #
 # Font
