@@ -43,7 +43,7 @@ label:focus {
 }
 
 #workspaces button {
-    padding: 0 8px;
+    padding: 8px 8px;
     background-color: transparent;
     color: #ffffff;
 }

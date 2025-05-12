@@ -371,6 +371,7 @@ client.focused #d61a1a #222222 #ffffff #d61a1a #5c0303
 client.focused_inactive #d61a1a #222222 #ffffff #333333 #333333
 client.unfocused #000000 #000000 #888888 #333333 #333333
 smart_borders on
+titlebar_padding 8
 
 #
 # Font
@@ -380,7 +381,7 @@ font 'Hack Nerd Font Mono' 11
 #
 # Gaps
 #
-gaps inner 10
+gaps inner 8
 
 #
 # Floating windows
