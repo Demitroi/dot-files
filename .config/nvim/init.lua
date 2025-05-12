@@ -13,7 +13,7 @@ vim.schedule(function()
 end)
 
 -- Prefered colorscheme, wildcharm and desert are cool two
-vim.cmd.colorscheme 'lunaperche'
+-- vim.cmd.colorscheme 'lunaperche'
 -- vim.cmd.colorscheme 'wildcharm'
 -- vim.cmd.colorscheme 'desert'
 
@@ -403,5 +403,24 @@ require('lazy').setup({
     },
     {
         'github/copilot.vim'
-    }
+    },
+    {
+        'idr4n/github-monochrome.nvim',
+        lazy = false,
+        priority = 1000, -- Make sure to load this before all the other start plugins.
+        config = function()
+            ---@diagnostic disable-next-line: missing-fields
+            require('github-monochrome').setup {
+                styles = {
+                    comments = { italic = false }, -- Disable italics in comments
+                },
+            }
+
+            -- Load the colorscheme here.
+            -- Like many other themes, this one has different styles, and you could load
+            -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+            vim.cmd.colorscheme 'github-monochrome-zenbones'
+        end,
+    },
+
 })
