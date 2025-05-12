@@ -24,7 +24,7 @@ set $menu wofi -p "Search apps"
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/.local/share/wallpapers/ir-black.png fill
+exec ~/.azotebg
 
 #
 # Example configuration:
@@ -375,7 +375,7 @@ smart_borders on
 #
 # Font
 #
-font 'Hack Nerd Font Mono' 10
+font 'Hack Nerd Font Mono' 11
 
 #
 # Gaps
