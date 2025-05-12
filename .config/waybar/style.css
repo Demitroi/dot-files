@@ -1,11 +1,10 @@
 * {
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 window#waybar {
     background-color: #101010;
-    border-bottom: 1px solid #333333;
     color: #ffffff;
 }
 
@@ -69,7 +68,6 @@ label:focus {
 }
 
 #scratchpad {
-    background: rgba(0, 0, 0, 0.2);
     padding: 0 8px;
 }   
     
