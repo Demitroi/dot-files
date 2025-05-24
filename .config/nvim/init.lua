@@ -349,6 +349,8 @@ require('lazy').setup({
         },
         opts_extend = { 'sources.default', },
     },
+    --[[
+    Disable linter temporarily
     {
         -- mason-tool-installer.nvim
         -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
@@ -393,6 +395,7 @@ require('lazy').setup({
             })
         end,
     },
+    --]]
     {
         'folke/todo-comments.nvim',
         event = 'VimEnter',
