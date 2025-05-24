@@ -31,8 +31,7 @@ Software preferences and settings.
     - [File Archiver](#file-archiver)
     - [Image Viewer](#image-viewer)
     - [Calendar](#calendar)
-    - [GTK Look and Feel](#gtk-look-and-feel)
-    - [Qt Look and Feel](#qt-look-and-feel)
+    - [Look and Feel](#look-and-feel)
     - [Display Settings](#display-settings)
     - [Screen magnifier](#screen-magnifier)
     - [Policy Kit](#policy-kit)
@@ -405,7 +404,7 @@ calcurse is a calendar and scheduling application for the command line. It helps
 
 - [calcurse](https://archlinux.org/packages/extra/x86_64/calcurse/)
 
-#### GTK Look and Feel
+#### Look and Feel
 
 **nwg-look**
 
@@ -414,12 +413,15 @@ https://github.com/nwg-piotr/nwg-look
 GTK3 settings editor adapted to work in the wlroots environment.
 
 - [nwg-look](https://archlinux.org/packages/extra/x86_64/nwg-look/)
-- [breeze-gtk](https://archlinux.org/packages/extra/any/breeze-gtk/)
 - [gnome-themes-extra](https://archlinux.org/packages/extra/x86_64/gnome-themes-extra/)
 - [papirus-icon-theme](https://archlinux.org/packages/extra/any/papirus-icon-theme/)
 - [deepin-icon-theme](https://archlinux.org/packages/extra/any/deepin-icon-theme/)
+- [qt5-base](https://archlinux.org/packages/extra/x86_64/qt5-base/)
+- [qt6-base](https://archlinux.org/packages/extra/x86_64/qt6-base/)
 
 Open GTK Settings, in the Widgets section select Adwaita-dark. In Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10. In Icon Theme select Papirus-Dark. In Mouse cursor select bloom.
+
+Qt applications will use the GTK settings because they're using the QGtk3Style platform theme, the environment variable ```QT_QPA_PLATFORMTHEME=gtk3``` is set in the ```~/.bashrc``` file.
 
 [.config/gtk-3.0/settings.ini](.config/gtk-3.0/settings.ini)
 
@@ -433,23 +435,7 @@ Open GTK Settings, in the Widgets section select Adwaita-dark. In Font section s
 
 [.config/nwg-look/config](.config/nwg-look/config)
 
-#### Qt Look and Feel
-
-**qt6ct**
-
-https://www.opencode.net/trialuser/qt6ct
-
-Qt6 Configuration Tool.
-
-- [qt6ct](https://archlinux.org/packages/extra/x86_64/qt6ct/)
-- [breeze](https://archlinux.org/packages/extra/x86_64/breeze/)
-- [oxygen](https://archlinux.org/packages/extra/x86_64/oxygen/)
-- [papirus-icon-theme](https://archlinux.org/packages/extra/any/papirus-icon-theme/)
-- [deepin-icon-theme](https://archlinux.org/packages/extra/any/deepin-icon-theme/)
-
-Open Qt6 Settings, select Oxygen in Style and select Color scheme darker. Go to Font tab, set the Font to "Hack Nerd Font Mono", Font style Normal and Size 10. Go to the Icon Theme tab and select Papirus-Dark.
-
-[.config/qt6ct/qt6ct.conf](.config/qt6ct/qt6ct.conf)
+[.bashrc](.bashrc)
 
 #### Display Settings
 
