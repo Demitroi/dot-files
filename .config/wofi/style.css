@@ -1,27 +1,25 @@
 #window {
-   background-color: #000000;
-   border: 2px solid #5c0303;
+   background-color: @theme_base_color;
 }
 
 #input {
-   background-color: #000000;
-   border: 2px solid #5c0303;
-   color: #e4eded;
+   background-color: @theme_base_color;
+   color: @theme_text_color;
    box-shadow: none;
    font-size: 18px;
 }
 
 #expander-box {
-   background-color: #000000;
+   background-color: @theme_base_color;
 }
 
 #text {
-   color: #e4eded;
+   color: @theme_text_color;
 }
 
 #entry:selected {
-   background-color: #d61a1a;
-   color: #d61a1a;
+   background-color: @unfocused_insensitive_color;
+   color: @theme_text_color;
 }
 
 #entry {
