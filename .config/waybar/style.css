@@ -4,8 +4,8 @@
 }
 
 window#waybar {
-    background-color: #101010;
-    color: #ffffff;
+    background-color: @theme_base_color;
+    color: @theme_text_color;
 }
 
 window#waybar.hidden {
@@ -23,18 +23,17 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: @theme_base_color;
+        color: @theme_text_color;
     }
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: @theme_base_color;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -45,26 +44,28 @@ label:focus {
 #workspaces button {
     padding: 8px 8px;
     background-color: transparent;
-    color: #ffffff;
+    color: @theme_text_color;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: @theme_unfocused_bg_color;
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: @unfocused_insensitive_color;
+    color: @theme_text_color;
+    box-shadow: inset 0 -3px @theme_text_color;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @warning_color;
 }
 
 #mode {
-    background-color: #64727D;
+    background-color: @unfocused_insensitive_color;
+    color: @theme_text_color;
     padding: 0 8px;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px @theme_text_color;
 }
 
 #scratchpad {
@@ -119,7 +120,7 @@ label:focus {
 
 #tray > .needs-attention {
    -gtk-icon-effect: highlight;
-   background-color: #eb4d4b;
+   background-color: @warning_color;
 }
 
 #pulseaudio {
@@ -132,7 +133,7 @@ label:focus {
 
 #clock {
     padding: 0 8px;
-    color: #ffffff;
+    color: @theme_text_color;
 }
 
 #custom-power {
