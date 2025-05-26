@@ -418,8 +418,10 @@ GTK3 settings editor adapted to work in the wlroots environment.
 - [deepin-icon-theme](https://archlinux.org/packages/extra/any/deepin-icon-theme/)
 - [qt5-base](https://archlinux.org/packages/extra/x86_64/qt5-base/)
 - [qt6-base](https://archlinux.org/packages/extra/x86_64/qt6-base/)
+- [adw-gtk-theme](https://archlinux.org/packages/extra/any/adw-gtk-theme/)
+- [orchis-theme](https://archlinux.orgpackages/extra/any/orchis-theme/)
 
-Open GTK Settings, in the Widgets section select Adwaita-dark. In Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10. In Icon Theme select Papirus-Dark. In Mouse cursor select bloom.
+Open GTK Settings, in the Widgets section select Orchis-Dark-Compact. In Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10. In Icon Theme select Papirus-Dark. In Mouse cursor select bloom.
 
 Qt applications will use the GTK settings because they're using the QGtk3Style platform theme, the environment variable ```QT_QPA_PLATFORMTHEME=gtk3``` is set in the ```~/.bashrc``` file.
 
