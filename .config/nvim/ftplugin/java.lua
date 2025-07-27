@@ -6,7 +6,6 @@ local jdtls_mason = home .. '/.local/share/nvim/mason/bin/jdtls'
 
 local config = {
     cmd = {
-        -- '/usr/share/java/jdtls/bin/jdtls',
         jdtls_mason,
         '--jvm-arg=-javaagent:/usr/share/java/lombok/lombok.jar',
         '-configuration', home .. '/.cache/jdtls',
@@ -18,17 +17,16 @@ local config = {
             configuration = {
                 runtimes = {
                     {
-                        name = "JavaSE-17",
-                        path = '/usr/lib/jvm/java-17-temurin/'
-                    }
-                },
-                runtimes = {
-                    {
-                        name = "JavaSE-21",
-                        path = '/usr/lib/jvm/java-21-temurin/',
+                        name = 'JavaSE-21',
+                        path = '/usr/lib/jvm/java-21-openjdk/',
                         default = true
-                    }
-                }
+                    },
+                    {
+                        name = 'JavaSE-1.8',
+                        path = '/usr/lib/jvm/java-8-openjdk/',
+                        default = true
+                    },
+                },
             },
             import = {
                 maven = {

@@ -12,7 +12,7 @@ PS1='[\u@\h \W]\$ '
 # Set environment variables here
 export QT_QPA_PLATFORMTHEME=gtk3
 export QT_QPA_PLATFORM=wayland
-export JAVA_HOME=/usr/lib/jvm/java-21-temurin
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
