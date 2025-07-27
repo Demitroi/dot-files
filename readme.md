@@ -314,6 +314,7 @@ The Screencasting in Wayland can be achieved by installing the following package
 
 - [xdg-desktop-portal](https://archlinux.org/packages/extra/x86_64/xdg-desktop-portal/)
 - [xdg-desktop-portal-wlr](https://archlinux.org/packages/extra/x86_64/xdg-desktop-portal-wlr/)
+- [xdg-desktop-portal-gtk](https://archlinux.org/packages/extra/x86_64/xdg-desktop-portal-gtk/)
 - [slurp](https://archlinux.org/packages/extra/x86_64/slurp/)
 
 The Screencasting can be tested in the following page:
