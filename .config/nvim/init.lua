@@ -49,25 +49,9 @@ vim.opt.showmode = false
 vim.keymap.set('n', '<Leader>bl', '<Cmd>:buffers<CR>')
 -- Buffer delete
 vim.keymap.set('n', '<Leader>bd', '<Cmd>:bdelete<CR>')
--- Buffer first
--- vim.keymap.set('n', '[B', '<Cmd>:bfirst<CR>')
--- Buffer previous
--- vim.keymap.set('n', '[b', '<Cmd>:bprevious<CR>')
--- Buffer next
--- vim.keymap.set('n', ']b', '<Cmd>:bnext<CR>')
--- Buffer last
--- vim.keymap.set('n', ']B', '<Cmd>:blast<CR>')
 -- Open quickfix
 vim.keymap.set('n', '<Leader>co', '<Cmd>:copen<CR>')
 vim.keymap.set('n', '<Leader>cl', '<Cmd>:copen<CR>')
--- Quickfix first
--- vim.keymap.set('n', '[Q', '<Cmd>:cfirst<CR>')
--- Quickfix previous
--- vim.keymap.set('n', '[q', '<Cmd>:cprevious<CR>')
--- Quickfix next
--- vim.keymap.set('n', ']q', '<Cmd>:cnext<CR>')
--- Quickfix last
--- vim.keymap.set('n', ']Q', '<Cmd>:clast<CR>')
 -- Clear highlights by pressing <Esc> key
 vim.keymap.set('n', '<Esc>', '<Cmd>:nohlsearch<CR>')
 -- Diagnostic quickfix list
@@ -77,6 +61,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 vim.keymap.set('n', '<Leader>ds', vim.diagnostic.open_float)
 -- Toggle wrap
 vim.keymap.set('n', '<Leader>tw', '<Cmd>:set wrap!<CR>')
+-- Toggle relative numbers
+vim.keymap.set('n', '<Leader>tl', '<Cmd>:set rnu!<CR>')
 
 -- Move the focus between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
@@ -95,21 +81,8 @@ vim.keymap.set('n', '<Leader>hs', '<Cmd>:split<CR>')
 vim.keymap.set('n', '<Leader>vs', '<Cmd>:vsplit<CR>')
 
 -- Lsp keymaps
--- vim.keymap.set('n', 'grn', vim.lsp.buf.rename)
--- vim.keymap.set('n', 'gra', vim.lsp.buf.code_action)
--- vim.keymap.set('v', 'gra', vim.lsp.buf.code_action)
--- vim.keymap.set('n', 'grr', vim.lsp.buf.references)
--- vim.keymap.set('n', 'gri', vim.lsp.buf.implementation)
 vim.keymap.set('n', 'grf', vim.lsp.buf.format)
 vim.keymap.set('n', 'grh', vim.lsp.buf.document_highlight)
--- vim.keymap.set('n', 'gO', vim.lsp.buf.document_symbol)
--- vim.keymap.set('i', '<C-S>', vim.lsp.buf.signature_help)
--- Not keymaps, just to remember the lsp-defaults
--- 'omnifunc' is set to vim.lsp.omnifunc(), use i_CTRL-X_CTRL-O to trigger completion.
--- 'tagfunc' is set to vim.lsp.tagfunc(). This enables features like go-to-definition, :tjump, and keymaps like CTRL-], CTRL-W_], CTRL-W_} to utilize the language server.
--- 'formatexpr' is set to vim.lsp.formatexpr(), so you can format lines via gq if the language server supports it.
--- To opt out of this use gw instead of gq, or clear 'formatexpr' on LspAttach.
--- K is mapped to vim.lsp.buf.hover() unless 'keywordprg' is customized or a custom keymap for K exists.
 
 -- Enable diagnostic virtual lines
 -- See: https://neovim.io/doc/user/diagnostic.html#vim.diagnostic.config()
