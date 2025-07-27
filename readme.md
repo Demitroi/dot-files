@@ -76,6 +76,10 @@ Software preferences and settings.
     - [File Synchronization](#file-synchronization)
     - [SSH Server](#ssh-server)
     - [Web Server](#web-server)
+- [Gaming](#gaming)
+    - [Linux application sandboxing](#linux-application-sandboxing)
+    - [Video game preservation platform](#video-game-preservation-platform)
+    - [Compatibility tools manager](#compatibility-tools-manager)
 - [Howtos](#howtos)
 
 ### Base System
@@ -910,6 +914,56 @@ https://caddyserver.com/
 Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS.
 
 - [caddy](https://archlinux.org/packages/extra/x86_64/caddy/)
+
+### Gaming
+
+All the games are installed using lutris, and lutris is installed via flatpak.
+
+#### Linux application sandboxing
+
+**Flatpak**
+
+[https://flatpak.org/](https://flatpak.org/)
+
+Flatpak is a system for building, distributing and running sandboxed desktop applications on Linux.
+
+- [flatpak](https://archlinux.org/packages/extra/x86_64/flatpak/)
+
+Add flathub repository.
+
+```sh
+$ flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+
+You may probably need to restart in order to see the flatpak apps in the application launcher.
+
+#### Video game preservation platform
+
+**Lutris**
+
+[https://lutris.net/](https://lutris.net/)
+
+Lutris is a video game preservation platform aiming to keep your video game collection up and running for the years to come.
+
+- [Lutris](https://flathub.org/apps/net.lutris.Lutris)
+
+```sh
+$ flatpak install --user flathub net.lutris.Lutris
+```
+
+#### Compatibility tools manager
+
+**ProtonPlus**
+
+[https://protonplus.vysp3r.com/](https://protonplus.vysp3r.com/)
+
+Install and manage Wine/Proton based compatibility tools with a graphical user interface.
+
+- [ProtonPlus](https://flathub.org/apps/com.vysp3r.ProtonPlus)
+
+```sh
+$ flatpak install --user flathub com.vysp3r.ProtonPlus
+```
 
 ### Howtos
 
