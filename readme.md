@@ -11,7 +11,6 @@ Software preferences and settings.
     - [Fonts](#fonts)
     - [Qt Wayland](#qt-wayland)
     - [Statusbar](#statusbar)
-    - [Power Button](#power-button)
     - [Application Launcher](#application-launcher)
     - [Lock Screen](#lock-screen)
     - [Terminal Emulator](#terminal-emulator)
@@ -164,20 +163,6 @@ Highly customizable Wayland bar for Sway and Wlroots based compositors.
 [.config/waybar/config.jsonc](.config/waybar/config.jsonc)
 
 [.config/waybar/style.css](.config/waybar/style.css)
-
-#### Power Button
-
-**nwg-bar**
-
-https://github.com/nwg-piotr/nwg-bar
-
-GTK3-based button bar for wlroots-based compositors.
-
-- [nwg-bar](https://archlinux.org/packages/extra/x86_64/nwg-bar/)
-
-[.config/nwg-bar/bar.json](.config/nwg-bar/bar.json)
-
-[.config/nwg-bar/style.css](.config/nwg-bar/style.css)
 
 #### Application Launcher
 

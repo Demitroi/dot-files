@@ -132,12 +132,8 @@ label:focus {
 }
 
 #clock {
-    padding: 8px 6px;
+    padding: 0 6px;
+    padding-top: 3px;
     color: @theme_text_color;
+    margin-right: 6px;
 }
-
-#custom-power {
-    padding: 0 4px;
-    margin-right: 14px;
-}
-

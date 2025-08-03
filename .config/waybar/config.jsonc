@@ -22,8 +22,7 @@
         "pulseaudio#audio",
         "pulseaudio#mic",
         "network",
-        "clock",
-        "custom/power"
+        "clock"
     ],
     // Modules configuration
     "sway/workspaces": {
@@ -112,9 +111,5 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%a %b-%d-%Y %H:%M}",
         "on-click": "exec foot --app-id=foot.calcurse calcurse"
-    },
-    "custom/power": {
-        "format": "",
-        "on-click": "nwg-bar -x"
     }
 }
