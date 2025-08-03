@@ -159,6 +159,8 @@ https://github.com/Alexays/Waybar
 
 Highly customizable Wayland bar for Sway and Wlroots based compositors.
 
+- [waybar](https://archlinux.org/packages/extra/x86_64/waybar/)
+
 [.config/waybar/config.jsonc](.config/waybar/config.jsonc)
 
 [.config/waybar/style.css](.config/waybar/style.css)
