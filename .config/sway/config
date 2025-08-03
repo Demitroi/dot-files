@@ -392,8 +392,6 @@ for_window [app_id="org.rncbc.qpwgraph"] floating enable
 for_window [app_id="foot.calcurse"] floating enable
 for_window [app_id="foot.nmtui"] floating enable
 for_window [app_id="io.github.Qalculate.qalculate-qt"] floating enable
-for_window [app_id="xpdf" title="XpdfReader: Save Image"] floating enable
-for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 
 #
 # XWayland apps
