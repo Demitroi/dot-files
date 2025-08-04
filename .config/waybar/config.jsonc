@@ -110,6 +110,6 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%a %b-%d-%Y %H:%M}",
-        "on-click": "exec foot --app-id=foot.calcurse calcurse"
+        "on-click": "io.elementary.calendar"
     }
 }
