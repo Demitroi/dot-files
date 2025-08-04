@@ -33,7 +33,6 @@ Software preferences and settings.
     - [Look and Feel](#look-and-feel)
     - [Display Settings](#display-settings)
     - [Screen magnifier](#screen-magnifier)
-    - [Policy Kit](#policy-kit)
 - [General Tools](#general-tools)
     - [Web Browser](#web-browser)
     - [Audio Player](#audio-player)
