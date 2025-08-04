@@ -398,24 +398,13 @@ Desktop calendar app designed for elementary OS.
 
 #### Look and Feel
 
-**nwg-look**
-
-https://github.com/nwg-piotr/nwg-look
-
 GTK3 settings editor adapted to work in the wlroots environment.
 
-- [nwg-look](https://archlinux.org/packages/extra/x86_64/nwg-look/)
 - [gnome-themes-extra](https://archlinux.org/packages/extra/x86_64/gnome-themes-extra/)
 - [papirus-icon-theme](https://archlinux.org/packages/extra/any/papirus-icon-theme/)
 - [deepin-icon-theme](https://archlinux.org/packages/extra/any/deepin-icon-theme/)
 - [qt5-base](https://archlinux.org/packages/extra/x86_64/qt5-base/)
 - [qt6-base](https://archlinux.org/packages/extra/x86_64/qt6-base/)
-- [adw-gtk-theme](https://archlinux.org/packages/extra/any/adw-gtk-theme/)
-- [orchis-theme](https://archlinux.orgpackages/extra/any/orchis-theme/)
-
-Open GTK Settings, in the Widgets section select Orchis-Dark-Compact. In Font section set the Font name to "Hack Nerd Font Mono", Style Normal and Point size 10. In Icon Theme select Papirus-Dark. In Mouse cursor select bloom.
-
-Qt applications will use the GTK settings because they're using the QGtk3Style platform theme, the environment variable ```QT_QPA_PLATFORMTHEME=gtk3``` is set in the ```~/.bashrc``` file.
 
 [.config/gtk-3.0/settings.ini](.config/gtk-3.0/settings.ini)
 
@@ -424,10 +413,6 @@ Qt applications will use the GTK settings because they're using the QGtk3Style p
 [.icons/default/index.theme](.icons/default/index.theme)
 
 [.config/xsettingsd/xsettingsd.conf](.config/xsettingsd/xsettingsd.conf)
-
-[.local/share/nwg-look/gsettings](.local/share/nwg-look/gsettings)
-
-[.config/nwg-look/config](.config/nwg-look/config)
 
 [.bashrc](.bashrc)
 
