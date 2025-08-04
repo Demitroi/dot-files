@@ -485,8 +485,6 @@ https://pwmt.org/projects/zathura/
 
 zathura is a customizable document viewer with vi-like keybindings. It provides a minimalistic and space-saving interface. Users interact with zathura primarily with the keyboard. Different file formats are supported through plugins.
 
-Install the ```zathura``` and ```zathura-pdf-mupdf``` packages.
-
 - [zathura](https://archlinux.org/packages/extra/x86_64/zathura/)
 - [zathura-pdf-mupdf](https://archlinux.org/packages/extra/x86_64/zathura-pdf-mupdf/)
 
@@ -796,8 +794,8 @@ OpenSSL is a software library for applications that provide secure communication
 
 Java is a programming language originally developed by Sun Microsystems and released in 1995 as a core component of Sun Microsystems' Java platform.
 
-- [jdk21-temurin](https://aur.archlinux.org/packages/jdk21-temurin)
-- [jdk17-temurin](https://aur.archlinux.org/packages/jdk17-temurin)
+- [jdk21-openjdk](https://archlinux.org/packages/extra/x86_64/jdk21-openjdk/)
+- [jdk8-openjdk](https://archlinux.org/packages/extra/x86_64/jdk8-openjdk/)
 - [maven](https://archlinux.org/packages/extra/any/maven/)
 
 #### JavaScript Development
