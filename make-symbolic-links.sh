@@ -5,7 +5,6 @@ mkdir -p ~/.config/sway
 ln -s -f $PWD/.config/sway/config ~/.config/sway/
 
 # Swaylock
-
 mkdir -p ~/.config/swaylock
 ln -s -f $PWD/.config/swaylock/config ~/.config/swaylock/
 
@@ -87,12 +86,6 @@ ln -s -f $PWD/.icons/default/index.theme ~/.icons/default/
 mkdir -p ~/.config/xsettingsd
 ln -s -f $PWD/.config/xsettingsd/xsettingsd.conf ~/.config/xsettingsd/
 
-# nwg-look
-mkdir -p ~/.local/share/nwg-look
-ln -s -f $PWD/.local/share/nwg-look/gsettings ~/.local/share/nwg-look/
-mkdir -p ~/.config/nwg-look
-ln -s -f $PWD/.config/nwg-look/config ~/.config/nwg-look/
-
 # nwg-bar
 mkdir -p ~/.config/nwg-bar
 ln -s -f $PWD/.config/nwg-bar/bar.json ~/.config/nwg-bar/
@@ -113,3 +106,7 @@ ln -s -f $PWD/.config/lxqt/archiver.conf ~/.config/lxqt/
 # Zathura
 mkdir -p ~/.config/zathura
 ln -s -f $PWD/.config/zathura/zathurarc ~/.config/zathura/
+
+# Btop
+mkdir -p ~/.config/btop
+ln -s -f $PWD/.config/btop/btop.conf ~/.config/btop/

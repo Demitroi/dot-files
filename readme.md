@@ -708,6 +708,8 @@ A monitor of resources.
 
 - [btop](https://archlinux.org/packages/extra/x86_64/btop/)
 
+- [.config/btop/btop.conf](.config/btop/btop.conf)
+
 #### Process Viewer
 
 **htop**
