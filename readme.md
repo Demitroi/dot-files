@@ -434,16 +434,6 @@ https://www.reddit.com/r/swaywm/comments/15v29nf/does_a_swaywlroots_magnifying_g
 
 https://github.com/swaywm/sway/issues/2781
 
-#### Policy Kit
-
-**lxqt-policykit**
-
-https://github.com/lxqt/lxqt-policykit
-
-Polkit is an application-level toolkit for defining and handling the policy that allows unprivileged processes to speak to privileged processes: It is a framework for centralizing the decision making process with respect to granting access to privileged operations for unprivileged applications.
-
-- [lxqt-policykit](https://archlinux.org/packages/extra/x86_64/lxqt-policykit/)
-
 ### General Tools
 
 #### Web Browser
