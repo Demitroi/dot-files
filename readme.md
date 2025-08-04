@@ -388,13 +388,13 @@ The image viewer and screenshot tool for lxqt.
 
 #### Calendar
 
-**calcurse**
+**pantheon-calendar**
 
-https://calcurse.org/
+https://github.com/elementary/calendar
 
-calcurse is a calendar and scheduling application for the command line. It helps keep track of events, appointments and everyday tasks.
+Desktop calendar app designed for elementary OS.
 
-- [calcurse](https://archlinux.org/packages/extra/x86_64/calcurse/)
+- [pantheon-calendar](https://archlinux.org/packages/extra/x86_64/pantheon-calendar/)
 
 #### Look and Feel
 
