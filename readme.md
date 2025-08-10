@@ -387,13 +387,13 @@ The image viewer and screenshot tool for lxqt.
 
 #### Calendar
 
-**pantheon-calendar**
+**thunderbird**
 
-https://github.com/elementary/calendar
+https://www.thunderbird.net/en-US/
 
-Desktop calendar app designed for elementary OS.
+Thunderbird is an open source email, news, and chat client previously developed by the Mozilla Foundation. 
 
-- [pantheon-calendar](https://archlinux.org/packages/extra/x86_64/pantheon-calendar/)
+- [thunderbird](https://archlinux.org/packages/extra/x86_64/thunderbird/)
 
 #### Look and Feel
 

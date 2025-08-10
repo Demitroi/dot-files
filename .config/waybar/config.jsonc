@@ -110,6 +110,6 @@
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%a %b-%d-%Y %H:%M}",
-        "on-click": "io.elementary.calendar"
+        "on-click": "thunderbird --calendar"
     }
 }
