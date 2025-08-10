@@ -16,6 +16,8 @@ export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 export _JAVA_AWT_WM_NONREPARENTING=1
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 export GTK_THEME=Adwaita:dark
+export PAGER=less
+export EDITOR=vim
 
 # Start sway
 # If running from tty1 start sway
