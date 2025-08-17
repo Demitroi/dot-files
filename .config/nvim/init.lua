@@ -42,9 +42,6 @@ vim.opt.breakindent = true
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Disable show mode
-vim.opt.showmode = false
-
 -- Buffer list
 vim.keymap.set('n', '<Leader>bl', '<Cmd>:buffers<CR>')
 -- Buffer delete
@@ -320,7 +317,7 @@ require('lazy').setup({
                 default = { 'lsp', 'path', 'snippets', 'buffer', },
             },
             fuzzy = {
-                implementation = 'prefer_rust_with_warning',
+                implementation = 'lua',
             },
         },
         opts_extend = { 'sources.default', },
