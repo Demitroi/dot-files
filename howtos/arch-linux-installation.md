@@ -368,10 +368,11 @@ btrfs subvolume create @log
 btrfs subvolume create @pkg
 ```
 
-Create the directories for the snapshots.
+Create the directories for the snapshots and the broken snapshots.
 
 ```sh
 mkdir -p snapshots snapshots/@ snapshots/@home
+mkdir -p snapshots_broken snapshots_broken/@ snapshots_broken/@home
 ```
 
 Exit from the ```/mnt``` directory and unoumnt it.
