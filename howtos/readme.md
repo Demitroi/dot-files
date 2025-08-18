@@ -12,3 +12,4 @@ Table of Content:
 - [Mount and umount external drives](mount-and-unmount-external-drives.md)
 - [Format external drives](format-external-drives.md)
 - [Touchpad (libinput)](touchpad-configuration.md)
+- [System maintenance](system-maintenance.md)
