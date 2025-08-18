@@ -612,6 +612,12 @@ Then mount the filesystem on it.
 mount /dev/mapper/root /mnt/btrfs
 ```
 
+Change to the /mnt/btrfs directory.
+
+```sh
+cd /mnt/btrfs
+```
+
 Create a read-only snapshot.
 
 ```sh
