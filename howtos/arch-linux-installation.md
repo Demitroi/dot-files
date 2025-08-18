@@ -368,6 +368,12 @@ btrfs subvolume create @log
 btrfs subvolume create @pkg
 ```
 
+Create the directories for the snapshots.
+
+```sh
+mkdir -p snapshots snapshots/@ snapshots/@home
+```
+
 Exit from the ```/mnt``` directory and unoumnt it.
 
 ```sh
@@ -589,6 +595,34 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 For more information refer to https://wiki.archlinux.org/title/Dm-crypt/System_configuration#Kernel_parameters
+
+#### Create the initial snapshot
+
+Once the system is installed, it's important to create the first snapshot to rollback to it in case something breaks.
+
+First create the /mnt/btrfs directory.
+
+```sh
+mkdir -p /mnt/btrfs
+```
+
+Then mount the filesystem on it.
+
+```sh
+mount /dev/mapper/root /mnt/btrfs
+```
+
+Create a read-only snapshot.
+
+```sh
+btrfs subvolume snapshot -r @ snapshots/@/$(date +%F_%H-%M-%S)
+```
+
+Create a recovery snapshot in case it's needed to boot on it. In this case it is not read-only.
+
+```sh
+btrfs subvolume snapshot @ @recovery
+```
 
 #### Post installation
 
