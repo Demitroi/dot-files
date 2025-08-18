@@ -4,7 +4,7 @@ These are my recommendations for system maintenance.
 
 #### Btrfs snapshop
 
-Before start doing mantenance, it's important to create a btrfs snapshot in caused something breaks, you can rollback all the changes.
+Before start doing mantenance, it's important to create a btrfs snapshot in case something breaks, you can rollback all the changes.
 
 First create a mount point for the btrfs system.
 
