@@ -365,7 +365,6 @@ Create the root and home subvolumes.
 btrfs subvolume create @
 btrfs subvolume create @home
 btrfs subvolume create @log
-btrfs subvolume create @pkg
 ```
 
 Create the directories for the snapshots and the broken snapshots.
@@ -404,13 +403,6 @@ Create the log directory and mount the @log subvolume.
 ```sh
 mkdir -p /mnt/var/log
 mount -o noatime,subvol=@log /dev/mapper/root /mnt/var/log
-```
-
-Create the package directory and mount the @pkg subvolume.
-
-```sh
-mkdir -p /mnt/var/cache/pacman/pkg
-mount -o noatime,subvol=@pkg /dev/mapper/root /mnt/var/cache/pacman/pkg
 ```
 
 Create boot directory and mount the boot partition.
