@@ -88,7 +88,8 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "exec pavucontrol -t 3"
+        "on-click": "exec pavucontrol -t 3",
+        "scroll-step": 5
     },
     "pulseaudio#mic": {
         "format": "{format_source}",
