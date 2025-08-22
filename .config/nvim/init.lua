@@ -126,29 +126,6 @@ require('lazy').setup({
     -- nvim-jdtls
     -- https://github.com/mfussenegger/nvim-jdtls
     'mfussenegger/nvim-jdtls',
-    -- nvim-dap
-    -- https://github.com/mfussenegger/nvim-dap
-    {
-        'mfussenegger/nvim-dap',
-        config = function()
-            -- Toggle breakpoint
-            vim.keymap.set('n', '<Leader>tb', require'dap'.toggle_breakpoint)
-            -- Step continue
-            vim.keymap.set('n', '<Leader>sc', require'dap'.continue)
-            -- Step over
-            vim.keymap.set('n', '<Leader>so', require'dap'.step_over)
-            -- Step into
-            vim.keymap.set('n', '<Leader>si', require'dap'.step_into)
-            -- Step exit, so is already used
-            vim.keymap.set('n', '<Leader>se', require'dap'.step_out)
-            -- IDK, i'm not using it
-            vim.keymap.set('n', '<Leader>ro', require'dap'.repl.open)
-            -- Debug hover
-            vim.keymap.set('n', '<Leader>dh', require'dap.ui.widgets'.hover)
-            -- Debug preview
-            vim.keymap.set('n', '<Leader>dp', require'dap.ui.widgets'.preview)
-        end,
-    },
     -- telescope.nvim
     -- https://github.com/nvim-telescope/telescope.nvim
     {
@@ -186,10 +163,10 @@ require('lazy').setup({
         end,
         lazy = false,
     },
-    -- nvim-lspconfig
-    -- https://github.com/neovim/nvim-lspconfig
+    -- mason-lspconfig.nvim
+    -- https://github.com/mason-org/mason-lspconfig.nvim
     {
-        'neovim/nvim-lspconfig',
+        'mason-org/mason-lspconfig.nvim',
         dependencies = {
             -- mason.nvim
             -- https://github.com/mason-org/mason.nvim
@@ -197,41 +174,14 @@ require('lazy').setup({
                 'mason-org/mason.nvim',
                 opts = {},
             },
-            -- mason-lspconfig.nvim
-            -- https://github.com/mason-org/mason-lspconfig.nvim
-            {
-                'mason-org/mason-lspconfig.nvim',
-                opts = {
-                    ensure_installed = { 'cssls', 'jdtls', 'gopls', 'html', 'ts_ls', 'angularls' },
-                }
-            },
+            -- nvim-lspconfig
+            -- https://github.com/neovim/nvim-lspconfig
+            'neovim/nvim-lspconfig',
         },
         config = function()
-            -- HTML
-            require'lspconfig'.html.setup{}
-
-            -- CSS
-            require'lspconfig'.cssls.setup{}
-
-            -- JavaScript
-            require'lspconfig'.ts_ls.setup{}
-
-            -- Golang
-            require'lspconfig'.gopls.setup{
-                settings = {
-                    gopls = {
-                        analyses = {
-                            unusedparams = true,
-                        },
-                        staticcheck = true,
-                        gofumpt = true,
-                    },
-                },
-            }
-
-            -- Angularls
-            require'lspconfig'.angularls.setup{}
-
+            require("mason-lspconfig").setup({
+                ensure_installed = { 'cssls', 'jdtls', 'gopls', 'html', 'ts_ls', 'angularls' },
+            })
             -- Highlight references
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -318,57 +268,16 @@ require('lazy').setup({
             },
             fuzzy = {
                 implementation = 'lua',
+                sorts = {
+                    'exact',
+                    -- defaults
+                    'score',
+                    'sort_text',
+                },
             },
         },
         opts_extend = { 'sources.default', },
     },
-    --[[
-    Disable linter temporarily
-    {
-        -- mason-tool-installer.nvim
-        -- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
-        dependencies = {
-            -- nvim-lint
-            -- https://github.com/mfussenegger/nvim-lint
-            'mfussenegger/nvim-lint',
-            event = { 'BufReadPre', 'BufNewFile', },
-            config = function()
-                local lint = require 'lint'
-                lint.linters_by_ft = {
-                    -- check: https://golangci-lint.run/
-                    go = { 'golangcilint' },
-                    -- check: https://eslint.org/docs/latest/use/getting-started
-                    javascript = { 'eslint_d' },
-                    typescript = { 'eslint_d' },
-                    javascriptreact = { 'eslint_d' },
-                    typescriptreact = { 'eslint_d' },
-                    -- check: https://htmlhint.com/docs/user-guide/getting-started
-                    html = { 'htmlhint' },
-                    -- check: https://github.com/stylelint/stylelint/blob/main/docs/user-guide/get-started.md
-                    css = { 'stylelint' },
-                }
-                local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
-                vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
-                    group = lint_augroup,
-                    callback = function()
-                        -- Only run the linter in buffers that you can modify in order to
-                        -- avoid superfluous noise, notably within the handy LSP pop-ups that
-                        -- describe the hovered symbol using Markdown.
-                        if vim.opt_local.modifiable:get() then
-                            lint.try_lint()
-                        end
-                    end,
-                })
-            end,
-        },
-        config = function()
-            require("mason-tool-installer").setup({
-                ensure_installed = { 'eslint_d', 'golangci-lint', 'htmlhint', 'stylelint' },
-            })
-        end,
-    },
-    --]]
     {
         'folke/todo-comments.nvim',
         event = 'VimEnter',
