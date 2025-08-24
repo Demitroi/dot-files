@@ -605,6 +605,12 @@ Edit the ```GRUB_CMDLINE_LINUX_DEFAULT``` line, replace the ```quiet``` for ```v
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 verbose cryptdevice=UUID=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd:root root=/dev/mapper/root"
 ```
 
+Also set the ```GRUB_TIMEOUT``` to 15.
+
+```
+GRUB_TIMEOUT=15
+```
+
 Save the file and generate grub configuration.
 
 ```sh
