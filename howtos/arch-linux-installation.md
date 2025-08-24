@@ -163,15 +163,16 @@ fdisk /dev/sda
 
 The 3 partitions suggested by the Arch installation guide are the next:
 
-|Mount point on the installed system|Partition|Partition type|fisk partition type number|Suggested size|
+|Mount point on the installed system|Partition|Partition type|fdisk partition type number|Suggested size|
 |-|-|-|-|-|
-|/boot|/dev/efi_system_partition|EFI system partition|1|1 GiB|
-|[SWAP]|/dev/swap_partition|Linux swap|19|At least 4 GiB|
+|/boot|/dev/efi_system_partition|EFI system partition|1|2 GiB|
 |/|/dev/root_partition|Linux x86-64 root (/)|23|Remainder of the device. At least 23–32 GiB.|
 
 In fdisk you can list the known partition types by running the ```l``` command.
 
 Create the GTP partition table and the partitions with the next commands:
+
+Skip the swap partition, i might recreate this tutorial later, currently I'm using a btrfs swap file instead of a swap partition.
 
 ```
 Welcome to fdisk (util-linux 2.40.2).
@@ -301,12 +302,6 @@ Format the EFI partition.
 mkfs.fat -F 32 /dev/sda1
 ```
 
-Format the SWAP partition.
-
-```sh
-mkswap /dev/sda2
-```
-
 The root partition must be formatted using the mapper.
 
 ```sh
@@ -359,12 +354,13 @@ Change to the ```/mnt``` directory.
 cd /mnt
 ```
 
-Create the root and home subvolumes.
+Create the root, home, log and swap subvolumes.
 
 ```sh
 btrfs subvolume create @
 btrfs subvolume create @home
 btrfs subvolume create @log
+btrfs subvolume create @swap
 ```
 
 Create the directories for the snapshots and the broken snapshots.
@@ -394,7 +390,7 @@ mount -o noatime,subvol=@ /dev/mapper/root /mnt
 Create the home directory and mount the @home subvolume.
 
 ```sh
-mkdir /mnt/home
+mkdir -p /mnt/home
 mount -o noatime,subvol=@home /dev/mapper/root /mnt/home
 ```
 
@@ -412,10 +408,29 @@ mkdir /mnt/boot
 mount -o noatime /dev/sda1 /mnt/boot
 ```
 
-Enable swap by running the next command:
+Create the swap directory and mount the @swap subvolume.
 
 ```sh
-swapon /dev/sda2
+mkdir -p /mnt/swap
+mount -o subvol=@swap /dev/mapper/root /mnt/swap
+```
+
+In order to enable hibernation, the swap file must be at least the size of the RAM. To show the RAM size run:
+
+```sh
+free -h
+```
+
+Create and enable the swap file. In thi case the RAM size is 16 GiB.
+
+```sh
+btrfs filesystem mkswapfile --size 16g --uuid clear /mnt/swap/swapfile
+```
+
+Enable the swap file.
+
+```sh
+swapon /mnt/swap/swapfile
 ```
 
 #### Select the mirrors
@@ -486,10 +501,10 @@ Edit the ```/etc/mkinitcpio.conf``` file and add the encrypt hook.
 vim /etc/mkinitcpio.conf
 ```
 
-Make sure the ```encrypt``` hook is before ```filesystems``` hook.
+Make sure the ```encrypt``` hook is before ```filesystems``` hook. And the ```resume``` hook is before ```fsck``` and after ```filesystems```, this is necessary to enable hibernation.
 
 ```
-HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt filesystems fsck)
+HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt filesystems resume fsck)
 ```
 
 Then recreate the initramfs image.
@@ -502,6 +517,21 @@ Set the root password.
 
 ```sh
 passwd
+```
+
+#### Set custom ACPI events
+
+Edit the ```/etc/systemd/logind.conf``` file to customize the power button and lid switch actions.
+
+```sh
+vim /etc/systemd/logind.conf
+```
+
+Set the power button action to hibernate and the lid switch to do nothing.
+
+```
+HandlePowerKey=hibernate
+HandleLidSwitch=ignore
 ```
 
 #### (Optional) Create a user
@@ -551,12 +581,6 @@ Install the grub bootloader by running the next command:
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 ```
 
-Generate grub configuration.
-
-```sh
-grub-mkconfig -o /boot/grub/grub.cfg
-```
-
 Configure cryptdevice in grub. Use blkid to get the partition id.
 
 ```sh
@@ -575,10 +599,10 @@ Copy the uuid and edit the ```/etc/default/grub``` file.
 vim /etc/default/grub
 ```
 
-Edit the ```GRUB_CMDLINE_LINUX_DEFAULT``` line and add the cryptdevice and root parameter, for example:
+Edit the ```GRUB_CMDLINE_LINUX_DEFAULT``` line, replace the ```quiet``` for ```verbose``` and add the cryptdevice and root parameter, for example:
 
 ```
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet cryptdevice=UUID=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd:root root=/dev/mapper/root"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 verbose cryptdevice=UUID=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd:root root=/dev/mapper/root"
 ```
 
 Save the file and generate grub configuration.
@@ -587,7 +611,13 @@ Save the file and generate grub configuration.
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-For more information refer to https://wiki.archlinux.org/title/Dm-crypt/System_configuration#Kernel_parameters
+For more information refer to:
+
+https://wiki.archlinux.org/title/Dm-crypt/System_configuration#Kernel_parameters
+
+https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Configure_the_initramfs
+
+https://wiki.archlinux.org/title/Kernel_parameters#Parameter_list
 
 #### Create the initial snapshot
 
