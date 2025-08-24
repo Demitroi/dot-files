@@ -4,7 +4,7 @@ These are my recommendations for system maintenance.
 
 #### Btrfs snapshop
 
-Before start doing mantenance, it's important to create a btrfs snapshot in case something breaks, you can rollback all the changes.
+Before start doing maintenance, it's important to create a btrfs snapshot in case something breaks, you can rollback all the changes.
 
 First create a mount point for the btrfs system.
 
@@ -28,30 +28,6 @@ Create a read-only snapshot.
 
 ```sh
 sudo btrfs subvolume snapshot -r @ snapshots/@/$(date +%F_%H-%M-%S)
-```
-
-Remove previous ```@recovery``` subvolume if exists. To list the subvolumes run.
-
-```sh
-sudo btrfs subvolume list .
-```
-
-Make sure the ```@recovery``` subvolume is not mounted, deleting a mounted subvolume can lead to filesystem inconsistencies. The findmnt command shows the mounted btrfs subvolumes.
-
-```sh
-sudo findmnt
-```
-
-Delete the previous ```@recovery``` subvolume.
-
-```sh
-sudo btrfs subvolume delete @recovery
-```
-
-Create a new ```@recovery``` snapshot in case it's needed to boot on it. In this case it is not read-only.
-
-```sh
-sudo btrfs subvolume snapshot @ @recovery
 ```
 
 Leave the /mnt/btrfs directory and unmount the btrfs partition.
@@ -97,6 +73,12 @@ Clean systemd journal, in the ```vacuum-time``` parameter the time time can be s
 
 ```sh
 sudo journalctl --vacuum-time=90d
+```
+
+Uninstall unused flatpak packages.
+
+```sh
+flatpak uninstall --unused
 ```
 
 #### Recover a broken system from a snapshot

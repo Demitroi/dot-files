@@ -653,12 +653,6 @@ Create a read-only snapshot.
 btrfs subvolume snapshot -r @ snapshots/@/$(date +%F_%H-%M-%S)
 ```
 
-Create a recovery snapshot in case it's needed to boot on it. In this case it is not read-only.
-
-```sh
-btrfs subvolume snapshot @ @recovery
-```
-
 #### Post installation
 
 Enable and start NetworkManager.
