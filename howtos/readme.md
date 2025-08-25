@@ -12,3 +12,4 @@ Table of Content:
 - [Format external drives](format-external-drives.md)
 - [Touchpad (libinput)](touchpad-configuration.md)
 - [System maintenance](system-maintenance.md)
+- [Rollback snapshots](rollback-snapshots.md)
