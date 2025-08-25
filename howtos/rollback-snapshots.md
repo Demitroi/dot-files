@@ -178,3 +178,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 Once the system is working, it's recommended to create a new snapshot in case de system breaks again. Follow the firsts steps to create a new snapshot.
 
+Follow the first steps to mount the luks partition and the btrfs partition, then create a new read-only snapshot of the current subvolume to keep a backup.
+
+```sh
+btrfs subvolume snapshot -r @ snapshots/@/$(date +%F_%H-%M-%S)
+```
