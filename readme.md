@@ -64,6 +64,7 @@ Software preferences and settings.
     - [JSON Processor](#json-processor)
     - [Open File Listing Tool](#open-file-listing-tool)
     - [Networking Utilities](#networking-utilities)
+    - [DNS Utilities](#dns-utilities)
     - [TLS and SSL crypto library](#tls-and-ssl-crypto-library)
     - [Java Development](#java-development)
     - [JavaScript Development](#javascript-development)
@@ -769,6 +770,16 @@ https://net-tools.sourceforge.io/
 net-tools, the collection of base networking utilities for Linux.
 
 - [net-tools](https://archlinux.org/packages/core/x86_64/net-tools/)
+
+#### DNS Utilities
+
+**bind**
+
+https://www.isc.org/bind/
+
+A complete, highly portable implementation of the DNS protocol.
+
+- [bind](https://archlinux.org/packages/extra/x86_64/bind/)
 
 #### TLS and SSL crypto library
 
