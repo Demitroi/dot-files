@@ -138,9 +138,10 @@ Sway (contracted from SirCmpwn's Wayland compositor [1]) is a compositor for Way
 The following is the list of fonts that I use.
 
 - [otf-font-awesome](https://archlinux.org/packages/extra/any/otf-font-awesome/)
-- [ttf-font-awesome](https://archlinux.org/packages/extra/any/ttf-font-awesome/)
+- [woff2-font-awesome](https://archlinux.org/packages/extra/any/woff2-font-awesome/)
 - [ttf-hack-nerd](https://archlinux.org/packages/extra/any/ttf-hack-nerd/)
 - [noto-fonts-emoji](https://archlinux.org/packages/extra/any/noto-fonts-emoji/)
+- [noto-fonts-cjk](https://archlinux.org/packages/extra/any/noto-fonts-cjk/)
 
 #### Qt Wayland
 
