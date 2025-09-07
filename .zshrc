@@ -138,9 +138,12 @@ zstyle ':completion:*' menu select
 
 # Aliases
 alias l='ls --color'
+alias ls='ls --color=auto'
 alias ll='ls -la --color'
-alias less='less -R'
 alias open='xdg-open'
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias ip='ip -color=auto'
 
 # Prompt
 prompt bart
