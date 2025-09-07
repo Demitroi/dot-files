@@ -389,7 +389,6 @@ gaps inner 8
 #
 # Floating windows
 #
-for_window [app_id="lximage-qt"] floating enable
 for_window [app_id="audacious"] floating enable
 for_window [class="Audacious"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable

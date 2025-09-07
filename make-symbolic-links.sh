@@ -110,3 +110,6 @@ ln -s -f $PWD/.config/zathura/zathurarc ~/.config/zathura/
 # Btop
 mkdir -p ~/.config/btop
 ln -s -f $PWD/.config/btop/btop.conf ~/.config/btop/
+
+# mimeapps.list
+ln -s -f $PWD/.config/mimeapps.list ~/.config/
