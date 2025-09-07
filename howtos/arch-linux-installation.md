@@ -567,21 +567,32 @@ su demitroi
 xdg-user-dirs-update
 ```
 
-#### Install Boot loader
+#### Install the systemd-boot loader
 
-Install the ```grub``` and ```efibootmgr``` packages.
+Systemd-boot comes with systemd package, so it's not necessary to install it.
 
-```sh
-pacman -S grub efibootmgr
-```
-
-Install the grub bootloader by running the next command:
+Exec the next command to install it.
 
 ```sh
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+bootctl install --efi-boot-option-description="Arch Linux"
 ```
 
-Configure cryptdevice in grub. Use blkid to get the partition id.
+Create and edit the loader config file.
+
+```sh
+vim /boot/loader/loader.conf
+```
+
+Add the next content to it.
+
+```
+default  arch.conf
+timeout  15
+console-mode max
+editor   no
+```
+
+Before creating the entries, use blkid to get the partition id of the LUKS partition.
 
 ```sh
 blkid /dev/sda3
@@ -593,28 +604,48 @@ Output example:
 /dev/sda3: UUID="8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd" TYPE="crypto_LUKS" PARTUUID="c293c947-881e-440c-b85c-859f19391b96"
 ```
 
-Copy the uuid and edit the ```/etc/default/grub``` file.
+Create the files of the loader entries.
 
 ```sh
-vim /etc/default/grub
+mkdir -p /boot/loader/entries
 ```
 
-Edit the ```GRUB_CMDLINE_LINUX_DEFAULT``` line, replace the ```quiet``` for ```verbose``` and add the cryptdevice and root parameter, for example:
-
-```
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 verbose cryptdevice=UUID=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd:root root=/dev/mapper/root"
-```
-
-Also set the ```GRUB_TIMEOUT``` to 15.
-
-```
-GRUB_TIMEOUT=15
-```
-
-Save the file and generate grub configuration.
+Create and edit the arch.conf file.
 
 ```sh
-grub-mkconfig -o /boot/grub/grub.cfg
+vim /boot/loader/entries/arch.conf
+```
+
+Add the next content to it. The uuid is taken from the previous blkid command and the intel-ucode can be replaced with amd-ucode if the processor is amd.
+
+```
+title   Arch Linux
+linux   /vmlinuz-linux-lts
+initrd  /intel-ucode.img
+initrd  /initramfs-linux-lts.img
+options loglevel=3 verbose cryptdevice=UUID=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd:root root=/dev/mapper/root rootflags=subvol=@ rw
+```
+
+Create the fallback entry, copy it from the previous file.
+
+```sh
+cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-fallback.conf
+```
+
+Edit the ```arch-fallback.conf``` file.
+
+```sh
+vim /boot/loader/entries/arch-fallback.conf
+```
+
+Change the initrd line to use the fallback image.
+
+```
+title   Arch Linux (fallback initramfs)
+linux   /vmlinuz-linux-lts
+initrd  /intel-ucode.img
+initrd  /initramfs-linux-lts-fallback.img
+options loglevel=3 verbose cryptdevice=UUID=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd:root root=/dev/mapper/root rootflags=subvol=@ rw
 ```
 
 For more information refer to:

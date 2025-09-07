@@ -101,8 +101,6 @@ My base system consists in a basic arch linux installation that uses btrfs files
 - [man-pages](https://archlinux.org/packages/core/x86_64/man-pages/)
 - [texinfo](https://archlinux.org/packages/core/x86_64/texinfo/)
 - [xdg-user-dirs](https://archlinux.org/packages/extra/x86_64/xdg-user-dirs/)
-- [grub](https://archlinux.org/packages/core/x86_64/grub/)
-- [efibootmgr](https://archlinux.org/packages/core/x86_64/efibootmgr/)
 - [dosfstools](https://archlinux.org/packages/core/x86_64/dosfstools/)
 - [ntfs-3g](https://archlinux.org/packages/extra/x86_64/ntfs-3g/)
 - [pacman-contrib](https://archlinux.org/packages/extra/x86_64/pacman-contrib/)

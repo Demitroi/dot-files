@@ -157,22 +157,18 @@ pacman -U /var/cache/pacman/pkg/linux-lts-6.12.42-1-x86_64.pkg.tar.zst /var/cach
 
 This will resintall the kernel in the ```@``` subolume, regenerate the initramfs and vmlinuz with in the ```/boot``` partition with the exact same version of ```/usr/lib/modules/```. And then, the system should work properly. Exit the chroot and reboot the machine.
 
-#### Reinstall grub
+#### Reinstall systemd-boot
 
-If the system is unable to boot because the grub is broken or uninstalled, it has to be reinstalled. Follow the previous steps to chroot into the ```@``` partiton and continue in this point.
+If the system is unable to boot because the systemd-boot is broken or uninstalled, it has to be reinstalled. Follow the previous steps to chroot into the ```@``` partiton and continue in this point.
 
 
-Reinstall the grub bootloader by running the next command:
-
-```sh
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-```
-
-Regenerate grub configuration.
+Reinstall the systemd-boot bootloader by running the next command:
 
 ```sh
-grub-mkconfig -o /boot/grub/grub.cfg
+bootctl install --efi-boot-option-description="Arch Linux"
 ```
+
+In case the loader config file and the entries are missing, follow the ```Install the systemd-boot loader``` section in ```Arch linux installation``` page to recreate them.
 
 #### Create a snapshot of the working system
 
