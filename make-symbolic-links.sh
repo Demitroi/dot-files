@@ -71,6 +71,10 @@ ln -s -f $PWD/.config/tmux/tmux.conf ~/.config/tmux/
 # mimeapps.list
 ln -s -f $PWD/.config/mimeapps.list ~/.config/
 
+# GTK 4 Settings
+mkdir -p ~/.config/gtk-4.0
+ln -s -f $PWD/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/
+
 # GTK 3 Settings
 mkdir -p ~/.config/gtk-3.0
 ln -s -f $PWD/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
