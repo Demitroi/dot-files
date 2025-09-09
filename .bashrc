@@ -29,6 +29,7 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-P -c"
 export GTK_USE_PORTAL=1
 export GDK_DEBUG=portals
+export XDG_CURRENT_DESKTOP=sway
 
 # Start sway
 # If running from tty1 start sway
