@@ -93,7 +93,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "format-source": "  {volume}%",
+        "format-source": "   {volume}%",
         "format-source-muted": "  ",
         "on-click": "exec pavucontrol -t 3",
         "scroll-step": 5
