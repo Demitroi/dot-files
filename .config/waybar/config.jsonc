@@ -1,9 +1,9 @@
 // -*- mode: jsonc -*-
 {
-    "layer": "bottom",
+    "layer": "top",
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 25, // Waybar height (to be removed for auto height)
-    "spacing": 4, // Gaps between modules (4px)
+    // "height": 25, // Waybar height (to be removed for auto height)
+    // "spacing": 4, // Gaps between modules (4px)
     "margin-top": 8,
     "margin-right": 8,
     "margin-bottom": 0,
@@ -19,8 +19,7 @@
         "mpris",
         "privacy",
         "tray",
-        "pulseaudio#audio",
-        "pulseaudio#mic",
+        "pulseaudio",
         "network",
         "clock"
     ],
@@ -29,7 +28,7 @@
         "disable-scroll": true
     },
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        "format": "<span style=\"italic\">   {}</span>"
     },
     "sway/scratchpad": {
         "format": "{icon} {count}",
@@ -43,14 +42,20 @@
         "icon": true
     },
     "mpris": {
-        "format-playing": "{artist} - {title} - {album}",
+        "format-playing": "   {artist} - {title} - {album}",
         "format-paused": " ",
         "format-stopped": " ",
-        "ignored-players": ["firefox"]
+        "ignored-players": ["firefox"],
+        "on-click": "",
+        "on-click-middle": "",
+        "on-click-right": "",
+        "artist-len": 35,
+        "title-len": 45,
+        "album-len": 35
     },
     "privacy": {
-        "icon-spacing": 4,
-        "icon-size": 16,
+        "icon-spacing": 8,
+        "icon-size": 18,
         "transition-duration": 250,
         "modules": [
             {
@@ -71,14 +76,14 @@
         ]
     },
     "tray": {
-        "spacing": 10,
-        "icon-size": 18
+        "spacing": 14,
+        "icon-size": 20
     },
-    "pulseaudio#audio": {
-        "format": "{volume}%  {icon}",
-        "format-muted": " ",
+    "pulseaudio": {
+        "format": "{icon}   {volume}%   {format_source}",
+        "format-muted": " {format_source}",
         "format-bluetooth": "{volume}% {icon}",
-        "format-bluetooth-muted": " {icon}",
+        "format-bluetooth-muted": "{icon}",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -88,14 +93,10 @@
             "car": "",
             "default": ["", "", ""]
         },
+        "format-source": "  {volume}%",
+        "format-source-muted": "  ",
         "on-click": "exec pavucontrol -t 3",
         "scroll-step": 5
-    },
-    "pulseaudio#mic": {
-        "format": "{format_source}",
-        "format-source": "{volume}%  ",
-        "format-source-muted": "",
-        "on-click": "exec pavucontrol -t 4"
     },
     "network": {
         "format-wifi": "{signalStrength}% ",
