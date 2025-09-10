@@ -80,7 +80,7 @@
         "icon-size": 20
     },
     "pulseaudio": {
-        "format": "{icon}   {volume}%   {format_source}",
+        "format": "{icon}  {volume}%  {format_source}",
         "format-muted": " {format_source}",
         "format-bluetooth": "{volume}% {icon}",
         "format-bluetooth-muted": "{icon}",
@@ -93,8 +93,8 @@
             "car": "",
             "default": [""]
         },
-        "format-source": "   {volume}%",
-        "format-source-muted": "  ",
+        "format-source": "  {volume}%",
+        "format-source-muted": " ",
         "on-click": "exec pavucontrol -t 3",
         "scroll-step": 5
     },
