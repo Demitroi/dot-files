@@ -91,7 +91,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [""]
         },
         "format-source": "   {volume}%",
         "format-source-muted": "  ",
