@@ -55,7 +55,7 @@
     },
     "privacy": {
         "icon-spacing": 8,
-        "icon-size": 18,
+        "icon-size": 16,
         "transition-duration": 250,
         "modules": [
             {
@@ -77,7 +77,7 @@
     },
     "tray": {
         "spacing": 14,
-        "icon-size": 20
+        "icon-size": 16
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%  {format_source}",

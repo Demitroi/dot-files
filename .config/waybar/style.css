@@ -139,18 +139,27 @@ label:focus {
     font-size: 14px;
     margin-left: 2px;
     margin-right: 2px;
-    padding: 8px 8px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 #network {
+    font-size: 14px;
     margin-right: 2px;
-    padding: 8px 4px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 
 #clock {
     margin-left: 2px;
-    padding: 0 6px;
-    padding-top: 3px;
+    margin-right: 4px;
+    padding-top: 8px;
+    padding-bottom: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
     color: @theme_text_color;
-    margin-right: 6px;
 }
