@@ -1,6 +1,7 @@
 [Default Applications]
 image/png=lximage-qt.desktop
 image/jpeg=lximage-qt.desktop
+image/gif=lximage-qt.desktop
 audio/mpeg=mpv.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
 image/bmp=lximage-qt.desktop
