@@ -385,6 +385,9 @@ for_window [app_id="org.rncbc.qpwgraph"] floating enable
 for_window [app_id="foot.calcurse"] floating enable
 for_window [app_id="foot.nmtui"] floating enable
 for_window [app_id="io.github.Qalculate.qalculate-qt"] floating enable
+for_window [app_id="pcmanfm-qt" title="Removable medium is inserted"] floating enable
+for_window [app_id="pcmanfm-qt" title="Preferences"] floating enable
+for_window [app_id="pcmanfm-qt" title="Mount"] floating enable
 
 #
 # XWayland apps

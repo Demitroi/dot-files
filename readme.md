@@ -353,6 +353,8 @@ https://github.com/lxqt/pcmanfm-qt
 File manager and desktop icon manager (Qt port of PCManFM and libfm).
 
 - [pcmanfm-qt](https://archlinux.org/packages/extra/x86_64/pcmanfm-qt/)
+- [gvfs](https://archlinux.org/packages/extra/x86_64/gvfs/)
+- [gvfs-mtp](https://archlinux.org/packages/extra/x86_64/gvfs-mtp/)
 
 [.config/pcmanfm-qt/default/settings.conf](.config/pcmanfm-qt/default/settings.conf)
 
