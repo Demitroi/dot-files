@@ -15,6 +15,7 @@ Software preferences and settings.
     - [Lock Screen](#lock-screen)
     - [Terminal Emulator](#terminal-emulator)
     - [Shell](#shell)
+    - [Policy Kit](#policy-kit)
     - [Clipboard Manager](#clipboard-manager)
     - [Multimedia Server](#multimedia-server)
     - [Volume Control](#volume-control)
@@ -212,6 +213,16 @@ Zsh is a powerful shell that operates as both an interactive shell and as a scri
 - [zsh-completions](https://archlinux.org/packages/extra/any/zsh-completions/)
 
 [.zshrc](.zshrc)
+
+#### Policy Kit
+
+**lxqt-policykit**
+
+https://github.com/lxqt/lxqt-policykit
+
+Polkit is an application-level toolkit for defining and handling the policy that allows unprivileged processes to speak to privileged processes: It is a framework for centralizing the decision making process with respect to granting access to privileged operations for unprivileged applications.
+
+- [lxqt-policykit](https://archlinux.org/packages/extra/x86_64/lxqt-policykit/)
 
 #### Clipboard Manager
 

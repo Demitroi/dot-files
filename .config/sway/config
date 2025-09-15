@@ -342,6 +342,11 @@ bindsym $mod+v exec cliphist list | wofi -S dmenu -p Clipboard | cliphist decode
 exec qpwgraph --minimized
 
 #
+# LXQT Policykit Agent
+#
+exec lxqt-policykit-agent
+
+#
 # Custom move to next and previous workspace
 #
 bindsym $mod+Prior workspace prev
@@ -388,6 +393,7 @@ for_window [app_id="io.github.Qalculate.qalculate-qt"] floating enable
 for_window [app_id="pcmanfm-qt" title="Removable medium is inserted"] floating enable
 for_window [app_id="pcmanfm-qt" title="Preferences"] floating enable
 for_window [app_id="pcmanfm-qt" title="Mount"] floating enable
+for_window [app_id="lxqt-policykit-agent"] floating enable
 
 #
 # XWayland apps
