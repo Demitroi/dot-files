@@ -45,6 +45,14 @@ Perform a full system upgrade with pacman.
 sudo pacman -Syu
 ```
 
+#### Update the bootloader
+
+Update the systemd-boot bootloader.
+
+```sh
+sudo bootctl update --efi-boot-option-description="Arch Linux"
+```
+
 #### Free up disk space
 
 Over time, there are certain things in the system that take up disk space. However, there are several thigs to do in order to free up disk space.
@@ -73,6 +81,14 @@ Clean systemd journal, in the ```vacuum-time``` parameter the time time can be s
 
 ```sh
 sudo journalctl --vacuum-time=90d
+```
+
+#### Update flatpak packages
+
+It's recommended to reboot the system after updating flatpak packages.
+
+```sh
+flatpak update
 ```
 
 Uninstall unused flatpak packages.
