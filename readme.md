@@ -47,6 +47,7 @@ Software preferences and settings.
     - [Video Editor](#video-editor)
     - [Password Manager](#password-manager)
     - [System Information Tool](#system-information-tool)
+    - [System's Hardware Information Tool](#systems-hardware-information-tool)
     - [File Transferring and Synchronization](#file-transferring-and-synchronization)
     - [SSD and HDD Monitoring](#ssd-and-hdd-monitoring)
     - [Directory Tree Listing](#directory-tree-listing)
@@ -585,6 +586,16 @@ https://github.com/fastfetch-cli/fastfetch
 Fastfetch is a neofetch-like tool for fetching system information and displaying it in a visually appealing way.
 
 - [fastfetch](https://archlinux.org/packages/extra/x86_64/fastfetch/)
+
+#### System's Hardware Information Tool
+
+**Dmidecode**
+
+https://www.nongnu.org/dmidecode/
+
+Dmidecode reports information about your system's hardware as described in your system BIOS according to the SMBIOS/DMI standard.
+
+- [dmidecode](https://archlinux.org/packages/extra/x86_64/dmidecode/)
 
 #### File Transferring and Synchronization
 
