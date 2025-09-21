@@ -77,9 +77,9 @@ Software preferences and settings.
     - [SSH Server](#ssh-server)
     - [Web Server](#web-server)
 - [Gaming](#gaming)
-    - [Linux application sandboxing](#linux-application-sandboxing)
-    - [Video game preservation platform](#video-game-preservation-platform)
-    - [Compatibility tools manager](#compatibility-tools-manager)
+    - [Prepare machine for gaming](#prepare-machine-for-gaming)
+    - [Steam](#steam)
+    - [Lutris](#lutris)
 - [Howtos](#howtos)
 
 ### Base System
@@ -901,53 +901,62 @@ Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS.
 
 ### Gaming
 
-All the games are installed using lutris, and lutris is installed via flatpak.
+#### Prepare machine for gaming
 
-#### Linux application sandboxing
+See [Prepare machine for gaming](howtos/prepare-machine-for-gaming.md)
 
-**Flatpak**
+#### Steam
 
-[https://flatpak.org/](https://flatpak.org/)
+https://store.steampowered.com/about/
 
-Flatpak is a system for building, distributing and running sandboxed desktop applications on Linux.
+Steam is a popular game distribution platform by Valve.
 
-- [flatpak](https://archlinux.org/packages/extra/x86_64/flatpak/)
+- [steam](https://archlinux.org/packages/multilib/x86_64/steam/)
 
-Add flathub repository.
+Enable proton-ge, go to Steam > Settings > Compatibility and change the default compatibility tool.
 
-```sh
-$ flatpak remote-add --if-not-exists --user flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+Run games with gamemode and proton environment variables, go to game properties and in the launch options set the next:
+
+```
+gamemoderun %command%
 ```
 
-You may probably need to restart in order to see the flatpak apps in the application launcher.
+In that section the proton environment variables can be set, for example.
 
-#### Video game preservation platform
+```
+gamemoderun PROTON_USE_WINED3D=1  %command%
+```
 
-**Lutris**
+See the next link to see the list of the available proton environment variables.
 
-[https://lutris.net/](https://lutris.net/)
+https://github.com/GloriousEggroll/proton-ge-custom?tab=readme-ov-file#modification
+
+#### Lutris
+
+https://lutris.net/
 
 Lutris is a video game preservation platform aiming to keep your video game collection up and running for the years to come.
 
-- [Lutris](https://flathub.org/apps/net.lutris.Lutris)
+- [lutris](https://archlinux.org/packages/extra/any/lutris/)
 
-```sh
-$ flatpak install --user flathub net.lutris.Lutris
-```
+Also install some optional dependencies.
 
-#### Compatibility tools manager
+- [innoextract](https://archlinux.org/packages/extra/x86_64/innoextract/)
+- [lib32-gnutls](https://archlinux.org/packages/multilib/x86_64/lib32-gnutls/)
+- [lib32-vkd3d](https://archlinux.org/packages/multilib/x86_64/lib32-vkd3d/)
+- [libayatana-appindicator](https://archlinux.org/packages/extra/x86_64/libayatana-appindicator/)
+- [python-pefile](https://archlinux.org/packages/extra/any/python-pefile/)
+- [python-protobuf](https://archlinux.org/packages/extra/x86_64/python-protobuf/)
+- [umu-launcher](https://archlinux.org/packages/multilib/x86_64/umu-launcher/)
+- [vkd3d](https://archlinux.org/packages/extra/any/lutris/)
+- [wine](https://archlinux.org/packages/extra/x86_64/wine/)
+- [winetricks](https://archlinux.org/packages/multilib/x86_64/winetricks/)
+- [wine-mono](https://archlinux.org/packages/multilib/x86_64/wine-mono/)
+- [wine-gecko](https://archlinux.org/packages/extra/x86_64/wine-gecko/)
 
-**ProtonPlus**
+Set GE-Proton as the default wine version, go to the wine runner settings and change the Wine version.
 
-[https://protonplus.vysp3r.com/](https://protonplus.vysp3r.com/)
-
-Install and manage Wine/Proton based compatibility tools with a graphical user interface.
-
-- [ProtonPlus](https://flathub.org/apps/com.vysp3r.ProtonPlus)
-
-```sh
-$ flatpak install --user flathub com.vysp3r.ProtonPlus
-```
+Make sure GameMode is enable in the runner, go to the runner settings, in the System options tab, and make sure the ```Enable Feral GameMode``` options is enabled under the ```CPU``` section.
 
 ### Howtos
 

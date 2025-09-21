@@ -13,3 +13,4 @@ Table of Content:
 - [Touchpad (libinput)](touchpad-configuration.md)
 - [System maintenance](system-maintenance.md)
 - [Rollback snapshots](rollback-snapshots.md)
+- [Prepare for Gaming](prepare-machine-for-gaming.md)

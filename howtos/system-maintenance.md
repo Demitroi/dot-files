@@ -83,16 +83,3 @@ Clean systemd journal, in the ```vacuum-time``` parameter the time time can be s
 sudo journalctl --vacuum-time=90d
 ```
 
-#### Update flatpak packages
-
-It's recommended to reboot the system after updating flatpak packages.
-
-```sh
-flatpak update
-```
-
-Uninstall unused flatpak packages.
-
-```sh
-flatpak uninstall --unused
-```
