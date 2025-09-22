@@ -924,7 +924,7 @@ gamemoderun %command%
 In that section the proton environment variables can be set, for example.
 
 ```
-gamemoderun PROTON_USE_WINED3D=1  %command%
+gamemoderun PROTON_USE_WINED3D=1 %command%
 ```
 
 See the next link to see the list of the available proton environment variables.
@@ -957,6 +957,10 @@ Also install some optional dependencies.
 Set GE-Proton as the default wine version, go to the wine runner settings and change the Wine version.
 
 Make sure GameMode is enable in the runner, go to the runner settings, in the System options tab, and make sure the ```Enable Feral GameMode``` options is enabled under the ```CPU``` section.
+
+In order the be able to run steam games, the steam client has to be installed, if a run can't be run, make sure steam is running in the background.
+
+You must be logged in in the third party clients like Epic Games, Ubisoft Connect, Origin, etc. in the sources to be able to download and run the games.
 
 ### Howtos
 

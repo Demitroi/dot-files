@@ -52,11 +52,7 @@ Go to project releases page and download the latest one.
 
 https://github.com/GloriousEggroll/proton-ge-custom/releases
 
-Create the compatibility tools directory if it doesn't exist.
-
-```sh
-mkdir -p ~/.steam/steam/compatibilitytools.d
-```
+Make sure the compatibility tools directory exists. The directory is ```~/.steam/steam/compatibilitytools.d```, if it doesn't exist, install steam fist in order to create the directory.
 
 Extract the tarbar into the directory.
 
