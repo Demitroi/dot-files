@@ -953,6 +953,10 @@ Also install some optional dependencies.
 - [winetricks](https://archlinux.org/packages/multilib/x86_64/winetricks/)
 - [wine-mono](https://archlinux.org/packages/multilib/x86_64/wine-mono/)
 - [wine-gecko](https://archlinux.org/packages/extra/x86_64/wine-gecko/)
+- [gtk2](https://archlinux.org/packages/extra/x86_64/gtk2/)
+- [lib32-gtk2](https://archlinux.org/packages/multilib/x86_64/lib32-gtk2/)
+- [libxml2-legacy](https://archlinux.org/packages/extra/x86_64/libxml2-legacy/)
+- [lib32-sdl12-compat](https://archlinux.org/packages/multilib/x86_64/lib32-sdl12-compat/)
 
 Set GE-Proton as the default wine version, go to the wine runner settings and change the Wine version.
 
