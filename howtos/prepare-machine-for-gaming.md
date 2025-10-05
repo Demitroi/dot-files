@@ -59,18 +59,3 @@ Extract the tarbar into the directory.
 ```sh
 tar -xvf GE-Proton*.tar.gz -C ~/.steam/steam/compatibilitytools.d/
 ```
-
-#### Install GameMode
-
-https://github.com/FeralInteractive/gamemode
-
-GameMode is a daemon and library combo for Linux that allows games to request a set of optimisations be temporarily applied to the host OS and/or a game process.
-
-- [gamemode](https://archlinux.org/packages/extra/x86_64/gamemode/)
-- [lib32-gamemode](https://archlinux.org/packages/?name=lib32-gamemode)
-
-Add user to the ```gamemode``` group.
-
-```sh
-sudo usermod -aG gamemode demitroi
-```
