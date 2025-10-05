@@ -363,7 +363,7 @@ bindsym $mod+Control+right workspace next
 #
 # Borders
 #
-default_border pixel 3
+default_border pixel 2
 client.focused          #d1cdcd #2d2d2d #ffffff #d1cdcd #8a8a8a
 client.focused_inactive #d1cdcd #2d2d2d #ffffff #d1cdcd #8a8a8a
 client.unfocused        #2d2d2d #2d2d2d #adadad #2d2d2d #2d2d2d
