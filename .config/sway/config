@@ -364,9 +364,9 @@ bindsym $mod+Control+right workspace next
 # Borders
 #
 default_border pixel 3
-client.focused #d61a1a #222222 #ffffff #d61a1a #5c0303
-client.focused_inactive #d61a1a #222222 #ffffff #333333 #333333
-client.unfocused #000000 #000000 #888888 #333333 #333333
+client.focused          #d1cdcd #2d2d2d #ffffff #d1cdcd #8a8a8a
+client.focused_inactive #d1cdcd #2d2d2d #ffffff #d1cdcd #8a8a8a
+client.unfocused        #2d2d2d #2d2d2d #adadad #2d2d2d #2d2d2d
 smart_borders on
 titlebar_padding 8
 

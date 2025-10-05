@@ -460,7 +460,7 @@ Firefox is a popular open source graphical web browser from Mozilla.
 
 Install the following Extensions:
 
-- [Matte Black (Red)](https://addons.mozilla.org/en-US/firefox/addon/matte-black-red/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
+- [Gray-White Theme](https://addons.mozilla.org/en-US/firefox/addon/gray-white-theme/)
 - [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
 - [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 
