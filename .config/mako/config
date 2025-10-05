@@ -1,6 +1,6 @@
-background-color=#000000
+background-color=#2D2D2D
 text-color=#FFFFFF
-border-color=#D61A1A
+border-color=#D1CDCD
 max-history=15
 default-timeout=32400000
 ignore-timeout=1
