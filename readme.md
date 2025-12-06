@@ -62,10 +62,8 @@ Software preferences and settings.
     - [Process Viewer](#process-viewer)
     - [API Tester](#api-tester)
     - [Version Control System](#version-control-system)
-    - [Markdown Renderer](#markdown-renderer)
     - [JSON Processor](#json-processor)
     - [Open File Listing Tool](#open-file-listing-tool)
-    - [Networking Utilities](#networking-utilities)
     - [DNS Utilities](#dns-utilities)
     - [TLS and SSL crypto library](#tls-and-ssl-crypto-library)
     - [Java Development](#java-development)
@@ -754,16 +752,6 @@ Git is a free and open source distributed version control system designed to han
 
 [.gitconfig](.gitconfig)
 
-#### Markdown Renderer
-
-**Glow**
-
-https://github.com/charmbracelet/glow
-
-Command-line markdown renderer.
-
-- [glow](https://archlinux.org/packages/extra/x86_64/glow/)
-
 #### JSON Processor
 
 **jq**
@@ -783,16 +771,6 @@ https://github.com/lsof-org/lsof
 lsof is a command listing open files.
 
 - [lsof](https://archlinux.org/packages/extra/x86_64/lsof/)
-
-#### Networking Utilities
-
-**net-tools**
-
-https://net-tools.sourceforge.io/
-
-net-tools, the collection of base networking utilities for Linux.
-
-- [net-tools](https://archlinux.org/packages/core/x86_64/net-tools/)
 
 #### DNS Utilities
 
