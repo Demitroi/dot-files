@@ -33,7 +33,7 @@ dd bs=4M if=/home/sergio/Downloads/archlinux-2024.10.01-x86_64.iso of=/dev/disk/
 
 #### Boot the live environment
 
-Turn off the computer on which will be installed arch linux. Enter the BIOS an select the arch linux installation media.
+Turn off the computer on which will be installed arch linux. Enter the BIOS, make sure secure boot is disabled, then select the arch linux installation media and boot on it.
 
 Check this URL for a list of boot menu keys:
 
@@ -166,7 +166,7 @@ The 3 partitions suggested by the Arch installation guide are the next:
 |Mount point on the installed system|Partition|Partition type|fdisk partition type number|Suggested size|
 |-|-|-|-|-|
 |/boot|/dev/efi_system_partition|EFI system partition|1|2 GiB|
-|/|/dev/root_partition|Linux x86-64 root (/)|23|Remainder of the device. At least 23–32 GiB.|
+|/|/dev/root_partition|Linux filesystem|20|Remainder of the device. At least 23–32 GiB.|
 
 In fdisk you can list the known partition types by running the ```l``` command.
 
@@ -370,7 +370,7 @@ mkdir -p snapshots snapshots/@ snapshots/@home
 mkdir -p snapshots_broken snapshots_broken/@ snapshots_broken/@home
 ```
 
-Exit from the ```/mnt``` directory and unoumnt it.
+Exit from the ```/mnt``` directory and unmount it.
 
 ```sh
 cd
@@ -421,7 +421,7 @@ In order to enable hibernation, the swap file must be at least the size of the R
 free -h
 ```
 
-Create and enable the swap file. In thi case the RAM size is 16 GiB.
+Create and enable the swap file. In this case the RAM size is 16 GiB.
 
 ```sh
 btrfs filesystem mkswapfile --size 16g --uuid clear /mnt/swap/swapfile
@@ -446,7 +446,7 @@ reflector --country Mexico --latest 5 --age 12 --sort rate --save /etc/pacman.d/
 Install essencial packages by running the next command, remember to change intel-ucode to amd-ucode in case the computer has and amd processor.
 
 ```sh
-pacstrap -K /mnt base linux-lts linux-firmware btrfs-progs sudo intel-ucode amd-ucode networkmanager vim man-db man-pages texinfo dosfstools ntfs-3g pacman-contrib
+pacstrap -K /mnt base base-devel linux-lts linux-firmware linux-lts-headers btrfs-progs sudo intel-ucode amd-ucode networkmanager vim man-db man-pages texinfo dosfstools ntfs-3g pacman-contrib
 ```
 
 #### Configure the system
@@ -473,6 +473,12 @@ Run hwclock to generate /etc/adjtime
 
 ```sh
 hwclock --systohc
+```
+
+Set the timezone with timedatectl.
+
+```sh
+timedatectl set-timezone America/Tijuana
 ```
 
 In order to configure localization, edit ```/etc/locale.gen``` and uncomment ```en_US.UTF-8 UTF-8``` and execute the next:
