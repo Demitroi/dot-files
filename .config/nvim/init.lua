@@ -286,8 +286,60 @@ require('lazy').setup({
             signs = false
         }
     },
+    -- {
+    --     'github/copilot.vim',
+    --     config = function()
+    --         -- Disable copilot by default
+    --         vim.cmd(':Copilot disable')
+    --     end,
+    -- },
     {
-        'github/copilot.vim'
+        'milanglacier/minuet-ai.nvim',
+        dependencies = {'nvim-lua/plenary.nvim'},
+        config = function()
+            require('minuet').setup({
+                provider = 'openai_fim_compatible',
+                n_completions = 3,
+                context_window = 16000,
+                provider_options = {
+                    openai_fim_compatible = {
+                        -- For Windows users, TERM may not be present in environment variables.
+                        -- Consider using APPDATA instead.
+                        api_key = 'TERM',
+                        name = 'Ollama',
+                        end_point = 'http://localhost:11434/v1/completions',
+                        model = 'qwen2.5-coder:7b',
+                        optional = {
+                            max_tokens = 56,
+                            top_p = 0.9,
+                        },
+                    },
+                },
+                request_timeout = 30,
+                stream = true,
+                -- Recommended settings for local LLM performance
+                throttle = 1000,
+                debounce = 400,
+                after_cursor_filter_length = 50,
+                before_cursor_filter_length = 50,
+                virtualtext = {
+                    auto_trigger_ft = {},
+                    keymap = {
+                        -- accept whole completion
+                        accept = '<C-Y>',
+                        -- accept one line
+                        accept_line = '<C-L>',
+                        dismiss = '<C-E>',
+                        -- Cycle to prev completion item, or manually invoke completion
+                        prev = '<C-P>',
+                        -- Cycle to next completion item, or manually invoke completion
+                        next = '<C-N>',
+                    },
+                },
+            })
+            -- vim.cmd('Minuet virtualtext disable')
+            vim.keymap.set('n', '<Leader>tc', '<Cmd>:Minuet virtualtext toggle<CR>')
+        end,
     },
     {
         'idr4n/github-monochrome.nvim',
