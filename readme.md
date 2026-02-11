@@ -89,8 +89,10 @@ https://archlinux.org/
 My base system consists in a basic arch linux installation that uses btrfs filesystem, network manager, vim and man pages.
 
 - [base](https://archlinux.org/packages/core/any/base/)
+- [base-devel](https://archlinux.org/packages/core/any/base-devel/)
 - [linux-lts](https://archlinux.org/packages/core/x86_64/linux-lts/)
 - [linux-firmware](https://archlinux.org/packages/core/x86_64/linux-firmware/)
+- [linux-headers](https://archlinux.org/packages/core/x86_64/linux-headers/)
 - [btrfs-progs](https://archlinux.org/packages/core/x86_64/btrfs-progs/)
 - [sudo](https://archlinux.org/packages/core/x86_64/sudo/)
 - [intel-ucode](https://archlinux.org/packages/extra/any/intel-ucode/)
@@ -256,7 +258,7 @@ https://freedesktop.org/software/pulseaudio/pavucontrol/
 PulseAudio Volume Control (pavucontrol) is a simple GTK based volume control tool ("mixer") for the PulseAudio sound server.
 
 - [pavucontrol](https://archlinux.org/packages/extra/x86_64/pavucontrol/)
-- [alsa-utils](https://archlinux.org/packages/extra/x86_64/pavucontrol/)
+- [alsa-utils](https://archlinux.org/packages/extra/x86_64/alsa-utils/)
 
 In order to use speakers and headphones in the same sound card the "Auto-Mute Mode" has to be disabled. Exec ```alsamixer```, select the sound card and disable the Auto-Mute.
 
@@ -324,11 +326,45 @@ https://mozilla.github.io/webrtc-landing/gum_test.html
 
 **wf-recorder**
 
-https://archlinux.org/packages/extra/x86_64/wf-recorder/
+https://github.com/ammen99/wf-recorder
 
 wf-recorder is a utility program for screen recording of wlroots-based compositors (more specifically, those that support wlr-screencopy-v1 and xdg-output).
 
 - [wf-recorder](https://archlinux.org/packages/extra/x86_64/wf-recorder/)
+
+Record a simple video with audio.
+
+```sh
+wf-recorder --audio --file ~/Videos/test.mkv
+```
+
+Record a 60 fps video using libx265 for video and libopus for audio.
+
+```sh
+wf-recorder --audio --framerate 60 --codec libx265 -p preset=superfast -p crf=28 --audio-codec libopus --file ~/Videos/test_libx265.mkv
+```
+
+Record a 60 fps video using hardware accelerated hevc_nvenc for video and libopus for audio.
+
+```sh
+wf-recorder --audio --framerate 60 --codec hevc_nvenc -p preset=p4 --audio-codec libopus --file ~/Videos/test_hevc_nvenc.mkv
+```
+
+List all ffmpeg encoders:
+
+```sh
+ffmpeg -encoders
+```
+
+Show parameters of encoder:
+
+```sh
+ffmpeg -h encoder=libx265
+```
+
+To show more information and examples search in the web, for example:
+
+https://trac.ffmpeg.org/wiki/Encode/AV1
 
 #### Screenshots
 
@@ -462,7 +498,9 @@ Install the following Extensions:
 - [Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/)
 - [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 
-Customize toolbar. Right click tab bar, select customize toolbar and enable Title Bar.
+In order to customize toolbar, right click tab bar, select customize toolbar and enable Title Bar. Go to General settings, first disable AI slop, then enable "Ask before closing multiple tabs", "Open previous windows and tabs", play DRM content, autoscrolling and disable link previews.
+
+Now go to Home and set shortcuts to 2 rows, then go to Privacy Security, disable "Ask to save passwords" and "Save and autofill payment info".
 
 #### Audio Player
 
@@ -486,6 +524,59 @@ mpv is a media player based on MPlayer and the now unmaintained mplayer2.
 - [mpv](https://archlinux.org/packages/extra/x86_64/mpv/)
 
 [.config/mpv/mpv.conf](.config/mpv/mpv.conf)
+
+With MPV you can play video devices like webcams and HDMI capturer.
+
+List connected devices:
+
+```sh
+v4l2-ctl --list-devices
+```
+
+The output will look like this:
+
+```
+UGREEN 15389: UGREEN 15389 (usb-0000:0c:00.3-1):
+	/dev/video2
+	/dev/video3
+	/dev/media1
+
+HD Pro Webcam C920 (usb-0000:0c:00.3-2):
+	/dev/video0
+	/dev/video1
+	/dev/media0
+```
+
+Chose a device, for example ```/dev/video2```, now list the input formats available.
+
+```sh
+v4l2-ctl --list-formats-ext -d /dev/video2
+```
+
+The output is too long, It shows the available formats, resolutions and framerates, for example:
+
+```
+ioctl: VIDIOC_ENUM_FMT
+        Type: Video Capture
+
+        [0]: 'YUYV' (YUYV 4:2:2)
+                Size: Discrete 2560x1440
+                        Interval: Discrete 0.033s (30.000 fps)
+                        Interval: Discrete 0.050s (20.000 fps)
+                        Interval: Discrete 0.100s (10.000 fps)
+                Size: Discrete 1920x1080
+                        Interval: Discrete 0.017s (60.000 fps)
+                        Interval: Discrete 0.020s (50.000 fps)
+                        Interval: Discrete 0.033s (30.000 fps)
+                        Interval: Discrete 0.050s (20.000 fps)
+                        Interval: Discrete 0.100s (10.000 fps)
+```
+
+In this case I chose YUYV 4:2:2 1920x1080 60fps, so I run the next command. It's recommended to add the low-latency profile and untimed flag to get rid of possible lag.
+
+```sh
+mpv av://v4l2:/dev/video2 --profile=low-latency --untimed --demuxer-lavf-o=input_format=yuyv422,video_size=1920x1080,framerate=60
+```
 
 #### Document Viewer
 
@@ -718,7 +809,7 @@ A monitor of resources.
 
 - [btop](https://archlinux.org/packages/extra/x86_64/btop/)
 
-- [.config/btop/btop.conf](.config/btop/btop.conf)
+[.config/btop/btop.conf](.config/btop/btop.conf)
 
 #### Process Viewer
 
