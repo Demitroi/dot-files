@@ -25,7 +25,7 @@ set $menu wofi -p "Search apps"
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Use the wallpaper with name background
-output * background ~/.local/share/wallpapers/background.png fill
+output * background ~/.local/share/wallpapers/background.png fill #000000
 
 #
 # Example configuration:
