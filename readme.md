@@ -4,7 +4,7 @@ Software preferences and settings.
 
 ### Table of content
 
-- [Copy Config](#install-config)
+- [Install Config](#install-config)
 - [Base System](#base-system)
     - [Nvidia Drivers](#nvidia-drivers)
 - [Desktop Environment](#desktop-environment)
