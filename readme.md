@@ -4,6 +4,7 @@ Software preferences and settings.
 
 ### Table of content
 
+- [Copy Config](#install-config)
 - [Base System](#base-system)
     - [Nvidia Drivers](#nvidia-drivers)
 - [Desktop Environment](#desktop-environment)
@@ -79,6 +80,14 @@ Software preferences and settings.
     - [Steam](#steam)
     - [Lutris](#lutris)
 - [Howtos](#howtos)
+
+### Install Config
+
+In order to install this config, first clone this repo and execute the ```make-symbolic-links.sh``` script.
+
+```sh
+sh make-symbolic-links.sh
+```
 
 ### Base System
 
@@ -284,13 +293,14 @@ A program to read and control device brightness.
 
 #### Wallpapers
 
-**azote**
+Wallpapers for background and lockscreen are expected to be localted in ```~/.local/share/wallpapers/background.png``` and ```~/.local/share/wallpapers/lockscreen.png``` respectively.
 
-https://github.com/nwg-piotr/azote
+The recommended way to set the wallpapers is converting them using FFmpeg, for eample.
 
-Wallpaper manager for wlroots-based compositors and some other WMs.
-
-- [azote](https://archlinux.org/packages/extra/any/azote/)
+```sh
+ffmpeg -i /path/to/my/background.jpg ~/.local/share/wallpapers/background.png
+ffmpeg -i /path/to/my/lockscreen.png ~/.local/share/wallpapers/lockscreen.png
+```
 
 #### Notifications
 
@@ -350,7 +360,7 @@ Record a 60 fps video using hardware accelerated hevc_nvenc for video and libopu
 wf-recorder --audio --framerate 60 --codec hevc_nvenc -p preset=p4 --audio-codec libopus --file ~/Videos/test_hevc_nvenc.mkv
 ```
 
-List all ffmpeg encoders:
+List all FFmpeg encoders:
 
 ```sh
 ffmpeg -encoders
