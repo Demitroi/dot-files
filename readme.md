@@ -1012,26 +1012,20 @@ Lutris is a video game preservation platform aiming to keep your video game coll
 
 - [lutris](https://archlinux.org/packages/extra/any/lutris/)
 
-Also install some optional dependencies.
+Lutris has a bunch of optional dependencies for different purposes, the recommended ones are the next:
 
-- [innoextract](https://archlinux.org/packages/extra/x86_64/innoextract/)
-- [lib32-gnutls](https://archlinux.org/packages/multilib/x86_64/lib32-gnutls/)
-- [lib32-vkd3d](https://archlinux.org/packages/multilib/x86_64/lib32-vkd3d/)
-- [libayatana-appindicator](https://archlinux.org/packages/extra/x86_64/libayatana-appindicator/)
-- [python-pefile](https://archlinux.org/packages/extra/any/python-pefile/)
-- [python-protobuf](https://archlinux.org/packages/extra/x86_64/python-protobuf/)
-- [umu-launcher](https://archlinux.org/packages/multilib/x86_64/umu-launcher/)
-- [vkd3d](https://archlinux.org/packages/extra/x86_64/vkd3d/)
 - [wine](https://archlinux.org/packages/extra/x86_64/wine/)
 - [winetricks](https://archlinux.org/packages/multilib/x86_64/winetricks/)
-- [wine-mono](https://archlinux.org/packages/multilib/x86_64/wine-mono/)
-- [wine-gecko](https://archlinux.org/packages/extra/x86_64/wine-gecko/)
 
-Some emulators need to be installed outside of lutris.
+Some emulators need to be installed outside of lutris. The recommended way is downloading the appimages and move them to ```~/.local/bin```.
 
-- [snes9x-gtk](https://archlinux.org/packages/extra/x86_64/snes9x-gtk/)
+Create the directory.
 
-To use the installed emulators, in lutris install them as a source and change the custom executable for the runner, for example: the snes9x-gtk ```/usr/bin/snes9x-gtk```.
+```sh
+mkdir -p ~/.local/bin
+```
+
+To use the installed emulators, in lutris install them as a source and change the custom executable for the runner, for example: ```~/.local/bin/Snes9x-1.63-x86_64.AppImage```.
 
 Set GE-Proton as the default wine version, go to the wine runner settings and change the Wine version.
 
