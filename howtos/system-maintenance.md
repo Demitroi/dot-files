@@ -2,6 +2,14 @@
 
 These are my recommendations for system maintenance.
 
+#### Synchronize the clock
+
+Synchronize the clock by starting the ```systemd-timesyncd``` service.
+
+```sh
+systemctl start systemd-timesyncd.service
+```
+
 #### Btrfs snapshop
 
 Before start doing maintenance, it's important to create a btrfs snapshot in case something breaks, you can rollback all the changes.

@@ -481,6 +481,12 @@ Set the timezone with timedatectl.
 timedatectl set-timezone America/Tijuana
 ```
 
+Synchronize the clock by starting the ```systemd-timesyncd``` service.
+
+```sh
+systemctl start systemd-timesyncd.service
+```
+
 In order to configure localization, edit ```/etc/locale.gen``` and uncomment ```en_US.UTF-8 UTF-8``` and execute the next:
 
 ```sh
