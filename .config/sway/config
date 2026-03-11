@@ -335,7 +335,7 @@ bindsym Control+Print exec sh ~/.config/screenshot/take_region_screenshot.sh
 # Clipboard
 #
 exec wl-paste --watch cliphist store
-bindsym $mod+v exec cliphist list | wofi -S dmenu -p Clipboard | cliphist decode | wl-copy
+bindsym $mod+v exec cliphist list | wofi -S dmenu -k /dev/null -p Clipboard | cliphist decode | wl-copy
 
 #
 # Patchbay for PipeWire
