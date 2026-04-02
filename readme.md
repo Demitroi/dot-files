@@ -953,6 +953,14 @@ Go is an open source programming language supported by Google.
 
 - [go](https://archlinux.org/packages/extra/x86_64/go/)
 
+Go has some local documentation files, for example: ```/usr/share/doc/go/go_spec.html```.
+
+Run the following command to read Go's standard library documentation.
+
+```sh
+go doc -http
+```
+
 #### Python Development
 
 Python is an interpreted, interactive, object-oriented programming language.
