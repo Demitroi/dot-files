@@ -180,7 +180,7 @@ require('lazy').setup({
         },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { 'cssls', 'jdtls', 'gopls', 'html', 'ts_ls', 'angularls' },
+                ensure_installed = { 'cssls', 'jdtls', 'gopls', 'html', 'ts_ls', 'angularls', 'pyright' },
             })
             -- Highlight references
             vim.api.nvim_create_autocmd('LspAttach', {
