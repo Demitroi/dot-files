@@ -91,3 +91,42 @@ Clean systemd journal, in the ```vacuum-time``` parameter the time time can be s
 sudo journalctl --vacuum-time=90d
 ```
 
+Remove user home directory cache.
+```sh
+rm -rf ~/.cache/*
+```
+
+#### Check drive status
+
+It's important to anticipate storage unit failures, check Them with S.M.A.R.T. by using smartctl tools.
+
+List units.
+
+```sh
+lsblk
+``
+
+Run a test for one device.
+
+```sh
+sudo smartctl -t long /dev/sda
+```
+
+Wait until the indicated time for the test is completed, then view the device's overall health.
+
+```sh
+sudo smartctl -H /dev/sda
+```
+
+Show the test results.
+
+```sh
+sudo smartctl -l selftest /dev/sda
+```
+
+Show all S.M.A.R.T. information.
+
+```sh
+sudo smartctl -x /dev/sda
+```
+
