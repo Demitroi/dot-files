@@ -34,6 +34,7 @@ Software preferences and settings.
     - [Calendar](#calendar)
     - [Look and Feel](#look-and-feel)
     - [Display Settings](#display-settings)
+    - [Screen mirror](#screen-mirror)
     - [Screen magnifier](#screen-magnifier)
 - [General Tools](#general-tools)
     - [Web Browser](#web-browser)
@@ -481,6 +482,34 @@ https://github.com/nwg-piotr/nwg-displays
 Output management utility for sway and Hyprland.
 
 - [nwg-displays](https://archlinux.org/packages/extra/any/nwg-displays/)
+
+#### Screen Mirror
+
+**wl-mirror**
+
+https://github.com/Ferdi265/wl-mirror
+
+A simple Wayland output mirror client.
+
+- [wl-mirror](https://archlinux.org/packages/extra/x86_64/wl-mirror/)
+
+View the available outputs.
+
+```sh
+swaymsg -t get_outputs
+```
+
+Mirror the desired output.
+
+```sh
+wl-mirror DP-3
+```
+
+You can also use the ```wl-present``` wrapper and select the output with the mouse.
+
+```sh
+wl-present mirror
+```
 
 #### Screen Magnifier
 
