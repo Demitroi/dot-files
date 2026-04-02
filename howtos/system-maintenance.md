@@ -104,7 +104,7 @@ List units.
 
 ```sh
 lsblk
-``
+```
 
 Run a test for one device.
 
