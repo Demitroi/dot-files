@@ -927,9 +927,18 @@ OpenSSL is a software library for applications that provide secure communication
 
 Java is a programming language originally developed by Sun Microsystems and released in 1995 as a core component of Sun Microsystems' Java platform.
 
+- [jdk25-openjdk](https://archlinux.org/packages/extra/x86_64/jdk25-openjdk/)
+- [openjdk25-doc](https://archlinux.org/packages/extra/x86_64/openjdk25-doc/)
+- [openjdk25-src](https://archlinux.org/packages/extra/x86_64/openjdk25-src/)
 - [jdk21-openjdk](https://archlinux.org/packages/extra/x86_64/jdk21-openjdk/)
+- [openjdk21-doc](https://archlinux.org/packages/extra/x86_64/openjdk21-doc/)
+- [openjdk21-src](https://archlinux.org/packages/extra/x86_64/openjdk21-src/)
 - [jdk8-openjdk](https://archlinux.org/packages/extra/x86_64/jdk8-openjdk/)
+- [openjdk8-doc](https://archlinux.org/packages/extra/x86_64/openjdk8-doc/)
+- [openjdk8-src](https://archlinux.org/packages/extra/x86_64/openjdk8-src/)
 - [maven](https://archlinux.org/packages/extra/any/maven/)
+
+Read the local documentation in: ```/usr/share/doc/java8-openjdk/api/index.html```, ```/usr/share/doc/java21-openjdk/api/index.html``` and ```/usr/share/doc/java25-openjdk/api/index.html```.
 
 #### JavaScript Development
 
