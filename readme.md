@@ -71,6 +71,7 @@ Software preferences and settings.
     - [Java Development](#java-development)
     - [JavaScript Development](#javascript-development)
     - [Go Development](#go-development)
+    - [Python Development](#python-development)
 - [Servers](#servers)
     - [Multimedia Server](#multimedia-server)
     - [File Synchronization](#file-synchronization)
@@ -942,6 +943,15 @@ JavaScript often abbreviated as JS, is a programming language and core technolog
 Go is an open source programming language supported by Google.
 
 - [go](https://archlinux.org/packages/extra/x86_64/go/)
+
+#### Python Development
+
+Python is an interpreted, interactive, object-oriented programming language.
+
+- [python](https://archlinux.org/packages/core/x86_64/python/)
+- [python-docs](https://archlinux.org/packages/extra/any/python-docs/)
+
+Read the local documentation in ```/usr/share/doc/python/html/index.html```.
 
 ### Servers
 
