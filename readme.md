@@ -68,6 +68,8 @@ Software preferences and settings.
     - [Open File Listing Tool](#open-file-listing-tool)
     - [DNS Utilities](#dns-utilities)
     - [TLS and SSL crypto library](#tls-and-ssl-crypto-library)
+    - [Containerization Software](#containerization-software)
+    - [LLMs on Docker](#llms-on-docker)
     - [Java Development](#java-development)
     - [JavaScript Development](#javascript-development)
     - [Go Development](#go-development)
@@ -124,9 +126,12 @@ Check out the [Arch Linux Installation](howtos/arch-linux-installation.md) for t
 
 https://wiki.archlinux.org/title/NVIDIA
 
-In case a Nvidia Graphic Card ins installed, the drivers must be installed, follow the arch linux wiki.
+In case a Nvidia Graphic Card is installed, the drivers must be installed, follow the arch linux wiki.
+
+Install the container toolkit if you're planning to run ollama models through docker.
 
 - [nvidia-open-dkms](https://archlinux.org/packages/extra/x86_64/nvidia-open-dkms/)
+- [nvidia-container-toolkit](https://archlinux.org/packages/extra/x86_64/nvidia-container-toolkit/)
 
 ### Desktop Environment
 
@@ -922,6 +927,27 @@ https://www.openssl.org/
 OpenSSL is a software library for applications that provide secure communications over computer networks against eavesdropping, and identify the party at the other end. It is widely used by Internet servers, including the majority of HTTPS websites.
 
 - [openssl](https://archlinux.org/packages/core/x86_64/openssl/)
+
+#### Containerization Software
+
+**Docker**
+
+https://www.docker.com/
+
+Docker is a set of products that uses operating system-level virtualization to deliver software in packages called containers.
+
+- [docker](https://archlinux.org/packages/extra/x86_64/docker/)
+- [docker-compose](https://archlinux.org/packages/extra/x86_64/docker-compose/)
+
+Make sure the Docker Unix Socket is enable in order to start docker on demand.
+
+```sh
+systemctl enable docker.socket
+```
+
+#### LLMs on Docker
+
+See [LLMs on Docker](howtos/llms-on-docker.md)
 
 #### Java Development
 

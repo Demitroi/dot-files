@@ -14,3 +14,4 @@ Table of Content:
 - [System maintenance](system-maintenance.md)
 - [Rollback snapshots](rollback-snapshots.md)
 - [Prepare for Gaming](prepare-machine-for-gaming.md)
+- [LLMs on Docker](llms-on-docker.md)
