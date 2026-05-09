@@ -314,12 +314,12 @@ bindsym $mod+m exec swaylock
 #
 # Suspend and Screen Lock
 #
-bindsym $mod+Shift+m exec systemctl suspend && swaylock
+bindsym --locked $mod+Shift+m exec systemctl suspend && swaylock
 
 #
 # Hibernate and Screen Lock
 #
-bindsym $mod+Control+Shift+m exec systemctl hibernate && swaylock
+bindsym --locked $mod+Control+Shift+m exec systemctl hibernate && swaylock
 
 #
 # Screen magnifier
