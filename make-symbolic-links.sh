@@ -112,3 +112,8 @@ ln -s -f $PWD/.config/btop/btop.conf ~/.config/btop/
 
 # mimeapps.list
 ln -s -f $PWD/.config/mimeapps.list ~/.config/
+
+# swappy
+mkdir -p ~/.config/swappy
+ln -s -f $PWD/.config/swappy/config ~/.config/swappy/
+
