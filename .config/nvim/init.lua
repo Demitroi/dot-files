@@ -222,29 +222,30 @@ require('lazy').setup({
             })
         end,
     },
-    {
-        -- nvim-treesitter
-        -- https://github.com/nvim-treesitter/nvim-treesitter
-        'nvim-treesitter/nvim-treesitter',
-        branch = 'master',
-        config = function()
-            require'nvim-treesitter.configs'.setup {
-                -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-                ensure_installed = {
-                    'bash', 'css', 'desktop', 'diff', 'dockerfile', 'git_config', 'gitignore', 'go',
-                    'gomod', 'gosum', 'gotmpl', 'gowork', 'html', 'java', 'javascript', 'jq', 'json',
-                    'lua', 'make', 'markdown', 'markdown_inline', 'nginx', 'php', 'php_only', 'python',
-                    'sql', 'ssh_config', 'templ', 'tmux', 'toml', 'typescript', 'vue', 'xml', 'yaml',
-                },
-                highlight = {
-                    enable = true,
-                },
-                indent = {
-                    enable = true,
-                },
-            }
-        end,
-    },
+    --  Disable treesitter temporarily
+    -- {
+    --     -- nvim-treesitter
+    --     -- https://github.com/nvim-treesitter/nvim-treesitter
+    --     'nvim-treesitter/nvim-treesitter',
+    --     branch = 'master',
+    --     config = function()
+    --         require'nvim-treesitter.configs'.setup {
+    --             -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+    --             ensure_installed = {
+    --                 'bash', 'css', 'desktop', 'diff', 'dockerfile', 'git_config', 'gitignore', 'go',
+    --                 'gomod', 'gosum', 'gotmpl', 'gowork', 'html', 'java', 'javascript', 'jq', 'json',
+    --                 'lua', 'make', 'markdown', 'markdown_inline', 'nginx', 'php', 'php_only', 'python',
+    --                 'sql', 'ssh_config', 'templ', 'tmux', 'toml', 'typescript', 'vue', 'xml', 'yaml',
+    --             },
+    --             highlight = {
+    --                 enable = true,
+    --             },
+    --             indent = {
+    --                 enable = true,
+    --             },
+    --         }
+    --     end,
+    -- },
     {
         -- blink.cmp
         -- https://github.com/Saghen/blink.cmp
@@ -255,6 +256,7 @@ require('lazy').setup({
             'rafamadriz/friendly-snippets',
         },
         version = '1.*',
+        branch = 'v1',
         opts = {
             keymap = {
                 preset = 'default'
