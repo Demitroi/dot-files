@@ -55,6 +55,7 @@ Software preferences and settings.
     - [Directory Tree Listing](#directory-tree-listing)
     - [Access and Manipulate Disks](#access-and-manipulate-disks)
     - [List Connected USB Devices](#list-connected-usb-devices)
+    - [Lighting Control](#lighting-control)
 - [Development tools](#development-tools)
     - [Terminal Text Editor](#terminal-text-editor)
     - [Terminal Multiplexer](#terminal-multiplexer)
@@ -781,6 +782,16 @@ https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usbutils.git/
 A collection of USB tools to query connected USB devices.
 
 - [usbutils](https://archlinux.org/packages/core/x86_64/usbutils/)
+
+#### Lighting Control
+
+**OpenRGB**
+
+https://openrgb.org/
+
+Open source RGB lighting control that doesn't depend on manufacturer software.
+
+- [openrgb](https://archlinux.org/packages/extra/x86_64/openrgb/)
 
 ### Development tools
 
