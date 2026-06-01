@@ -68,6 +68,7 @@ Software preferences and settings.
     - [Open File Listing Tool](#open-file-listing-tool)
     - [DNS Utilities](#dns-utilities)
     - [TLS and SSL crypto library](#tls-and-ssl-crypto-library)
+    - [Virtual Machines](#virtual-machines)
     - [Containerization Software](#containerization-software)
     - [LLMs on Docker](#llms-on-docker)
     - [Java Development](#java-development)
@@ -927,6 +928,149 @@ https://www.openssl.org/
 OpenSSL is a software library for applications that provide secure communications over computer networks against eavesdropping, and identify the party at the other end. It is widely used by Internet servers, including the majority of HTTPS websites.
 
 - [openssl](https://archlinux.org/packages/core/x86_64/openssl/)
+
+#### Virtual Machines
+
+**QEMU**
+
+https://www.qemu.org/
+
+QEMU is a generic and open source machine emulator and virtualizer.
+
+- [qemu-desktop](https://archlinux.org/packages/extra/x86_64/qemu-desktop/)
+- [edk2-ovmf](https://archlinux.org/packages/extra/any/edk2-ovmf/)
+
+Make sure KVM is enabled.
+
+```sh
+LC_ALL=C.UTF-8 lscpu | grep Virtualization
+```
+
+If the previous command doesn't show anything, go to the BIOS/UEFI config and enable virtualization.
+
+Create a disk image, if the host filesystem is not CoW, remove the ```o nocow=on``` flag.
+
+```sh
+qemu-img create -f qcow2 windows_10.qcow2 -o nocow=on 40G
+```
+
+Create a copy of the EFI vars file for the virtul machine.
+
+```sh
+cp /usr/share/edk2/x64/OVMF_VARS.4m.fd windows_10_OVMF_VARS.4m.fd
+```
+
+Run a virtual machine with the installation ISO.
+
+For Windows guests, the virtio-win ISO is required in order to use the virtio devices.
+
+https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md
+
+Follow the instructions of the Arch's wiki to load the VirtIO drives.
+
+https://wiki.archlinux.org/title/QEMU#Preparing_a_Windows_guest
+
+```sh
+qemu-system-x86_64 \
+    # Disk image, it's using VirtIO interface for perfomance
+    -drive file=windows_10.qcow2,format=qcow2,index=0,media=disk,if=virtio \
+
+    # Installation media
+    -drive file=/home/demitroi/Downloads/Win10_22H2_English_x64v1.iso,index=2,media=cdrom \
+
+    # VirtIO drivers for window, not requiered in Linux systems
+    -drive file=/home/demitroi/Downloads/virtio-win-0.1.285.iso,index=3,media=cdrom \
+
+    # UEFI firmware and EFI vars
+    -drive if=pflash,format=raw,readonly=on,file=/usr/share/edk2/x64/OVMF_CODE.4m.fd \
+    -drive if=pflash,format=raw,file=windows_10_OVMF_VARS.4m.fd \
+
+    # Virtual Machine's memory
+    -m 8G \
+
+    # Enable KVM (Kernel-based Virtual Machine)
+    --enable-kvm \
+
+    # CPU config, this config is for Windows, some systems will be ok with just the host, check the qemu manual for all the options
+    -cpu host,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time \
+
+    # Improves mouse usage
+    -usb -device usb-tablet \
+
+    # VirtIO network interface
+    -nic user,model=virtio-net-pci \
+
+    # VirtIO graphics card
+    -device virtio-vga-gl \
+    -display gtk,gl=on \
+
+    # Intel audio device, it can be skipped
+    -audiodev pa,id=snd0 \
+    -device ich9-intel-hda \
+    -device hda-micro,audiodev=snd0 \
+
+    # Shot boot menu, it can also be skipped
+    -boot menu=on
+```
+
+Once the operating system is installed, remove the installation media, virtio drivers and optionally the boot menu. It's recommended to create a script to run the virtual machine quickly.
+
+The guest can communicate to the host through the network using the IP 10.0.2.2, for example:
+
+```sh
+ping 10.0.2.2
+ssh user@10.0.2.2
+scp myfile user@10.0.2.2:~/
+```
+
+QEMU can do port forwarding, add the next flag to the command line.
+
+```sh
+-nic user,hostfwd=tcp::60022-:22
+```
+
+Another interesting feature is the passthrough of USB devices.
+
+Show the connected USB devices.
+
+```sh
+lsusb
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 003: ID 0930:0220 Toshiba Corp.
+Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub
+Bus 002 Device 003: ID 058f:6366 Alcor Micro Corp. Multi Flash Reader
+Bus 002 Device 004: ID 04f2:b3b1 Chicony Electronics Co., Ltd TOSHIBA Web Camera - HD
+Bus 003 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 004: ID 0951:1666 Kingston Technology DataTraveler 100 G3/G4/SE9 G2/50 Kyson
+Bus 004 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 004 Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub
+```
+
+There's a Kingston pendrive connected, the problem is that Linux doesn't allow the write access to non-root users, this can be solved by changing the permission of the device.
+
+```sh
+chmod o+w /dev/bus/usb/003/004
+```
+
+The previous solution works, but it's temporal, the permission changes will be undone when the machine is restarted o when unplug and plug the device. To make the changes permant, create a udev rule.
+
+```sh
+vim /etc/udev/rules.d/99-qemu-usb.rules
+```
+
+Add the next content, the idVendor number comes from the left part of the lsusb's output and the idProduct from the right.
+
+```
+SUBSYSTEM=="usb", ATTR{idVendor}=="0951", ATTR{idProduct}=="1666", OWNER="myusername", MODE="0660"
+```
+
+Reload the udev rules.
+
+```sh
+udevadm control --reload
+udevadm trigger
+```
 
 #### Containerization Software
 
