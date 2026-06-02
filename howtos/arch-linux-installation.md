@@ -505,7 +505,15 @@ Create the hostname file.
 echo toshiba > /etc/hostname
 ```
 
-#### Initramfs
+Set the root password.
+
+```sh
+passwd
+```
+
+#### Unified kernel image
+
+A unified kernel image (UKI) is a single executable which can be booted from UEFI or a boot loader, in this case systemd-boot.
 
 Edit the ```/etc/mkinitcpio.conf``` file and add the encrypt hook.
 
@@ -519,16 +527,61 @@ Make sure the ```encrypt``` hook is before ```filesystems``` hook. And the ```re
 HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt filesystems resume fsck)
 ```
 
-Then recreate the initramfs image.
+Edit the ```/etc/mkinitcpio.d/linux-lts.preset``` file.
+
+Comment the ```PRESETS=('default')``` and uncomment the ```PRESETS=('default' 'fallback')``` line.
+
+Comment the ```PRESET_image``` lines and umcomment the ```PRESET_uki``` and ```PRESET_options``` lines.
+
+Include the ```--splash /usr/share/systemd/bootctl/splash-arch.bmp``` parameter in ```fallback_options```.
+
+Here's a config example.
+
+```conf
+#ALL_config="/etc/mkinitcpio.conf"
+ALL_kver="/boot/vmlinuz-linux-lts"
+#ALL_kerneldest="/boot/vmlinuz-linux-lts"
+
+#PRESETS=('default')
+PRESETS=('default' 'fallback')
+
+#default_config="/etc/mkinitcpio.conf"
+#default_image="/boot/initramfs-linux-lts.img"
+default_uki="/boot/EFI/Linux/arch-linux-lts.efi"
+default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
+
+#fallback_config="/etc/mkinitcpio.conf"
+#fallback_image="/boot/initramfs-linux-lts-fallback.img"
+fallback_uki="/boot/EFI/Linux/arch-linux-lts-fallback.efi"
+fallback_options="-S autodetect --splash /usr/share/systemd/bootctl/splash-arch.bmp"
+```
+
+The next step is create the Kernel command line file, but before, use blkid to get the partition id of the LUKS partition.
+
+```sh
+blkid /dev/sda3
+```
+
+Output example:
+
+```
+/dev/sda3: UUID="8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd" TYPE="crypto_LUKS" PARTUUID="c293c947-881e-440c-b85c-859f19391b96"
+```
+
+Now edit the ```/etc/cmdline.d/root.conf``` file and add the kernel parameters.
+
+```sh
+vim /etc/cmdline.d/root.conf
+```
+
+```
+options loglevel=3 verbose cryptdevice=UUID=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd:root root=/dev/mapper/root rootflags=subvol=@ rw
+````
+
+Then recreate the UKI.
 
 ```sh
 mkinitcpio -P
-```
-
-Set the root password.
-
-```sh
-passwd
 ```
 
 #### Set custom ACPI events
@@ -586,7 +639,7 @@ Systemd-boot comes with systemd package, so it's not necessary to install it.
 Exec the next command to install it.
 
 ```sh
-bootctl install --efi-boot-option-description="Arch Linux"
+bootctl install
 ```
 
 Create and edit the loader config file.
@@ -601,63 +654,7 @@ Add the next content to it.
 default  arch.conf
 timeout  15
 console-mode max
-editor   no
-```
-
-Before creating the entries, use blkid to get the partition id of the LUKS partition.
-
-```sh
-blkid /dev/sda3
-```
-
-Output example:
-
-```
-/dev/sda3: UUID="8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd" TYPE="crypto_LUKS" PARTUUID="c293c947-881e-440c-b85c-859f19391b96"
-```
-
-Create the files of the loader entries.
-
-```sh
-mkdir -p /boot/loader/entries
-```
-
-Create and edit the arch.conf file.
-
-```sh
-vim /boot/loader/entries/arch.conf
-```
-
-Add the next content to it. The uuid is taken from the previous blkid command and the intel-ucode can be replaced with amd-ucode if the processor is amd.
-
-```
-title   Arch Linux
-linux   /vmlinuz-linux-lts
-initrd  /intel-ucode.img
-initrd  /initramfs-linux-lts.img
-options loglevel=3 verbose cryptdevice=UUID=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd:root root=/dev/mapper/root rootflags=subvol=@ rw
-```
-
-Create the fallback entry, copy it from the previous file.
-
-```sh
-cp /boot/loader/entries/arch.conf /boot/loader/entries/arch-fallback.conf
-```
-
-Edit the ```arch-fallback.conf``` file.
-
-```sh
-vim /boot/loader/entries/arch-fallback.conf
-```
-
-Change the initrd line to use the fallback image.
-
-```
-title   Arch Linux (fallback initramfs)
-linux   /vmlinuz-linux-lts
-initrd  /intel-ucode.img
-initrd  /initramfs-linux-lts-fallback.img
-options loglevel=3 verbose cryptdevice=UUID=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd:root root=/dev/mapper/root rootflags=subvol=@ rw
+editor   yes
 ```
 
 For more information refer to:
