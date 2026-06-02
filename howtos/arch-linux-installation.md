@@ -529,9 +529,15 @@ HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont bl
 
 Edit the ```/etc/mkinitcpio.d/linux-lts.preset``` file.
 
+```sh
+vim /etc/mkinitcpio.d/linux-lts.preset
+```
+
 Comment the ```PRESETS=('default')``` and uncomment the ```PRESETS=('default' 'fallback')``` line.
 
 Comment the ```PRESET_image``` lines and umcomment the ```PRESET_uki``` and ```PRESET_options``` lines.
+
+Make sure the ```PRESET_uki``` path is correct, some systems use the ```/efi``` as EFI system partition and other ```/boot```.
 
 Include the ```--splash /usr/share/systemd/bootctl/splash-arch.bmp``` parameter in ```fallback_options```.
 
@@ -566,6 +572,12 @@ Output example:
 
 ```
 /dev/sda3: UUID="8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd" TYPE="crypto_LUKS" PARTUUID="c293c947-881e-440c-b85c-859f19391b96"
+```
+
+Create the ```/etc/cmdline.d``` directory.
+
+```sh
+mkdir -p /etc/cmdline.d
 ```
 
 Now edit the ```/etc/cmdline.d/root.conf``` file and add the kernel parameters.
@@ -651,7 +663,6 @@ vim /boot/loader/loader.conf
 Add the next content to it.
 
 ```
-default  arch.conf
 timeout  15
 console-mode max
 editor   yes
