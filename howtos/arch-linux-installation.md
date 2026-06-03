@@ -515,19 +515,19 @@ passwd
 
 A unified kernel image (UKI) is a single executable which can be booted from UEFI or a boot loader, in this case systemd-boot.
 
-Edit the ```/etc/mkinitcpio.conf``` file and add the encrypt hook.
+Edit the ```/etc/mkinitcpio.conf``` file.
 
 ```sh
 vim /etc/mkinitcpio.conf
 ```
 
-Make sure the ```encrypt``` hook is before ```filesystems``` hook. And the ```resume``` hook is before ```fsck``` and after ```filesystems```, this is necessary to enable hibernation.
+The file shipped by Arch Linux comes with a working example, copy the systemd based initramfs with encrypted root filesystem example and paste it in the ```HOOKS```.
 
 ```
-HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt filesystems resume fsck)
+HOOKS=(base systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt filesystems fsck)
 ```
 
-Edit the ```/etc/mkinitcpio.d/linux-lts.preset``` file.
+Edit the preset files for the installed kernels, for example ```/etc/mkinitcpio.d/linux-lts.preset```.
 
 ```sh
 vim /etc/mkinitcpio.d/linux-lts.preset
@@ -587,7 +587,7 @@ vim /etc/cmdline.d/root.conf
 ```
 
 ```
-options loglevel=3 verbose cryptdevice=UUID=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd:root root=/dev/mapper/root rootflags=subvol=@ rw
+loglevel=3 verbose rd.luks.options=password-echo=no rd.luks.name=8f0d30d4-1be6-4f7e-b9c1-4c4349cbdffd=root root=/dev/mapper/root rootflags=subvol=@ rw
 ````
 
 Then recreate the UKI.
