@@ -950,6 +950,7 @@ QEMU is a generic and open source machine emulator and virtualizer.
 
 - [qemu-desktop](https://archlinux.org/packages/extra/x86_64/qemu-desktop/)
 - [edk2-ovmf](https://archlinux.org/packages/extra/any/edk2-ovmf/)
+- [dnsmasq](https://archlinux.org/packages/extra/x86_64/dnsmasq/)
 
 Make sure KVM is enabled.
 
