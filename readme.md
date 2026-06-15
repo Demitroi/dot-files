@@ -145,8 +145,8 @@ Systemd can run script in certain events of the system, such as booting or resum
 Copy the systemd files included in this repo to the system and change the ownership.
 
 ```sh
-cp etc/systemd/system/user-resume@.service etc/systemd/system/user-startup@.service /etc/systemd/system/
-sudo chmod root:root /etc/systemd/system/user-resume@.service /etc/systemd/system/user-startup@.service
+sudo cp etc/systemd/system/user-resume@.service etc/systemd/system/user-startup@.service /etc/systemd/system/
+sudo chown root:root /etc/systemd/system/user-resume@.service /etc/systemd/system/user-startup@.service
 ```
 
 Load the new units and enable them.
