@@ -1084,6 +1084,10 @@ udevadm control --reload
 udevadm trigger
 ```
 
+Operating Systems examples:
+
+https://computernewb.com/wiki/QEMU/Guests
+
 #### Containerization Software
 
 **Docker**
