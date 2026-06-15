@@ -1,0 +1,11 @@
+[Unit]
+Description=User resume actions
+After=suspend.target hibernate.target hybrid-sleep.target
+
+[Service]
+User=%I
+Type=oneshot
+ExecStart=/home/%I/.local/share/scripts/resume.sh
+
+[Install]
+WantedBy=suspend.target hibernate.target hybrid-sleep.target

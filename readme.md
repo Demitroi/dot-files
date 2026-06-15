@@ -7,6 +7,7 @@ Software preferences and settings.
 - [Install Config](#install-config)
 - [Base System](#base-system)
     - [Nvidia Drivers](#nvidia-drivers)
+    - [Automatic Scripts](#automatic-scripts)
 - [Desktop Environment](#desktop-environment)
     - [Window Manager](#window-manager)
     - [Fonts](#fonts)
@@ -135,6 +136,49 @@ Install the container toolkit if you're planning to run ollama models through do
 - [nvidia-open-dkms](https://archlinux.org/packages/extra/x86_64/nvidia-open-dkms/)
 - [nvidia-container-toolkit](https://archlinux.org/packages/extra/x86_64/nvidia-container-toolkit/)
 
+#### Automatic Scripts
+
+https://wiki.archlinux.org/title/Systemd
+
+Systemd can run script in certain events of the system, such as booting or resuming from suspend or hibernation.
+
+Copy the systemd files included in this repo to the system and change the ownership.
+
+```sh
+cp etc/systemd/system/user-resume@.service etc/systemd/system/user-startup@.service /etc/systemd/system/
+sudo chmod root:root /etc/systemd/system/user-resume@.service /etc/systemd/system/user-startup@.service
+```
+
+Load the new units and enable them.
+
+```sh
+sudo systemctl daemon-reload
+sudo systemctl enable user-resume@myusername.service
+sudo systemctl enable user-startup@myusername.service
+```
+
+Create the scripts directory and the files, then edit them according your needs.
+
+```sh
+mkdir -p ~/.local/share/scripts
+
+cat > ~/.local/share/scripts/resume.sh << 'EOF'
+#!/bin/bash
+/usr/bin/openrgb --noautoconnect --profile /home/demitroi/.config/OpenRGB/red.orp &
+disown
+EOF
+
+chmod u+x ~/.local/share/scripts/resume.sh
+
+cat > ~/.local/share/scripts/startup.sh << 'EOF'
+#!/bin/bash
+/usr/bin/openrgb --noautoconnect --profile /home/demitroi/.config/OpenRGB/red.orp &
+disown
+EOF
+
+chmod u+x ~/.local/share/scripts/startup.sh
+```
+
 ### Desktop Environment
 
 #### Window Manager
@@ -153,6 +197,7 @@ Create Sway startup script to auto start programs. The below file is an example,
 
 ```sh
 mkdir -p ~/.local/share/scripts
+
 cat > ~/.local/share/scripts/sway-startup.sh << 'EOF'
 #!/bin/bash
 /usr/bin/openrgb --noautoconnect --profile /home/demitroi/.config/OpenRGB/red.orp &
@@ -160,6 +205,7 @@ cat > ~/.local/share/scripts/sway-startup.sh << 'EOF'
 /usr/bin/remmina --icon &
 disown
 EOF
+
 chmod u+x ~/.local/share/scripts/sway-startup.sh
 ```
 
