@@ -338,11 +338,6 @@ exec wl-paste --watch cliphist store
 bindsym $mod+v exec cliphist list | wofi -S dmenu -k /dev/null -p Clipboard | cliphist decode | wl-copy
 
 #
-# Patchbay for PipeWire
-#
-exec qpwgraph --minimized
-
-#
 # LXQT Policykit Agent
 #
 exec lxqt-policykit-agent
@@ -402,3 +397,5 @@ for_window [app_id="lxqt-policykit-agent"] floating enable
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 include /etc/sway/config.d/*
+
+exec ~/.local/share/scripts/sway-startup.sh

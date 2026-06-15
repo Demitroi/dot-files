@@ -149,6 +149,20 @@ Sway (contracted from SirCmpwn's Wayland compositor [1]) is a compositor for Way
 - [sway-bg](https://archlinux.org/packages/extra/x86_64/swaybg/)
 - [xorg-xwayland](https://archlinux.org/packages/extra/x86_64/xorg-xwayland/)
 
+Create Sway startup script to auto start programs. The below file is an example, edit it according your needs.
+
+```sh
+mkdir -p ~/.local/share/scripts
+cat > ~/.local/share/scripts/sway-startup.sh << 'EOF'
+#!/bin/bash
+/usr/bin/openrgb --noautoconnect --profile /home/demitroi/.config/OpenRGB/red.orp &
+/usr/bin/qpwgraph --minimized &
+/usr/bin/remmina --icon &
+disown
+EOF
+chmod u+x ~/.local/share/scripts/sway-startup.sh
+```
+
 [.config/sway/config](.config/sway/config)
 
 #### Fonts
