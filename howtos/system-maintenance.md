@@ -73,10 +73,10 @@ pacman -Qdtq | sudo pacman -Rns -
 
 Cleaning the pacman's cache it's not always a good idea, instead, only keep the latest 3 versions of installed packages.
 
-Keep the latest 3 versions of installed packages.
+Keep the latest versions of installed packages.
 
 ```sh
-sudo paccache -rk3
+sudo paccache -rk1
 ```
 
 Remove cache of uninstalled packages.
