@@ -58,7 +58,7 @@ sudo pacman -Syu
 Update the systemd-boot bootloader.
 
 ```sh
-sudo bootctl update --efi-boot-option-description="Arch Linux"
+sudo bootctl update
 ```
 
 #### Free up disk space
