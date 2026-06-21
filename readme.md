@@ -401,6 +401,8 @@ The Screencasting can be tested in the following page:
 
 https://mozilla.github.io/webrtc-landing/gum_test.html
 
+[.config/xdg-desktop-portal-wlr/config](.config/xdg-desktop-portal-wlr/config)
+
 #### Screen Recorder
 
 **wf-recorder**
