@@ -1,6 +1,6 @@
 * {
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 15px;
+    font-size: 11.5pt;
 }
 
 window#waybar {
@@ -139,20 +139,14 @@ label:focus {
 }
 
 #pulseaudio {
-    font-size: 14px;
     margin-left: 2px;
     margin-right: 2px;
-    padding-top: 8px;
-    padding-bottom: 6px;
     padding-left: 8px;
     padding-right: 8px;
 }
 
 #network {
-    font-size: 14px;
     margin-right: 2px;
-    padding-top: 8px;
-    padding-bottom: 6px;
     padding-left: 4px;
     padding-right: 4px;
 }
@@ -160,8 +154,6 @@ label:focus {
 #clock {
     margin-left: 2px;
     margin-right: 4px;
-    padding-top: 8px;
-    padding-bottom: 4px;
     padding-left: 8px;
     padding-right: 8px;
     color: @theme_text_color;

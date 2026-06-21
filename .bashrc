@@ -39,5 +39,6 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 	gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 	gsettings set org.gnome.desktop.interface cursor-theme 'bloom'
 	gsettings set org.gnome.desktop.interface cursor-size 24
+	gsettings set org.gnome.desktop.interface font-name 'Hack Nerd Font Mono 11'
 	exec sway --unsupported-gpu
 fi
