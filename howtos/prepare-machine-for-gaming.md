@@ -59,3 +59,5 @@ Extract the tarbar into the directory.
 ```sh
 tar -xvf GE-Proton*.tar.gz -C ~/.steam/steam/compatibilitytools.d/
 ```
+
+As alternative method, you can use the Heroic Games Launcher to download GE Proton builds in Steam directory.

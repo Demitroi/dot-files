@@ -85,7 +85,7 @@ Software preferences and settings.
 - [Gaming](#gaming)
     - [Prepare machine for gaming](#prepare-machine-for-gaming)
     - [Steam](#steam)
-    - [Lutris](#lutris)
+    - [Launchers and Emulators](#launchers-and-emulators)
 - [Howtos](#howtos)
 
 ### Install Config
@@ -1306,20 +1306,9 @@ See the next link to see the list of the available proton environment variables.
 
 https://github.com/GloriousEggroll/proton-ge-custom?tab=readme-ov-file#modification
 
-#### Lutris
+#### Launchers and Emulators
 
-https://lutris.net/
-
-Lutris is a video game preservation platform aiming to keep your video game collection up and running for the years to come.
-
-- [lutris](https://archlinux.org/packages/extra/any/lutris/)
-
-Lutris has a bunch of optional dependencies for different purposes, the recommended ones are the next:
-
-- [wine](https://archlinux.org/packages/extra/x86_64/wine/)
-- [winetricks](https://archlinux.org/packages/multilib/x86_64/winetricks/)
-
-Some emulators need to be installed outside of lutris. The recommended way is downloading the appimages and move them to ```~/.local/bin```.
+The recommended way to install launchers (such as Heroic Games Launcher) and emulators is using AppImages, download them, give them execution permissions and move them to ```~/.local/bin```.
 
 Create the directory.
 
@@ -1327,13 +1316,33 @@ Create the directory.
 mkdir -p ~/.local/bin
 ```
 
-To use the installed emulators, in lutris install them as a source and change the custom executable for the runner, for example: ```~/.local/bin/Snes9x-1.63-x86_64.AppImage```.
+Move it to the directory and add execution permissions.
 
-Set GE-Proton as the default wine version, go to the wine runner settings and change the Wine version.
+```sh
+mv ~/Downloads/Heroic-2.22.0-linux-x86_64.AppImage ~/.local/bin/Heroic-linux-x86_64.AppImage
+chmod u+x ~/.local/bin/Heroic-linux-x86_64.AppImage
+```
 
-In order the be able to run steam games, the steam client has to be installed, if a run can't be run, make sure steam is running in the background.
+Create a desktop entry in ```~/.local/share/applications``` directory.
 
-You must be logged in in the third party clients like Epic Games, Ubisoft Connect, Origin, etc. in the sources to be able to download and run the games.
+Create the directory if it doesn't exist.
+
+```sh
+mkdir -p ~/.local/share/applications
+```
+
+Create a .desktop file, for example ```heroic.desktop```:
+
+```
+[Desktop Entry]
+Name=Heroic Games Launcher
+Exec=/home/demitroi/.local/bin/Heroic-linux-x86_64.AppImage
+Terminal=false
+Type=Application
+Icon=/home/demitroi/.local/share/applications/heroic.png
+MimeType=x-scheme-handler/heroic;
+Categories=Game;
+```
 
 ### Howtos
 
