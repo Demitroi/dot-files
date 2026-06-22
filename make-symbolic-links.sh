@@ -118,4 +118,5 @@ mkdir -p ~/.config/swappy
 ln -s -f $PWD/.config/swappy/config ~/.config/swappy/
 
 # XDG desktop portal wlr
+mkdir -p ~/.config/xdg-desktop-portal-wlr/
 ln -s -f $PWD/.config/xdg-desktop-portal-wlr/config ~/.config/xdg-desktop-portal-wlr/
