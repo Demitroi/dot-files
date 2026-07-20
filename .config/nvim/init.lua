@@ -48,18 +48,32 @@ vim.keymap.set('n', '<Leader>bl', '<Cmd>:buffers<CR>')
 vim.keymap.set('n', '<Leader>bd', '<Cmd>:bdelete<CR>')
 -- Open quickfix
 vim.keymap.set('n', '<Leader>co', '<Cmd>:copen<CR>')
-vim.keymap.set('n', '<Leader>cl', '<Cmd>:copen<CR>')
+-- Open locationlist
+vim.keymap.set('n', '<Leader>lo', '<Cmd>:lopen<CR>')
 -- Clear highlights by pressing <Esc> key
 vim.keymap.set('n', '<Esc>', '<Cmd>:nohlsearch<CR>')
--- Diagnostic quickfix list
-vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 -- Diagnostic quickfix show
 vim.keymap.set('n', '<Leader>ds', vim.diagnostic.open_float)
 -- Toggle wrap
 vim.keymap.set('n', '<Leader>tw', '<Cmd>:set wrap!<CR>')
 -- Toggle relative numbers
 vim.keymap.set('n', '<Leader>tl', '<Cmd>:set rnu!<CR>')
+
+-- Grep
+vim.keymap.set('n', '<Leader>lg', ":lexpr system('grep -rin '''' ') | lopen")
+vim.keymap.set('n', '<Leader>cg', ":cexpr system('grep -rin '''' ') | copen")
+
+-- Find
+vim.keymap.set('n', '<Leader>lf', ":lexpr system('find -iname '''' | awk ''{ print $0 \":1:*\" }''') | lopen")
+vim.keymap.set('n', '<Leader>cf', ":cexpr system('find -iname '''' | awk ''{ print $0 \":1:*\" }''') | copen")
+
+-- Git status
+vim.keymap.set('n', '<Leader>ls', ":lexpr system('git status -s | awk '' { print $2 \":1:\" $1 } ''') | lopen")
+vim.keymap.set('n', '<Leader>cs', ":cexpr system('git status -s | awk '' { print $2 \":1:\" $1 } ''') | copen")
+
+-- Diagnostics
+vim.keymap.set('n', '<leader>cd', vim.diagnostic.setqflist)
+vim.keymap.set('n', '<leader>ld', vim.diagnostic.setloclist)
 
 -- Move the focus between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
@@ -84,6 +98,9 @@ vim.keymap.set('n', 'grh', vim.lsp.buf.document_highlight)
 -- Enable diagnostic virtual lines
 -- See: https://neovim.io/doc/user/diagnostic.html#vim.diagnostic.config()
 vim.diagnostic.config({ virtual_text = true})
+
+-- Simply open netrw in the current file's directory
+vim.keymap.set('n', '-', ':edit %:h<CR>', { silent = true })
 
 -- Plugins section
 -- Install lazy.nvim automatically
@@ -126,45 +143,6 @@ require('lazy').setup({
     -- nvim-jdtls
     -- https://github.com/mfussenegger/nvim-jdtls
     'mfussenegger/nvim-jdtls',
-    -- telescope.nvim
-    -- https://github.com/nvim-telescope/telescope.nvim
-    {
-        'nvim-telescope/telescope.nvim',
-        dependencies = {
-            -- plenary.nvim
-            -- https://github.com/nvim-lua/plenary.nvim
-            'nvim-lua/plenary.nvim',
-        },
-        config = function()
-            vim.keymap.set('n', '<Leader>fb', '<Cmd>Telescope buffers<CR>')
-            vim.keymap.set('n', '<Leader>fd', '<Cmd>Telescope diagnostics<CR>')
-            vim.keymap.set('n', '<Leader>ff', '<Cmd>Telescope find_files<CR>')
-            vim.keymap.set('n', '<Leader>fg', '<Cmd>Telescope live_grep<CR>')
-            vim.keymap.set('n', '<Leader>fh', '<Cmd>Telescope help_tags<CR>')
-            vim.keymap.set('n', '<Leader>fj', '<Cmd>Telescope jumplist<CR>')
-            vim.keymap.set('n', '<Leader>fk', '<Cmd>Telescope keymaps<CR>')
-            vim.keymap.set('n', '<Leader>fm', '<Cmd>Telescope marks<CR>')
-            vim.keymap.set('n', '<Leader>fq', '<Cmd>Telescope quickfix<CR>')
-            vim.keymap.set('n', '<Leader>fr', '<Cmd>Telescope registers<CR>')
-            vim.keymap.set('n', '<Leader>fs', '<Cmd>Telescope git_status<CR>')
-        end,
-    },
-    -- oil.nvim
-    -- https://github.com/stevearc/oil.nvim
-    {
-        'stevearc/oil.nvim',
-        config = function()
-            require('oil').setup({
-                view_options = {
-                    show_hidden = true,
-                },
-            })
-            vim.keymap.set('n', '-', '<CMD>Oil<CR>')
-        end,
-        lazy = false,
-    },
-    -- mason-lspconfig.nvim
-    -- https://github.com/mason-org/mason-lspconfig.nvim
     {
         'mason-org/mason-lspconfig.nvim',
         dependencies = {
@@ -222,30 +200,6 @@ require('lazy').setup({
             })
         end,
     },
-    --  Disable treesitter temporarily
-    -- {
-    --     -- nvim-treesitter
-    --     -- https://github.com/nvim-treesitter/nvim-treesitter
-    --     'nvim-treesitter/nvim-treesitter',
-    --     branch = 'master',
-    --     config = function()
-    --         require'nvim-treesitter.configs'.setup {
-    --             -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-    --             ensure_installed = {
-    --                 'bash', 'css', 'desktop', 'diff', 'dockerfile', 'git_config', 'gitignore', 'go',
-    --                 'gomod', 'gosum', 'gotmpl', 'gowork', 'html', 'java', 'javascript', 'jq', 'json',
-    --                 'lua', 'make', 'markdown', 'markdown_inline', 'nginx', 'php', 'php_only', 'python',
-    --                 'sql', 'ssh_config', 'templ', 'tmux', 'toml', 'typescript', 'vue', 'xml', 'yaml',
-    --             },
-    --             highlight = {
-    --                 enable = true,
-    --             },
-    --             indent = {
-    --                 enable = true,
-    --             },
-    --         }
-    --     end,
-    -- },
     {
         -- blink.cmp
         -- https://github.com/Saghen/blink.cmp
@@ -289,61 +243,6 @@ require('lazy').setup({
             signs = false
         }
     },
-    -- {
-    --     'github/copilot.vim',
-    --     config = function()
-    --         -- Disable copilot by default
-    --         vim.cmd(':Copilot disable')
-    --     end,
-    -- },
-    -- {
-    --     'milanglacier/minuet-ai.nvim',
-    --     dependencies = {'nvim-lua/plenary.nvim'},
-    --     config = function()
-    --         require('minuet').setup({
-    --             provider = 'openai_fim_compatible',
-    --             n_completions = 3,
-    --             context_window = 16000,
-    --             provider_options = {
-    --                 openai_fim_compatible = {
-    --                     -- For Windows users, TERM may not be present in environment variables.
-    --                     -- Consider using APPDATA instead.
-    --                     api_key = 'TERM',
-    --                     name = 'Ollama',
-    --                     end_point = 'http://localhost:11434/v1/completions',
-    --                     model = 'qwen2.5-coder:7b',
-    --                     optional = {
-    --                         max_tokens = 56,
-    --                         top_p = 0.9,
-    --                     },
-    --                 },
-    --             },
-    --             request_timeout = 30,
-    --             stream = true,
-    --             -- Recommended settings for local LLM performance
-    --             throttle = 1000,
-    --             debounce = 400,
-    --             after_cursor_filter_length = 50,
-    --             before_cursor_filter_length = 50,
-    --             virtualtext = {
-    --                 auto_trigger_ft = {},
-    --                 keymap = {
-    --                     -- accept whole completion
-    --                     accept = '<C-Y>',
-    --                     -- accept one line
-    --                     accept_line = '<C-L>',
-    --                     dismiss = '<C-E>',
-    --                     -- Cycle to prev completion item, or manually invoke completion
-    --                     prev = '<C-P>',
-    --                     -- Cycle to next completion item, or manually invoke completion
-    --                     next = '<C-N>',
-    --                 },
-    --             },
-    --         })
-    --         -- vim.cmd('Minuet virtualtext disable')
-    --         vim.keymap.set('n', '<Leader>tc', '<Cmd>:Minuet virtualtext toggle<CR>')
-    --     end,
-    -- },
     {
         'idr4n/github-monochrome.nvim',
         lazy = false,

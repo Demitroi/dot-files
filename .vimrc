@@ -88,3 +88,6 @@ nnoremap <silent> ]<Space> :<C-u>put =repeat(nr2char(10), v:count1)<Bar>execute 
 
 " Insert [count] empty lines above without moving the cursor
 nnoremap <silent> [<Space> :<C-u>put! =repeat(nr2char(10), v:count1)<Bar>execute "']+1"<CR>
+
+" Simply open netrw in the current file's directory
+nnoremap <silent> - :edit %:h<CR>
