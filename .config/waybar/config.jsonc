@@ -110,7 +110,7 @@
         "on-click": "exec foot --app-id=foot.nmtui nmtui"
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<tt>{calendar}</tt>",
         "format": "{:%a %b-%d-%Y %H:%M}",
         "on-click": "thunderbird --calendar"
     }
