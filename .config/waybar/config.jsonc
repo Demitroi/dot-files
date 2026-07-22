@@ -99,7 +99,7 @@
         "scroll-step": 5
     },
     "network": {
-        "format-wifi": "{signalStrength}% ",
+        "format-wifi": "    {signalStrength}%",
         "tooltip-format-wifi": "{essid}\n{frequency} GHz\n{ipaddr}",
         "format-ethernet": "",
         "tooltip-format-ethernet": "{ipaddr}",
