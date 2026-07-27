@@ -21,6 +21,7 @@
         "tray",
         "pulseaudio",
         "network",
+        "battery",
         "clock"
     ],
     // Modules configuration
@@ -108,6 +109,26 @@
         "format-disconnected": "Disconnected ⚠",
         "tooltip-format-disconnected": "Check settings via nmcli ",
         "on-click": "exec foot --app-id=foot.nmtui nmtui"
+    },
+    "battery": {
+        "interval": 10,
+        "states": {
+                "warning": 20,
+                "critical": 10
+        },
+        "events": {
+                "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+                "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+                "on-charging-100": "notify-send -u normal 'Battery Full'",
+                "on-discharging": "notify-send -u normal 'Power Switch' Discharging",
+                "on-charging": "notify-send -u normal 'Power Switch' Charging"
+        },
+        "format": "{icon} {capacity}%",
+	"format-icons": {
+		"default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+		"charging": ["󰢟 ", "󰢜 ", "󰂆 ", "󰂇 ", "󰂈 ", "󰢝 ", "󰂉 ", "󰢞 ", "󰂊 ", "󰂋 ", "󰂅 "]
+	},
+        "max-length": 25
     },
     "clock": {
         "tooltip-format": "<tt>{calendar}</tt>",
