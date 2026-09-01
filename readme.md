@@ -82,6 +82,7 @@ Software preferences and settings.
     - [File Synchronization](#file-synchronization)
     - [SSH Server](#ssh-server)
     - [Web Server](#web-server)
+    - [VPN Server](#vpn-server)
 - [Gaming](#gaming)
     - [Prepare machine for gaming](#prepare-machine-for-gaming)
     - [Steam](#steam)
@@ -114,6 +115,7 @@ My base system consists in a basic arch linux installation that uses btrfs files
 - [intel-ucode](https://archlinux.org/packages/extra/any/intel-ucode/)
 - [amd-ucode](https://archlinux.org/packages/core/any/amd-ucode/)
 - [networkmanager](https://archlinux.org/packages/extra/x86_64/networkmanager/)
+- [openresolv](https://archlinux.org/packages/extra/any/openresolv/)
 - [vim](https://archlinux.org/packages/extra/x86_64/vim/)
 - [man-db](https://archlinux.org/packages/core/x86_64/man-db/)
 - [man-pages](https://archlinux.org/packages/core/x86_64/man-pages/)
@@ -1280,6 +1282,20 @@ https://caddyserver.com/
 Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS.
 
 - [caddy](https://archlinux.org/packages/extra/x86_64/caddy/)
+
+#### VPN Server
+
+**wireguard**
+
+https://www.wireguard.com/
+
+WireGuard is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography.
+It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache.
+
+- [wireguard-tools](https://archlinux.org/packages/extra/x86_64/wireguard-tools/)
+
+The arch wiki has a cool documentation about using wireguard https://wiki.archlinux.org/title/WireGuard,
+it's recommended to refer to it.
 
 ### Gaming
 

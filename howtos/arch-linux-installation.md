@@ -446,7 +446,7 @@ reflector --country Mexico --latest 5 --age 12 --sort rate --save /etc/pacman.d/
 Install essencial packages by running the next command, remember to change intel-ucode to amd-ucode in case the computer has and amd processor.
 
 ```sh
-pacstrap -K /mnt base base-devel linux-lts linux-firmware linux-lts-headers btrfs-progs sudo intel-ucode amd-ucode networkmanager vim man-db man-pages texinfo dosfstools ntfs-3g pacman-contrib
+pacstrap -K /mnt base base-devel linux-lts linux-firmware linux-lts-headers btrfs-progs sudo intel-ucode amd-ucode networkmanager openresolv vim man-db man-pages texinfo dosfstools ntfs-3g pacman-contrib
 ```
 
 #### Configure the system
@@ -704,7 +704,22 @@ Create a read-only snapshot.
 btrfs subvolume snapshot -r @ snapshots/@/$(date +%F_%H-%M-%S)
 ```
 
-#### Post installation
+#### Network config
+
+Edit the ```/etc/NetworkManager/NetworkManager.conf``` file to use openresolv.
+It is required because the VPNs like wireguard modifies the ```/etc/resolv.conf``` file
+in order to configure DNS servers.
+
+```sh
+vim /etc/NetworkManager/NetworkManager.conf
+```
+
+Add the next:
+
+```
+[main]
+rc-manager=resolvconf
+```
 
 Enable and start NetworkManager.
 
@@ -712,6 +727,21 @@ Enable and start NetworkManager.
 systemctl enable NetworkManager.service
 systemctl start NetworkManager.service
 ```
+
+Check out if there are some resolvconf warnings.
+
+```sh
+journalctl -b -u NetworkManager.service
+```
+
+If there are, exec the next to solve it, and restart NetworkManager service.
+
+```sh
+resolvconf -u
+systemctl restart NetworkManager.service
+```
+
+#### Post installation
 
 It's recommended to see the next URL: https://wiki.archlinux.org/title/General_recommendations
 
