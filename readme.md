@@ -1168,6 +1168,8 @@ Make sure the Docker Unix Socket is enable in order to start docker on demand.
 systemctl enable docker.socket
 ```
 
+It is recommended to create @docker and @containerd subvolumes and mount them in /var/lib/docker and /var/lib/containerd respectively.
+
 #### LLMs on Docker
 
 See [LLMs on Docker](howtos/llms-on-docker.md)
