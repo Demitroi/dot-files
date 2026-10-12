@@ -613,6 +613,8 @@ In order to customize toolbar, right click tab bar, select customize toolbar and
 
 Now go to Home and set shortcuts to 2 rows, then go to Privacy Security, disable "Ask to save passwords" and "Save and autofill payment info".
 
+Also disable rounded corners, go to ```about:config``` and disable ```browser.nova.enabled```.
+
 #### Audio Player
 
 **Audacious**
