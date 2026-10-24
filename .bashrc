@@ -31,6 +31,9 @@ export MANROFFOPT="-P -c"
 export GDK_DEBUG=portals
 export XDG_CURRENT_DESKTOP=sway
 
+# Include home's binaries in $PATH
+export PATH=$PATH:~/.local/bin
+
 # Start sway
 # If running from tty1 start sway
 if [ "$(tty)" = "/dev/tty1" ]; then
